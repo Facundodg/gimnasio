@@ -1,0 +1,56 @@
+package gimnasio;
+
+import Controlador.Crl_cliente;
+import Controlador.Crl_configuraciones;
+import Controlador.Crl_nutricionista;
+import Controlador.Crl_producto;
+import Controlador.Crl_usuario;
+import Modelo.Cliente;
+import Modelo.Configuraciones;
+import Modelo.Crud_cliente;
+import Modelo.Crud_configuraciones;
+import Modelo.Crud_dias;
+import Modelo.Crud_fecha;
+import Modelo.Crud_producto;
+import Modelo.Crud_usuario;
+import Modelo.Dia;
+import Modelo.Fecha;
+import Modelo.Producto;
+import Modelo.Usuario;
+import Vista.Frm_Ingreso;
+import Vista.Frm_Pantalla_Principal;
+import Vista.Frm_registro;
+import Vista.Frm_usuario_info;
+
+public class Gimnasio {
+
+    public static void main(String[] args) {
+        
+        Frm_usuario_info frm_usuario_info = new Frm_usuario_info();
+        Frm_Ingreso frm_ingreso = new Frm_Ingreso();
+        Frm_Pantalla_Principal frm_pantalla_principal = new Frm_Pantalla_Principal();
+        Frm_registro frm_registro = new Frm_registro();
+        Usuario usuario = new Usuario();
+        Crud_usuario mod_usuario = new Crud_usuario();
+        Cliente cliente = new Cliente();
+        Crud_cliente mod_cliente = new Crud_cliente();
+        Crud_dias mod_dias = new Crud_dias();
+        Crud_fecha mod_fecha = new Crud_fecha();
+        Fecha fecha = new Fecha();
+        Crud_producto mod_producto = new Crud_producto();
+        Producto producto = new Producto();
+        Dia dia = new Dia();
+        Configuraciones configuraciones = new Configuraciones();
+        Crud_configuraciones mod_configuraciones = new Crud_configuraciones();
+        
+        Crl_configuraciones crl_configuraciones = new Crl_configuraciones(frm_pantalla_principal,frm_usuario_info,frm_registro,frm_ingreso,configuraciones,mod_configuraciones);
+        Crl_nutricionista crl_nutricionista = new Crl_nutricionista(frm_pantalla_principal);
+        Crl_producto crl_producto = new Crl_producto(frm_pantalla_principal, producto, mod_producto);
+        Crl_cliente crl_cliente = new Crl_cliente(frm_pantalla_principal, cliente, mod_cliente, mod_dias, mod_fecha, fecha, dia);
+        Crl_usuario crl_usuario = new Crl_usuario(frm_ingreso, usuario, mod_usuario, frm_pantalla_principal, frm_registro, frm_usuario_info);
+
+        crl_usuario.iniciar();
+
+    }
+
+}
