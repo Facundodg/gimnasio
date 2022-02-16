@@ -10,6 +10,8 @@ import Modelo.Producto;
 import Vista.Frm_Pantalla_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -31,7 +33,7 @@ import javax.swing.plaf.basic.BasicComboPopup;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-public class Crl_producto implements ActionListener, KeyListener, MouseListener {
+public class Crl_producto implements ActionListener, KeyListener, MouseListener, ItemListener {
 
     Frm_Pantalla_Principal frm_pantalla_principal;
     Producto producto;
@@ -43,6 +45,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
         this.mod_producto = mod_producto;
 
         this.frm_pantalla_principal.txtBuscarProducto.addKeyListener(this);
+        this.frm_pantalla_principal.jcbFiltrar.addItemListener(this);
 
         frm_pantalla_principal.lbCerrarSesion.addMouseListener(this);
         frm_pantalla_principal.popuItemEliminarProducto.addMouseListener(this);
@@ -50,6 +53,10 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
         frm_pantalla_principal.popuItemLimpiarProducto.addMouseListener(this);
         frm_pantalla_principal.popuItemLimpiarProductoPanel.addMouseListener(this);
         frm_pantalla_principal.lbGuardarProducto.addMouseListener(this);
+        frm_pantalla_principal.lbModificarProducto.addMouseListener(this);
+        frm_pantalla_principal.lbEliminarrProducto.addMouseListener(this);
+        frm_pantalla_principal.lbGenerarPDFProducto.addMouseListener(this);
+        frm_pantalla_principal.lbLimpiarProducto.addMouseListener(this);
 
         refrescarTabla();
     }
@@ -84,6 +91,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
 
     }
 
+    //refresca la tabla
     public void refrescarTabla() {
 
         try {
@@ -144,6 +152,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
         TamañoColumnasCliente();
     }
 
+    //cuando se refresca se hace llamado a este metodo para que la tabla adquiera un tamaño fijo 
     public void TamañoColumnasCliente() {
 
         TableColumnModel columnModel = frm_pantalla_principal.tlbProductos.getColumnModel();
@@ -161,6 +170,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
 
     }
 
+    //a la hora de la busqueda dependiendo del tipo de busqueda filtra por "NOMBRE"
     public void FiltrarDatosNombre(String valor) {
 
         String[] titulos = {"Id", "Codigo", "Nombre", "Costo", "Venta", "Cantidad", "Fecha"};
@@ -204,6 +214,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
 
     }
 
+    //a la hora de la busqueda dependiendo del tipo de busqueda filtra por "CODIGO"
     public void FiltrarDatosCodigo(String valor) {
 
         String[] titulos = {"Id", "Codigo", "Nombre", "Costo", "Venta", "Cantidad", "Fecha"};
@@ -247,6 +258,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
 
     }
 
+    //limpia los campos de texto
     public void limpiarProductos() {
         frm_pantalla_principal.txtNombreProducto.setText("");
         frm_pantalla_principal.txtCodigoProducto.setText("");
@@ -272,7 +284,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
         String metodoBusqueda = frm_pantalla_principal.jcbBusquedas.getSelectedItem().toString();
 
         if (metodoBusqueda.equals("Codigo")) {
-            
+
             System.out.println(".......esta buscando por codigo..........");
             FiltrarDatosCodigo(frm_pantalla_principal.txtBuscarProducto.getText());
             System.out.println(ANSI_GREEN + "Buscando Producto: " + ANSI_RESET + frm_pantalla_principal.txtBuscarProducto.getText());
@@ -329,15 +341,32 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
 
         }
 
-        if (e.getSource() == frm_pantalla_principal.popuItemLimpiarProductoPanel) {
-            limpiarProductos();
+        if (e.getSource() == frm_pantalla_principal.lbModificarProducto) {
+
+            producto.setCodigo_producto(frm_pantalla_principal.txtCodigoProducto.getText());
+            producto.setNombre_producto(frm_pantalla_principal.txtNombreProducto.getText());
+            producto.setCosto_producto(Double.parseDouble(frm_pantalla_principal.txtCostoProducto.getText()));
+            producto.setVenta_producto(Double.parseDouble(frm_pantalla_principal.txtVentaProducto.getText()));
+            producto.setCantidad_producto(Integer.parseInt(frm_pantalla_principal.txtCantidadProducto.getText()));
+            producto.setFecha_producto(FechaActual());
+            producto.setId_producto(Integer.parseInt(frm_pantalla_principal.txtIdProducto.getText()));
+
+            if (mod_producto.modificar(producto)) {
+
+                System.out.println("se modifico");
+
+                limpiarProductos();
+
+            } else {
+
+                System.out.println("no se modifico");
+
+                limpiarProductos();
+            }
+
         }
 
-        if (e.getSource() == frm_pantalla_principal.popuItemLimpiarProducto) {
-            limpiarProductos();
-        }
-
-        if (e.getSource() == frm_pantalla_principal.popuItemEliminarProducto) {
+        if (e.getSource() == frm_pantalla_principal.lbEliminarrProducto) {
 
             String id = frm_pantalla_principal.txtIdProducto.getText();
 
@@ -363,6 +392,50 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
 
         }
 
+        if (e.getSource() == frm_pantalla_principal.lbGenerarPDFProducto) {
+
+        }
+
+        if (e.getSource() == frm_pantalla_principal.lbLimpiarProducto) {
+
+            limpiarProductos();
+
+        }
+
+        if (e.getSource() == frm_pantalla_principal.popuItemLimpiarProductoPanel) {
+            limpiarProductos();
+        }
+
+        if (e.getSource() == frm_pantalla_principal.popuItemLimpiarProducto) {
+            limpiarProductos();
+        }
+
+        if (e.getSource() == frm_pantalla_principal.popuItemEliminarProducto) {
+
+            String id = frm_pantalla_principal.txtIdProducto.getText();
+
+            int p = JOptionPane.showConfirmDialog(null, "¿Seguro que quiere borrar este producto?", "Elija una de las opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE); //devuelve un valor entero si=0, no=1, calcel=2
+
+            if (p == 0) {
+
+                producto.setId_producto(Integer.parseInt(frm_pantalla_principal.txtIdProducto.getText()));
+
+                if (mod_producto.eliminar(producto)) {
+
+                    System.out.println("Se elimino con exito.");
+                    limpiarProductos();
+
+                } else {
+
+                    System.out.println("No se pudo eliminar.");
+                    limpiarProductos();
+
+                }
+
+            }
+
+        }
+
         if (e.getSource() == frm_pantalla_principal.popuItemModificarProducto) {
 
             producto.setCodigo_producto(frm_pantalla_principal.txtCodigoProducto.getText());
@@ -375,13 +448,13 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
 
             if (mod_producto.modificar(producto)) {
 
-                System.out.println("se modifico");
+                System.out.println("Se modifico con exito.");
 
                 limpiarProductos();
 
             } else {
 
-                System.out.println("no se modifico");
+                System.out.println("No se pudo modificar.");
 
                 limpiarProductos();
             }
@@ -402,6 +475,508 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener 
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+
+        if (e.getSource() == frm_pantalla_principal.jcbFiltrar) {
+
+            String filtro = frm_pantalla_principal.jcbFiltrar.getSelectedItem().toString();
+
+            System.out.println(filtro);
+
+            //NOMBRE(DES), NOMBRE(ACE), CANTIDAD(DES), CANTIDAD(ACE), COSTO(DES), COSTO(ACE), VENTA(DES), VENTA(ACE)
+            if (filtro.equals("NOMBRE(DES)")) {
+
+                System.out.println("NOMBRE DESENDENTE");
+
+                try {
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    frm_pantalla_principal.tlbProductos.setModel(modelo);
+
+                    PreparedStatement ps = null;
+
+                    ResultSet rs = null;
+
+                    Conexion conn = new Conexion();
+
+                    Connection con = conn.getConexion();
+
+                    String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Nombre DESC";
+
+                    ps = con.prepareStatement(sql);
+
+                    rs = ps.executeQuery();
+
+                    ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                    int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                    modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                    modelo.addColumn("Codigo");//por eso los tenemos que reasignar.
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Costo");
+                    modelo.addColumn("Venta");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Fecha");
+
+                    while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                        Object[] filas = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                        }
+
+                        modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                    }
+
+                } catch (SQLException r) {
+
+                    System.out.println(r);
+
+                }
+
+                System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA: producto---");
+                System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+                TamañoColumnasCliente();
+
+            } else if (filtro.equals("NOMBRE(ACE)")) {
+
+                System.out.println("NOMBRE ACENDENTE");
+
+                try {
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    frm_pantalla_principal.tlbProductos.setModel(modelo);
+
+                    PreparedStatement ps = null;
+
+                    ResultSet rs = null;
+
+                    Conexion conn = new Conexion();
+
+                    Connection con = conn.getConexion();
+
+                    String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Nombre ASC";
+
+                    ps = con.prepareStatement(sql);
+
+                    rs = ps.executeQuery();
+
+                    ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                    int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                    modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                    modelo.addColumn("Codigo");//por eso los tenemos que reasignar.
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Costo");
+                    modelo.addColumn("Venta");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Fecha");
+
+                    while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                        Object[] filas = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                        }
+
+                        modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                    }
+
+                } catch (SQLException r) {
+
+                    System.out.println(r);
+
+                }
+
+                System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA: producto---");
+                System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+                TamañoColumnasCliente();
+
+            } else if (filtro.equals("CANTIDAD(DES)")) {
+
+                System.out.println("CANTIDAD DESENDENTE");
+
+                try {
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    frm_pantalla_principal.tlbProductos.setModel(modelo);
+
+                    PreparedStatement ps = null;
+
+                    ResultSet rs = null;
+
+                    Conexion conn = new Conexion();
+
+                    Connection con = conn.getConexion();
+
+                    String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Cantidad DESC";
+
+                    ps = con.prepareStatement(sql);
+
+                    rs = ps.executeQuery();
+
+                    ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                    int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                    modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                    modelo.addColumn("Codigo");//por eso los tenemos que reasignar.
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Costo");
+                    modelo.addColumn("Venta");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Fecha");
+
+                    while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                        Object[] filas = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                        }
+
+                        modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                    }
+
+                } catch (SQLException r) {
+
+                    System.out.println(r);
+
+                }
+
+                System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA: producto---");
+                System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+                TamañoColumnasCliente();
+
+            } else if (filtro.equals("CANTIDAD(ACE)")) {
+
+                System.out.println("CANTIDAD ACENDENTE");
+
+                try {
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    frm_pantalla_principal.tlbProductos.setModel(modelo);
+
+                    PreparedStatement ps = null;
+
+                    ResultSet rs = null;
+
+                    Conexion conn = new Conexion();
+
+                    Connection con = conn.getConexion();
+
+                    String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Cantidad ASC";
+
+                    ps = con.prepareStatement(sql);
+
+                    rs = ps.executeQuery();
+
+                    ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                    int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                    modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                    modelo.addColumn("Codigo");//por eso los tenemos que reasignar.
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Costo");
+                    modelo.addColumn("Venta");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Fecha");
+
+                    while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                        Object[] filas = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                        }
+
+                        modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                    }
+
+                } catch (SQLException r) {
+
+                    System.out.println(r);
+
+                }
+
+                System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA: producto---");
+                System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+                TamañoColumnasCliente();
+
+            } else if (filtro.equals("COSTO(DES)")) {
+
+                System.out.println("COSTO DECENDENTE");
+
+                try {
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    frm_pantalla_principal.tlbProductos.setModel(modelo);
+
+                    PreparedStatement ps = null;
+
+                    ResultSet rs = null;
+
+                    Conexion conn = new Conexion();
+
+                    Connection con = conn.getConexion();
+
+                    String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Costo DESC";
+
+                    ps = con.prepareStatement(sql);
+
+                    rs = ps.executeQuery();
+
+                    ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                    int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                    modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                    modelo.addColumn("Codigo");//por eso los tenemos que reasignar.
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Costo");
+                    modelo.addColumn("Venta");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Fecha");
+
+                    while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                        Object[] filas = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                        }
+
+                        modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                    }
+
+                } catch (SQLException r) {
+
+                    System.out.println(r);
+
+                }
+
+                System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA: producto---");
+                System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+                TamañoColumnasCliente();
+
+            } else if (filtro.equals("COSTO(ACE)")) {
+
+                try {
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    frm_pantalla_principal.tlbProductos.setModel(modelo);
+
+                    PreparedStatement ps = null;
+
+                    ResultSet rs = null;
+
+                    Conexion conn = new Conexion();
+
+                    Connection con = conn.getConexion();
+
+                    String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Costo ASC";
+
+                    ps = con.prepareStatement(sql);
+
+                    rs = ps.executeQuery();
+
+                    ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                    int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                    modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                    modelo.addColumn("Codigo");//por eso los tenemos que reasignar.
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Costo");
+                    modelo.addColumn("Venta");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Fecha");
+
+                    while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                        Object[] filas = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                        }
+
+                        modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                    }
+
+                } catch (SQLException r) {
+
+                    System.out.println(r);
+
+                }
+
+                System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA: producto---");
+                System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+                TamañoColumnasCliente();
+
+            } else if (filtro.equals("VENTA(DES)")) {
+
+                System.out.println("VENTA DECENDENTE");
+
+                try {
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    frm_pantalla_principal.tlbProductos.setModel(modelo);
+
+                    PreparedStatement ps = null;
+
+                    ResultSet rs = null;
+
+                    Conexion conn = new Conexion();
+
+                    Connection con = conn.getConexion();
+
+                    String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Venta DESC";
+
+                    ps = con.prepareStatement(sql);
+
+                    rs = ps.executeQuery();
+
+                    ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                    int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                    modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                    modelo.addColumn("Codigo");//por eso los tenemos que reasignar.
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Costo");
+                    modelo.addColumn("Venta");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Fecha");
+
+                    while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                        Object[] filas = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                        }
+
+                        modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                    }
+
+                } catch (SQLException r) {
+
+                    System.out.println(r);
+
+                }
+
+                System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA: producto---");
+                System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+                TamañoColumnasCliente();
+
+            } else if (filtro.equals("VENTA(ACE)")) {
+
+                System.out.println("VENTA ACENDENTE");
+
+                try {
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    frm_pantalla_principal.tlbProductos.setModel(modelo);
+
+                    PreparedStatement ps = null;
+
+                    ResultSet rs = null;
+
+                    Conexion conn = new Conexion();
+
+                    Connection con = conn.getConexion();
+
+                    String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Venta ASC";
+
+                    ps = con.prepareStatement(sql);
+
+                    rs = ps.executeQuery();
+
+                    ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                    int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                    modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                    modelo.addColumn("Codigo");//por eso los tenemos que reasignar.
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Costo");
+                    modelo.addColumn("Venta");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Fecha");
+
+                    while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                        Object[] filas = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                        }
+
+                        modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                    }
+
+                } catch (SQLException r) {
+
+                    System.out.println(r);
+
+                }
+
+                System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA: producto---");
+                System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+                TamañoColumnasCliente();
+
+            }
+
+        }
+
     }
 
 }

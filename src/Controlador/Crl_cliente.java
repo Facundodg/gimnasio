@@ -68,6 +68,10 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
         frm_pantalla_principal.popuItemLimpiarCliente.addMouseListener(this);
         frm_pantalla_principal.popuItemGuardarCliente.addMouseListener(this);
 
+        frm_pantalla_principal.lbGuardarCliente.addMouseListener(this);
+        frm_pantalla_principal.lbEliminarCliente.addMouseListener(this);
+        frm_pantalla_principal.lbLimpiarCliente.addMouseListener(this);
+
         RestarDiasCliente();
         traerFechaHoyAyer();
         refrescarTabla();
@@ -734,8 +738,8 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
         if (e.getSource() == frm_pantalla_principal.popuItemLimpiarCliente) {
             Limpiar();
         }
-        
-                //GUARDAR CLIENTE
+
+        //GUARDAR CLIENTE
         if (e.getSource() == frm_pantalla_principal.popuItemGuardarCliente) {
 
             //APELLIDO Y NOMBRE
@@ -861,6 +865,152 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
             refrescarTabla();
             Limpiar();
 
+        }
+
+        if (e.getSource() == frm_pantalla_principal.lbGuardarCliente) {
+
+            //APELLIDO Y NOMBRE
+            cliente.setNomApi(frm_pantalla_principal.txtApiNom.getText());
+
+            //TELEFONO
+            cliente.setTelefono(Integer.parseInt(frm_pantalla_principal.txtNumTelefono.getText()));
+
+            //DNI
+            cliente.setDni(Integer.parseInt(frm_pantalla_principal.txtDni.getText()));
+
+            //DIRECCION DE CASA
+            cliente.setDireccion(frm_pantalla_principal.txtDireccion.getText());
+
+            //CORREO ELECTRONICO
+            cliente.setCorreo(frm_pantalla_principal.txtCorreo.getText());
+
+            //ENFERMEDAD
+            cliente.setEnfermedad(frm_pantalla_principal.txtEnfermedad.getText());
+
+            //SI SE MEDICA O NO
+            String medicaSiNo = frm_pantalla_principal.JcbMedicaSiNo.getSelectedItem().toString();
+            cliente.setMedicaSiNo(medicaSiNo);
+
+            //SEXO
+            String genero = "";
+            if (frm_pantalla_principal.jrbHombre.getLabel().equals("Hombre")) {
+                genero = "Hombre";
+                cliente.setSexo(genero);
+            } else if (frm_pantalla_principal.jrbHombre.getLabel().equals("Mujer")) {
+                genero = "Mujer";
+                cliente.setSexo(genero);
+            } else if (frm_pantalla_principal.jrbHombre.getLabel().equals("Otro")) {
+                genero = "Otro";
+                cliente.setSexo(genero);
+            }
+
+            //FECHA ACTUAL
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+            Date fechaActual;
+
+            try {
+
+                fechaActual = formato.parse(frm_pantalla_principal.txtFecha.getText());
+
+                long fechaActualDia = fechaActual.getTime();
+                java.sql.Date fechaActualDiaDate = new java.sql.Date(fechaActualDia);
+
+                cliente.setFechaActual(fechaActualDiaDate);
+
+            } catch (ParseException ex) {
+
+                Logger.getLogger(Crl_cliente.class.getName()).log(Level.SEVERE, null, ex);
+
+            }
+
+            //FECHA DE FIN DE MES
+            Date fechaFinMes = (Date) frm_pantalla_principal.jdFechaFinMes.getDate();
+            long finmes = fechaFinMes.getTime();
+            java.sql.Date fecha = new java.sql.Date(finmes);
+            cliente.setFechafinDeMes(fecha);
+
+            //DIAS QUE LE QUEDAN DE LA CUOTA
+            Date fechaActualCompara;
+
+            try {
+                fechaActualCompara = formato.parse(frm_pantalla_principal.txtFecha.getText());
+
+                cliente.setDias(calcularDias(fechaActualCompara, fechaFinMes));
+
+            } catch (ParseException ex) {
+
+                Logger.getLogger(Crl_cliente.class.getName()).log(Level.SEVERE, null, ex);
+
+            }
+
+            //FECHA DE NACIMIENTO
+            Date fechaDeNacimiento = (Date) frm_pantalla_principal.jdFechaNacimiento.getDate();
+            long nacimiento = fechaDeNacimiento.getTime();
+            java.sql.Date fechaNacimiento = new java.sql.Date(nacimiento);
+            cliente.setFechaNacimiento(fechaNacimiento);
+
+            //EDAD
+            try {
+
+                fechaActualCompara = formato.parse(frm_pantalla_principal.txtFecha.getText());
+                cliente.setEdad(calcularEdad(fechaActualCompara, fechaDeNacimiento));
+
+            } catch (ParseException ex) {
+
+                Logger.getLogger(Crl_cliente.class.getName()).log(Level.SEVERE, null, ex);
+
+            }
+
+            //PAGO
+            cliente.setPago(Double.parseDouble(frm_pantalla_principal.txtPago.getText()));
+
+            if (mod_cliente.guardar(cliente)) {
+
+                System.out.println(ANSI_GREEN + "-Cliente Guardado Con Exito." + ANSI_RESET);
+                JOptionPane.showMessageDialog(null, "Cliente Guardado Con Exito.");
+
+            } else {
+                System.out.println(ANSI_RED + "-No se Pudo Guardar Cliente." + ANSI_RESET);
+                JOptionPane.showMessageDialog(null, "No se Pudo Guardar Cliente.");
+            }
+
+            imprimeCliente(frm_pantalla_principal.txtApiNom.getText(),
+                    Integer.parseInt(frm_pantalla_principal.txtNumTelefono.getText()),
+                    Integer.parseInt(frm_pantalla_principal.txtDni.getText()),
+                    frm_pantalla_principal.txtDireccion.getText(),
+                    frm_pantalla_principal.txtCorreo.getText(),
+                    frm_pantalla_principal.txtEnfermedad.getText(),
+                    medicaSiNo,
+                    sexo(),
+                    fechaActual(),
+                    frm_pantalla_principal.jdFechaFinMes.getDate(),
+                    calcularDias(fechaActual(), frm_pantalla_principal.jdFechaFinMes.getDate()),
+                    frm_pantalla_principal.jdFechaNacimiento.getDate(),
+                    calcularEdad(fechaActual(), frm_pantalla_principal.jdFechaNacimiento.getDate()),
+                    Double.parseDouble(frm_pantalla_principal.txtPago.getText()));
+
+            refrescarTabla();
+            Limpiar();
+
+        }
+
+        if (e.getSource() == frm_pantalla_principal.lbEliminarCliente) {
+
+            cliente.setDni(Integer.parseInt(frm_pantalla_principal.txtDni.getText()));
+
+            if (mod_cliente.eliminar(cliente)) {
+                JOptionPane.showMessageDialog(null, "Se Elimino Cliente.");
+                refrescarTabla();
+                Limpiar();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No se elimino.");
+            }
+
+        }
+
+        if (e.getSource() == frm_pantalla_principal.lbLimpiarCliente) {
+            Limpiar();
         }
 
     }

@@ -120,9 +120,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         lbGuardarProducto = new javax.swing.JLabel();
         lbModificarProducto = new javax.swing.JLabel();
-        lbModificarProducto1 = new javax.swing.JLabel();
+        lbGenerarPDFProducto = new javax.swing.JLabel();
         lbEliminarrProducto = new javax.swing.JLabel();
-        lbEliminarrProducto1 = new javax.swing.JLabel();
+        lbLimpiarProducto = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jcbFiltrar = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -160,10 +162,13 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         txtDias = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        lbGuardarProducto3 = new javax.swing.JLabel();
-        lbModificarProducto5 = new javax.swing.JLabel();
+        lbGuardarCliente = new javax.swing.JLabel();
+        lbModificarCliente = new javax.swing.JLabel();
         lbModificarProducto6 = new javax.swing.JLabel();
-        lbEliminarrProducto6 = new javax.swing.JLabel();
+        lbLimpiarCliente = new javax.swing.JLabel();
+        jcbFiltrar1 = new javax.swing.JComboBox<>();
+        jLabel52 = new javax.swing.JLabel();
+        lbEliminarCliente = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -447,33 +452,33 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Codigo");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 16, -1, 30));
+        jLabel14.setText("CODIGO");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 30));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("Nombre");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 46, -1, 30));
+        jLabel15.setText("NOMBRE");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Costo");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, 30));
+        jLabel16.setText("COSTO");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 60, 20));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("Venta");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, 30));
+        jLabel17.setText("VENTA");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, 20));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("Cantidad");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, 30));
-        jPanel3.add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 181, -1));
-        jPanel3.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 181, -1));
-        jPanel3.add(txtCostoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 67, -1));
-        jPanel3.add(txtVentaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 68, -1));
-        jPanel3.add(txtCantidadProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 60, -1));
+        jLabel18.setText("CANT");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, 30));
+        jPanel3.add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 190, -1));
+        jPanel3.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 190, -1));
+        jPanel3.add(txtCostoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 60, -1));
+        jPanel3.add(txtVentaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 70, -1));
+        jPanel3.add(txtCantidadProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 60, -1));
 
         tlbProductos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tlbProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -492,28 +497,29 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tlbProductos);
 
-        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 141, 820, 450));
-        jPanel3.add(txtBuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 180, -1));
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 141, 820, 400));
+        jPanel3.add(txtBuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 190, -1));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("Buscar");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 30));
+        jLabel19.setText("BUSCAR");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, 20));
 
         jcbBusquedas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Nombre" }));
-        jPanel3.add(jcbBusquedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 120, -1));
+        jPanel3.add(jcbBusquedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 80, -1));
 
+        txtIdProducto.setEnabled(false);
         txtIdProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdProductoActionPerformed(evt);
             }
         });
-        jPanel3.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 60, -1));
+        jPanel3.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 60, -1));
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel24.setText("ID");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 20, 30));
+        jLabel24.setText("ORDENAR POR");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 110, 20));
 
         lbGuardarProducto.setForeground(new java.awt.Color(0, 0, 0));
         lbGuardarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -521,7 +527,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbGuardarProducto.setText("GUARDAR");
         lbGuardarProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbGuardarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbGuardarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 130, 40));
+        jPanel3.add(lbGuardarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 130, 40));
 
         lbModificarProducto.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -529,31 +535,39 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarProducto.setText("MODIFICAR");
         lbModificarProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 130, 40));
+        jPanel3.add(lbModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 130, 40));
 
-        lbModificarProducto1.setForeground(new java.awt.Color(0, 0, 0));
-        lbModificarProducto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbModificarProducto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pdf.png"))); // NOI18N
-        lbModificarProducto1.setText("PDF");
-        lbModificarProducto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbModificarProducto1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbModificarProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 130, 40));
+        lbGenerarPDFProducto.setForeground(new java.awt.Color(0, 0, 0));
+        lbGenerarPDFProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbGenerarPDFProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pdf.png"))); // NOI18N
+        lbGenerarPDFProducto.setText("PDF");
+        lbGenerarPDFProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbGenerarPDFProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(lbGenerarPDFProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 550, 130, 40));
 
         lbEliminarrProducto.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarrProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbEliminarrProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar.png"))); // NOI18N
-        lbEliminarrProducto.setText("LIMPIAR");
+        lbEliminarrProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarProducto.png"))); // NOI18N
+        lbEliminarrProducto.setText("ELIMINAR");
         lbEliminarrProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarrProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbEliminarrProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 130, 40));
+        jPanel3.add(lbEliminarrProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 130, 40));
 
-        lbEliminarrProducto1.setForeground(new java.awt.Color(0, 0, 0));
-        lbEliminarrProducto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbEliminarrProducto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarProducto.png"))); // NOI18N
-        lbEliminarrProducto1.setText("ELIMINAR");
-        lbEliminarrProducto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbEliminarrProducto1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbEliminarrProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 130, 40));
+        lbLimpiarProducto.setForeground(new java.awt.Color(0, 0, 0));
+        lbLimpiarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbLimpiarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar.png"))); // NOI18N
+        lbLimpiarProducto.setText("LIMPIAR");
+        lbLimpiarProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbLimpiarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(lbLimpiarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 550, 130, 40));
+
+        jLabel51.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel51.setText("ID");
+        jPanel3.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 20, 20));
+
+        jcbFiltrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOMBRE(DES)", "NOMBRE(ACE)", "CANTIDAD(DES)", "CANTIDAD(ACE)", "COSTO(DES)", "COSTO(ACE)", "VENTA(DES)", "VENTA(ACE)" }));
+        jPanel3.add(jcbFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 130, -1));
 
         jTabbedPaneMain.addTab("TIENDA", jPanel3);
 
@@ -562,12 +576,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nombre y Apellido");
+        jLabel1.setText("NOMBRE Y APELLIDO");
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 27, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Numero de Telefono");
+        jLabel2.setText("NRO TELEFONO");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 57, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -577,44 +591,44 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Direccion");
+        jLabel4.setText("DIRECCION");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 117, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Enfermedad o Alergia");
+        jLabel6.setText("ENFERMEDAD O ALERGIA");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 177, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Fecha de Fin de Mes");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 57, -1, 29));
+        jLabel7.setText("FCH FIN DE MES");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, 29));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Se medica");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 80, 30));
+        jLabel8.setText("SE MEDICA");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 80, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Correo electronico");
+        jLabel10.setText("CORREO");
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, -1, -1));
-        jPanel4.add(txtApiNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 23, 181, -1));
-        jPanel4.add(txtNumTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 53, 181, -1));
-        jPanel4.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 113, 181, -1));
-        jPanel4.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 83, 181, -1));
-        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 143, 181, -1));
-        jPanel4.add(txtEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 173, 181, -1));
+        jPanel4.add(txtApiNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 181, -1));
+        jPanel4.add(txtNumTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 181, -1));
+        jPanel4.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 181, -1));
+        jPanel4.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 181, -1));
+        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 181, -1));
+        jPanel4.add(txtEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 150, -1));
 
         JcbMedicaSiNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
-        jPanel4.add(JcbMedicaSiNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 160, 130, -1));
-        jPanel4.add(jdFechaFinMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 57, 130, -1));
-        jPanel4.add(jdFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 92, 130, -1));
+        jPanel4.add(JcbMedicaSiNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 130, -1));
+        jPanel4.add(jdFechaFinMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 130, -1));
+        jPanel4.add(jdFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 130, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Fecha de Nacimiento");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 92, -1, 29));
+        jLabel11.setText("FCH NACIMIENTO");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, 29));
 
         btnGuardaCliente_IC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnGuardaCliente_IC.setLabel("Guardar");
@@ -624,44 +638,47 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                 btnGuardaCliente_ICActionPerformed(evt);
             }
         });
-        jPanel4.add(btnGuardaCliente_IC, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 519, 118, -1));
+        jPanel4.add(btnGuardaCliente_IC, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 118, -1));
         btnGuardaCliente_IC.getAccessibleContext().setAccessibleDescription("Guardar Cliente");
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Sexo");
+        jLabel12.setText("SEXO");
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, 28));
 
         jrbHombre.setBackground(new java.awt.Color(204, 204, 255));
         jrbHombre.setForeground(new java.awt.Color(0, 0, 0));
         jrbHombre.setText("Hombre");
-        jPanel4.add(jrbHombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
+        jrbHombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.add(jrbHombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
 
         jrbMujer.setBackground(new java.awt.Color(204, 204, 255));
         jrbMujer.setForeground(new java.awt.Color(0, 0, 0));
         jrbMujer.setText("Mujer");
+        jrbMujer.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jrbMujer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrbMujerActionPerformed(evt);
             }
         });
-        jPanel4.add(jrbMujer, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
+        jPanel4.add(jrbMujer, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, -1, -1));
 
         jrbOtro.setBackground(new java.awt.Color(204, 204, 255));
         jrbOtro.setForeground(new java.awt.Color(0, 0, 0));
         jrbOtro.setText("Otro");
+        jrbOtro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jrbOtro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrbOtroActionPerformed(evt);
             }
         });
-        jPanel4.add(jrbOtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, -1, -1));
+        jPanel4.add(jrbOtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Pago");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
-        jPanel4.add(txtPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 130, 130, -1));
+        jLabel9.setText("PAGO");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
+        jPanel4.add(txtPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 130, -1));
 
         tlbCliente_IC.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tlbCliente_IC.setModel(new javax.swing.table.DefaultTableModel(
@@ -688,50 +705,52 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tlbCliente_IC);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 241, 802, 268));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 261, 810, 280));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("ID");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, 20));
-        jPanel4.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 29, -1));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, -1, 20));
+
+        txtIdCliente.setEnabled(false);
+        jPanel4.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 40, -1));
 
         jLabel26.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("BUSCAR");
-        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 214, -1, -1));
-        jPanel4.add(txtBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 210, 154, -1));
+        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        jPanel4.add(txtBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 154, -1));
 
         JcbNombreDni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "DNI" }));
-        jPanel4.add(JcbNombreDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 209, 125, -1));
-        jPanel4.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 209, 41, -1));
+        jPanel4.add(JcbNombreDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 125, -1));
+        jPanel4.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, 41, -1));
 
         jLabel29.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Edad");
-        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 213, -1, -1));
-        jPanel4.add(txtDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 209, 41, -1));
+        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, -1, -1));
+        jPanel4.add(txtDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 41, -1));
 
         jLabel33.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Dias");
-        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 213, -1, -1));
+        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, -1, 20));
 
-        lbGuardarProducto3.setForeground(new java.awt.Color(0, 0, 0));
-        lbGuardarProducto3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbGuardarProducto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
-        lbGuardarProducto3.setText("GUARDAR");
-        lbGuardarProducto3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbGuardarProducto3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbGuardarProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, 130, 40));
+        lbGuardarCliente.setForeground(new java.awt.Color(0, 0, 0));
+        lbGuardarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbGuardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
+        lbGuardarCliente.setText("GUARDAR");
+        lbGuardarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbGuardarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(lbGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 130, 40));
 
-        lbModificarProducto5.setForeground(new java.awt.Color(0, 0, 0));
-        lbModificarProducto5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbModificarProducto5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modificarProducto.png"))); // NOI18N
-        lbModificarProducto5.setText("MODIFICAR");
-        lbModificarProducto5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbModificarProducto5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbModificarProducto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 130, 40));
+        lbModificarCliente.setForeground(new java.awt.Color(0, 0, 0));
+        lbModificarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbModificarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modificarProducto.png"))); // NOI18N
+        lbModificarCliente.setText("MODIFICAR");
+        lbModificarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbModificarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(lbModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 130, 40));
 
         lbModificarProducto6.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarProducto6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -739,15 +758,31 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarProducto6.setText("PDF");
         lbModificarProducto6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarProducto6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbModificarProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, 130, 40));
+        jPanel4.add(lbModificarProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 550, 130, 40));
 
-        lbEliminarrProducto6.setForeground(new java.awt.Color(0, 0, 0));
-        lbEliminarrProducto6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbEliminarrProducto6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarProducto.png"))); // NOI18N
-        lbEliminarrProducto6.setText("ELIMINAR");
-        lbEliminarrProducto6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbEliminarrProducto6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbEliminarrProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 180, 130, 40));
+        lbLimpiarCliente.setForeground(new java.awt.Color(0, 0, 0));
+        lbLimpiarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbLimpiarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar.png"))); // NOI18N
+        lbLimpiarCliente.setText("LIMPIAR");
+        lbLimpiarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbLimpiarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(lbLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 550, 130, 40));
+
+        jcbFiltrar1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOMBRE(DES)", "NOMBRE(ACE)", "CANTIDAD(DES)", "CANTIDAD(ACE)", "COSTO(DES)", "COSTO(ACE)", "VENTA(DES)", "VENTA(ACE)" }));
+        jPanel4.add(jcbFiltrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, 130, -1));
+
+        jLabel52.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel52.setText("ORDENAR POR");
+        jPanel4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 110, 20));
+
+        lbEliminarCliente.setForeground(new java.awt.Color(0, 0, 0));
+        lbEliminarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarProducto.png"))); // NOI18N
+        lbEliminarCliente.setText("ELIMINAR");
+        lbEliminarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbEliminarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(lbEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 130, 40));
 
         jTabbedPaneMain.addTab("CLIENTE", jPanel4);
 
@@ -1207,7 +1242,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel23.setText("V1.9.5");
+        jLabel23.setText("V1.9.6");
         jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -2085,6 +2120,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -2139,6 +2176,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     public javax.swing.JComboBox<String> jcbBusquedas;
+    public javax.swing.JComboBox<String> jcbFiltrar;
+    public javax.swing.JComboBox<String> jcbFiltrar1;
     public javax.swing.JComboBox<String> jcbIntencidadEntrenamiento;
     public javax.swing.JComboBox<String> jcbObjetivo;
     public com.toedter.calendar.JDateChooser jdFechaFinMes;
@@ -2158,29 +2197,30 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbCaloriasGrasa;
     public javax.swing.JLabel lbCaloriasProteina;
     public javax.swing.JLabel lbCerrarSesion;
+    public javax.swing.JLabel lbEliminarCliente;
     public javax.swing.JLabel lbEliminarrProducto;
-    public javax.swing.JLabel lbEliminarrProducto1;
     public javax.swing.JLabel lbEliminarrProducto2;
     public javax.swing.JLabel lbEliminarrProducto3;
     public javax.swing.JLabel lbEliminarrProducto4;
     public javax.swing.JLabel lbEliminarrProducto5;
-    public javax.swing.JLabel lbEliminarrProducto6;
     public javax.swing.JLabel lbFemeninoColor;
+    public javax.swing.JLabel lbGenerarPDFProducto;
     public javax.swing.JLabel lbGramosCarbohidrato;
     public javax.swing.JLabel lbGramosGrasa;
     public javax.swing.JLabel lbGramosProteina;
+    public javax.swing.JLabel lbGuardarCliente;
     public javax.swing.JLabel lbGuardarProducto;
     public javax.swing.JLabel lbGuardarProducto1;
     public javax.swing.JLabel lbGuardarProducto2;
-    public javax.swing.JLabel lbGuardarProducto3;
+    public javax.swing.JLabel lbLimpiarCliente;
+    public javax.swing.JLabel lbLimpiarProducto;
     public javax.swing.JLabel lbMasculinoColor;
     public javax.swing.JLabel lbMinimizarVentana;
+    public javax.swing.JLabel lbModificarCliente;
     public javax.swing.JLabel lbModificarProducto;
-    public javax.swing.JLabel lbModificarProducto1;
     public javax.swing.JLabel lbModificarProducto2;
     public javax.swing.JLabel lbModificarProducto3;
     public javax.swing.JLabel lbModificarProducto4;
-    public javax.swing.JLabel lbModificarProducto5;
     public javax.swing.JLabel lbModificarProducto6;
     public javax.swing.JLabel lbNombreUsuario;
     public javax.swing.JLabel lbResultadoGC;
