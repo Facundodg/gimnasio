@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.Conexion;
 import Modelo.CrudPdf;
 import Modelo.Pdf;
 import Modelo.Tabla_Pdf;
@@ -7,18 +8,25 @@ import Vista.Frm_Pantalla_Principal;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
-public class Crl_rutina implements MouseListener, ActionListener {
+public class Crl_rutina implements MouseListener, ActionListener, KeyListener {
 
     Frm_Pantalla_Principal frm_pantalla_principal;
     CrudPdf crudPdf;
@@ -40,6 +48,8 @@ public class Crl_rutina implements MouseListener, ActionListener {
         frm_pantalla_principal.tlbRutinas.addMouseListener(this);
         frm_pantalla_principal.lbEliminarRutina.addMouseListener(this);
         frm_pantalla_principal.lbModificarRutina.addMouseListener(this);
+        frm_pantalla_principal.TxtNombreRutina.addKeyListener(this);
+        frm_pantalla_principal.txtBuscarRutina.addKeyListener(this);
 
     }
 
@@ -79,17 +89,17 @@ public class Crl_rutina implements MouseListener, ActionListener {
 
             String nombre = frm_pantalla_principal.TxtNombreRutina.getText();
             File ruta = new File(ruta_archivo);
-            
+
             if (nombre.trim().length() != 0 && ruta_archivo.trim().length() != 0) {
-                
+
                 modificar_pdf(Integer.parseInt(frm_pantalla_principal.lbIdRutina.getText()), nombre, ruta);
                 tabla_pdf.visualizar_PdfVO(frm_pantalla_principal.tlbRutinas);
-                
+
             } else if (ruta_archivo.trim().length() == 0) {
-                
+
                 modificar_pdf(Integer.parseInt(frm_pantalla_principal.lbIdRutina.getText()), nombre, ruta);
                 tabla_pdf.visualizar_PdfVO(frm_pantalla_principal.tlbRutinas);
-                
+
             }
             ruta_archivo = "";
 
@@ -168,6 +178,46 @@ public class Crl_rutina implements MouseListener, ActionListener {
         pa.Modificar_PdfVO(po);
     }
 
+    public void FiltrarDatosNombre(String valor) {
+
+        System.out.println("entrando");
+        String[] titulos = {"Id", "Nombre", "Pdf"};
+        String[] registros = new String[3];
+
+        PreparedStatement ps = null;
+        Conexion conn = new Conexion();
+        Connection con = conn.getConexion();
+
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+
+        String sql = "select * from rutina where Nombre like '%" + valor + "%'";
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            Pdf vo = new Pdf();
+
+            while (rs.next()) {
+
+                registros[0] = rs.getString("Id");
+                registros[1] = rs.getString("Nombre");
+                registros[2] = rs.getString("Pdf");
+
+                modelo.addRow(registros);
+
+            }
+
+            frm_pantalla_principal.tlbRutinas.setModel(modelo);
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -177,6 +227,21 @@ public class Crl_rutina implements MouseListener, ActionListener {
             seleccionar_pdf();
 
         }
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+        FiltrarDatosNombre(frm_pantalla_principal.txtBuscarRutina.getText());
 
     }
 

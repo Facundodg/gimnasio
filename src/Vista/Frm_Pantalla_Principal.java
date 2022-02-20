@@ -199,6 +199,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarrProducto3 = new javax.swing.JLabel();
         btnseleccionar = new javax.swing.JButton();
         lbIdRutina = new javax.swing.JLabel();
+        lbIdRutina1 = new javax.swing.JLabel();
+        txtBuscarRutina = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -945,7 +947,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tlbRutinas);
 
-        jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 75, 314, -1));
+        jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 75, 314, 390));
 
         lbguardarRutina.setForeground(new java.awt.Color(0, 0, 0));
         lbguardarRutina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -984,6 +986,13 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         lbIdRutina.setText("Id:");
         jPanel6.add(lbIdRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+
+        lbIdRutina1.setForeground(new java.awt.Color(0, 0, 0));
+        lbIdRutina1.setText("BUSCAR");
+        jPanel6.add(lbIdRutina1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, 40));
+
+        txtBuscarRutina.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(txtBuscarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 250, -1));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -2400,6 +2409,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbHistorial1;
     public javax.swing.JLabel lbHistorial2;
     public javax.swing.JLabel lbIdRutina;
+    public javax.swing.JLabel lbIdRutina1;
     public javax.swing.JLabel lbLimpiarCliente;
     public javax.swing.JLabel lbLimpiarProducto;
     public javax.swing.JLabel lbMasculinoColor;
@@ -2439,6 +2449,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txtApiNom;
     public javax.swing.JTextField txtBuscarCliente;
     public javax.swing.JTextField txtBuscarProducto;
+    public javax.swing.JTextField txtBuscarRutina;
     public javax.swing.JTextField txtCC;
     public javax.swing.JTextField txtCantidadProducto;
     public javax.swing.JTextField txtCodigoProducto;
