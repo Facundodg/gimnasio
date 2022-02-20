@@ -24,7 +24,7 @@ public class Crl_rutina implements MouseListener, ActionListener {
     CrudPdf crudPdf;
     Pdf modelo_pdf;
     Tabla_Pdf tabla_pdf;
-
+    int id = -1;
     String ruta_archivo = "";
 
     public Crl_rutina(Frm_Pantalla_Principal frm_pantalla_principal, CrudPdf crudPdf, Pdf modelo_pdf, Tabla_Pdf tabla_pdf) {
@@ -38,11 +38,12 @@ public class Crl_rutina implements MouseListener, ActionListener {
         frm_pantalla_principal.lbguardarRutina.addMouseListener(this);
         frm_pantalla_principal.btnseleccionar.addActionListener(this);
         frm_pantalla_principal.tlbRutinas.addMouseListener(this);
+        frm_pantalla_principal.lbEliminarRutina.addMouseListener(this);
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
 
     }
 
@@ -62,6 +63,14 @@ public class Crl_rutina implements MouseListener, ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "Rellenar todo los campos");
             }
+
+        }
+
+        if (e.getSource() == frm_pantalla_principal.lbEliminarRutina) {
+
+            eliminar_pdf(Integer.parseInt(frm_pantalla_principal.txtIdRutina.getText()));
+            tabla_pdf.visualizar_PdfVO(frm_pantalla_principal.tlbRutinas);
+            ruta_archivo = "";
 
         }
     }
@@ -109,6 +118,15 @@ public class Crl_rutina implements MouseListener, ActionListener {
             System.out.println("Error al agregar archivo pdf " + ex.getMessage());
         }
         pa.Agregar_PdfVO(po);
+    }
+
+    public void eliminar_pdf(int id) {
+        
+        CrudPdf pa = new CrudPdf();
+        Pdf po = new Pdf();
+        po.setId(id);
+        pa.Eliminar_PdfVO(po);
+        
     }
 
     @Override

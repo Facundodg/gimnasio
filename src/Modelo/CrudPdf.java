@@ -117,17 +117,25 @@ public class CrudPdf {
 
     /*Metodo Eliminar*/
     public void Eliminar_PdfVO(Pdf vo) {
+        
         Conexion conec = new Conexion();
         String sql = "DELETE FROM rutina WHERE Id = ?;";
         PreparedStatement ps = null;
+        
         try {
+            
             ps = conec.getConexion().prepareStatement(sql);
             ps.setInt(1, vo.getId());
             ps.executeUpdate();
+            
         } catch (SQLException ex) {
+            
             System.out.println(ex.getMessage());
+            
         } catch (Exception ex) {
+            
             System.out.println(ex.getMessage());
+            
         } finally {
             try {
                 ps.close();
@@ -152,6 +160,7 @@ public class CrudPdf {
             while (rs.next()) {
                 b = rs.getBytes(1);
             }
+            
             InputStream bos = new ByteArrayInputStream(b);
 
             int tamanoInput = bos.available();

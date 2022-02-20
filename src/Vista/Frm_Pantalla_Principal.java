@@ -195,9 +195,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         tlbRutinas = new javax.swing.JTable();
         lbguardarRutina = new javax.swing.JLabel();
         lbModificarProducto3 = new javax.swing.JLabel();
-        lbEliminarrProducto2 = new javax.swing.JLabel();
+        lbEliminarRutina = new javax.swing.JLabel();
         lbEliminarrProducto3 = new javax.swing.JLabel();
         btnseleccionar = new javax.swing.JButton();
+        txtIdRutina = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -962,13 +963,13 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarProducto3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(lbModificarProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 502, 148, 40));
 
-        lbEliminarrProducto2.setForeground(new java.awt.Color(0, 0, 0));
-        lbEliminarrProducto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbEliminarrProducto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarProducto.png"))); // NOI18N
-        lbEliminarrProducto2.setText("ELIMINAR");
-        lbEliminarrProducto2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbEliminarrProducto2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(lbEliminarrProducto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 548, 148, 40));
+        lbEliminarRutina.setForeground(new java.awt.Color(0, 0, 0));
+        lbEliminarRutina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEliminarRutina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarProducto.png"))); // NOI18N
+        lbEliminarRutina.setText("ELIMINAR");
+        lbEliminarRutina.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbEliminarRutina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(lbEliminarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 548, 148, 40));
 
         lbEliminarrProducto3.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarrProducto3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -985,6 +986,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
             }
         });
         jPanel6.add(btnseleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 36, 314, -1));
+
+        txtIdRutina.setText("Id:");
+        jPanel6.add(txtIdRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1897,6 +1901,46 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //----------------METODOS BASICOS-------------------------
+    public void traerID() {
+
+        PreparedStatement ps = null;
+
+        ResultSet rs = null;
+
+        Conexion conn = new Conexion();
+
+        Connection con = conn.getConexion();
+
+        int Fila = tlbRutinas.getSelectedRow();
+
+        String codigo = tlbRutinas.getValueAt(Fila, 0).toString();
+
+            String sql = "SELECT Id FROM rutina WHERE Id = ?";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, codigo);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                txtIdRutina.setText(rs.getString("Id"));
+                
+            }
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
+
+    }
+
     private void TBClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBClienteActionPerformed
 
         jTabbedPaneMain.setSelectedIndex(1);
@@ -2156,10 +2200,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdProductoActionPerformed
 
     private void btnseleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnseleccionarActionPerformed
- 
+
     }//GEN-LAST:event_btnseleccionarActionPerformed
 
     private void tlbRutinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbRutinasMouseClicked
+
+        traerID();
         
         int column = tlbRutinas.getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY() / tlbRutinas.getRowHeight();
@@ -2346,8 +2392,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbCaloriasProteina;
     public javax.swing.JLabel lbCerrarSesion;
     public javax.swing.JLabel lbEliminarCliente;
+    public javax.swing.JLabel lbEliminarRutina;
     public javax.swing.JLabel lbEliminarrProducto;
-    public javax.swing.JLabel lbEliminarrProducto2;
     public javax.swing.JLabel lbEliminarrProducto3;
     public javax.swing.JLabel lbEliminarrProducto4;
     public javax.swing.JLabel lbEliminarrProducto5;
@@ -2416,6 +2462,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel txtHora;
     public javax.swing.JTextField txtIdCliente;
     public javax.swing.JTextField txtIdProducto;
+    public javax.swing.JLabel txtIdRutina;
     public javax.swing.JTextField txtNombreProducto;
     public javax.swing.JTextField txtNumTelefono;
     public javax.swing.JTextField txtPago;
