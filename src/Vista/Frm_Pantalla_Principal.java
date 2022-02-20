@@ -2,8 +2,11 @@ package Vista;
 
 import Controlador.Crl_producto;
 import Modelo.Conexion;
+import Modelo.CrudPdf;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Image;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
@@ -185,14 +190,14 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        button1 = new java.awt.Button();
+        TxtNombreRutina = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        lbGuardarProducto1 = new javax.swing.JLabel();
+        tlbRutinas = new javax.swing.JTable();
+        lbguardarRutina = new javax.swing.JLabel();
         lbModificarProducto3 = new javax.swing.JLabel();
         lbEliminarrProducto2 = new javax.swing.JLabel();
         lbEliminarrProducto3 = new javax.swing.JLabel();
+        btnseleccionar = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -914,17 +919,17 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jTabbedPaneMain.addTab("CLIENTE", jPanel4);
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombre del PDF");
+        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 10, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        TxtNombreRutina.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(TxtNombreRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 6, 183, -1));
 
-        button1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        button1.setLabel("Buscar PDF");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tlbRutinas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -932,14 +937,22 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                 "Id", "Nombre", "PDF"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        tlbRutinas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tlbRutinasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tlbRutinas);
 
-        lbGuardarProducto1.setForeground(new java.awt.Color(0, 0, 0));
-        lbGuardarProducto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbGuardarProducto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
-        lbGuardarProducto1.setText("GUARDAR");
-        lbGuardarProducto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbGuardarProducto1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 75, 314, -1));
+
+        lbguardarRutina.setForeground(new java.awt.Color(0, 0, 0));
+        lbguardarRutina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbguardarRutina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
+        lbguardarRutina.setText("GUARDAR");
+        lbguardarRutina.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbguardarRutina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(lbguardarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 502, 148, 40));
 
         lbModificarProducto3.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarProducto3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -947,6 +960,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarProducto3.setText("MODIFICAR");
         lbModificarProducto3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarProducto3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(lbModificarProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 502, 148, 40));
 
         lbEliminarrProducto2.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarrProducto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -954,6 +968,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarrProducto2.setText("ELIMINAR");
         lbEliminarrProducto2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarrProducto2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(lbEliminarrProducto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 548, 148, 40));
 
         lbEliminarrProducto3.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarrProducto3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -961,52 +976,15 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarrProducto3.setText("LIMPIAR");
         lbEliminarrProducto3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarrProducto3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(lbEliminarrProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 548, 148, 40));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbGuardarProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbEliminarrProducto3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbModificarProducto3, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                            .addComponent(lbEliminarrProducto2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(504, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbGuardarProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbModificarProducto3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbEliminarrProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbEliminarrProducto3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        btnseleccionar.setText("Seleccionar...");
+        btnseleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnseleccionarActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnseleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 36, 314, -1));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -2177,6 +2155,40 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdProductoActionPerformed
 
+    private void btnseleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnseleccionarActionPerformed
+ 
+    }//GEN-LAST:event_btnseleccionarActionPerformed
+
+    private void tlbRutinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbRutinasMouseClicked
+        
+        int column = tlbRutinas.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY() / tlbRutinas.getRowHeight();
+
+        if (row < tlbRutinas.getRowCount() && row >= 0 && column < tlbRutinas.getColumnCount() && column >= 0) {
+            int id = (int) tlbRutinas.getValueAt(row, 0);
+            Object value = tlbRutinas.getValueAt(row, column);
+            if (value instanceof JButton) {
+                ((JButton) value).doClick();
+                JButton boton = (JButton) value;
+
+                if (boton.getText().equals("Vacio")) {
+                    JOptionPane.showMessageDialog(null, "No hay archivo");
+                } else {
+                    CrudPdf pd = new CrudPdf();
+                    pd.ejecutar_archivoPDF(id);
+                    try {
+                        Desktop.getDesktop().open(new File("new.pdf"));
+                    } catch (Exception ex) {
+                    }
+                }
+
+            } else {
+                String name = "" + tlbRutinas.getValueAt(row, 1);
+                TxtNombreRutina.setText(name);
+            }
+        }
+    }//GEN-LAST:event_tlbRutinasMouseClicked
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2195,9 +2207,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JToggleButton TBRutina;
     public javax.swing.JToggleButton TBTienda;
     public javax.swing.JToggleButton TBUsuario;
+    public javax.swing.JTextField TxtNombreRutina;
     public java.awt.Button btnGuardaCliente_IC;
     public java.awt.Button btnModoNocturno;
-    private java.awt.Button button1;
+    public javax.swing.JButton btnseleccionar;
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.ButtonGroup buttonGroup_Genero;
     private com.toedter.calendar.JDayChooser jDayChooser1;
@@ -2307,10 +2320,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JSlider jSlEdad;
     public javax.swing.JSlider jSlPeso;
     public javax.swing.JTabbedPane jTabbedPaneMain;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     public javax.swing.JComboBox<String> jcbBusquedas;
     public javax.swing.JComboBox<String> jcbFiltrar;
@@ -2347,7 +2358,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbGramosProteina;
     public javax.swing.JLabel lbGuardarCliente;
     public javax.swing.JLabel lbGuardarProducto;
-    public javax.swing.JLabel lbGuardarProducto1;
     public javax.swing.JLabel lbGuardarProducto2;
     public javax.swing.JLabel lbHistorial;
     public javax.swing.JLabel lbHistorial1;
@@ -2368,6 +2378,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbResultadoTMB;
     public javax.swing.JLabel lbResultadoTMBObjetivo;
     public javax.swing.JLabel lbSalirSistema;
+    public javax.swing.JLabel lbguardarRutina;
     public javax.swing.JPanel panel_salir_sistema;
     public javax.swing.JLabel pnlCalcularIMC;
     public javax.swing.JMenuItem popuItemEliminarCliente;
@@ -2384,6 +2395,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem popuItemPdfProductoPanel;
     public javax.swing.JTable tlbCliente_IC;
     public javax.swing.JTable tlbProductos;
+    public javax.swing.JTable tlbRutinas;
     public javax.swing.JTable tlbUsuario;
     public javax.swing.JTextField txtAltura;
     public javax.swing.JTextField txtApiNom;
