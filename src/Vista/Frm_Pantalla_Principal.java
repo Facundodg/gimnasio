@@ -2,7 +2,7 @@ package Vista;
 
 import Controlador.Crl_producto;
 import Modelo.Conexion;
-import Modelo.CrudPdf;
+import Modelo.Crud_Pdf;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Image;
@@ -238,10 +238,16 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
-        jDayChooser1 = new com.toedter.calendar.JDayChooser();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        lbFechaPrueba = new javax.swing.JLabel();
+        jdcFecha = new com.toedter.calendar.JDateChooser();
+        lbGuardarTurno = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        txtDniTurno = new javax.swing.JTextField();
+        txtNombreTurno = new javax.swing.JTextField();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
@@ -1355,7 +1361,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel23.setText("V1.9.6");
+        jLabel23.setText("V1.9.8");
         jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -1364,9 +1370,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1398,9 +1404,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jPanel16.setBackground(new java.awt.Color(204, 204, 255));
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jDayChooser1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel16.add(jDayChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 290));
-
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -1420,14 +1423,38 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
 
-        jPanel16.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 430, 290));
+        jPanel16.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 500, 200));
+
+        lbFechaPrueba.setForeground(new java.awt.Color(0, 0, 0));
+        lbFechaPrueba.setText("FECHA Y HORADE TURNO");
+        jPanel16.add(lbFechaPrueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, -1, 30));
+
+        jdcFecha.setDateFormatString("yyyy/MM/dd HH:mm");
+        jPanel16.add(jdcFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 150, -1));
+
+        lbGuardarTurno.setForeground(new java.awt.Color(0, 0, 0));
+        lbGuardarTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbGuardarTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fecha.png"))); // NOI18N
+        lbGuardarTurno.setText("GUARDAR");
+        lbGuardarTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel16.add(lbGuardarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 110, 40));
+
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel24.setText("DNI");
+        jPanel16.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
+
+        jLabel65.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel65.setText("NOMBRE");
+        jPanel16.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
+        jPanel16.add(txtDniTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 240, -1));
+        jPanel16.add(txtNombreTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 240, -1));
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -1440,7 +1467,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
             .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
         );
 
-        jTabbedPaneMain.addTab("DIETAS USUARIO", jPanel15);
+        jTabbedPaneMain.addTab("TURNOS", jPanel15);
 
         jPanel19.setBackground(new java.awt.Color(204, 204, 255));
         jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2220,7 +2247,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                 if (boton.getText().equals("Vacio")) {
                     JOptionPane.showMessageDialog(null, "No hay archivo");
                 } else {
-                    CrudPdf pd = new CrudPdf();
+                    Crud_Pdf pd = new Crud_Pdf();
                     pd.ejecutar_archivoPDF(id);
                     try {
                         Desktop.getDesktop().open(new File("new.pdf"));
@@ -2259,7 +2286,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btnseleccionar;
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.ButtonGroup buttonGroup_Genero;
-    private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2276,6 +2302,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -2320,6 +2347,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2376,6 +2404,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jcbObjetivo;
     public com.toedter.calendar.JDateChooser jdFechaFinMes;
     public com.toedter.calendar.JDateChooser jdFechaNacimiento;
+    public com.toedter.calendar.JDateChooser jdcFecha;
     private javax.swing.JLabel jlDiscord;
     private javax.swing.JLabel jlFacebook;
     public com.bolivia.label.CLabel jlNombrePhoto;
@@ -2397,6 +2426,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbEliminarrProducto3;
     public javax.swing.JLabel lbEliminarrProducto4;
     public javax.swing.JLabel lbEliminarrProducto5;
+    public javax.swing.JLabel lbFechaPrueba;
     public javax.swing.JLabel lbFemeninoColor;
     public javax.swing.JLabel lbGenerarPDFProducto;
     public javax.swing.JLabel lbGramosCarbohidrato;
@@ -2405,6 +2435,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbGuardarCliente;
     public javax.swing.JLabel lbGuardarProducto;
     public javax.swing.JLabel lbGuardarProducto2;
+    public javax.swing.JLabel lbGuardarTurno;
     public javax.swing.JLabel lbHistorial;
     public javax.swing.JLabel lbHistorial1;
     public javax.swing.JLabel lbHistorial2;
@@ -2458,6 +2489,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txtDias;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtDni;
+    public javax.swing.JTextField txtDniTurno;
     public javax.swing.JTextField txtEdad;
     public javax.swing.JTextField txtEdadCalculadora;
     public javax.swing.JTextField txtEnfermedad;
@@ -2466,6 +2498,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txtIdCliente;
     public javax.swing.JTextField txtIdProducto;
     public javax.swing.JTextField txtNombreProducto;
+    public javax.swing.JTextField txtNombreTurno;
     public javax.swing.JTextField txtNumTelefono;
     public javax.swing.JTextField txtPago;
     public javax.swing.JTextField txtPeso;

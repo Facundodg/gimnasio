@@ -451,7 +451,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
     public void FechaActual() {
 
         //FECHA ACTUAL
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");    
         Date fechaActual;
 
         try {

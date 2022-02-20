@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Conexion;
-import Modelo.CrudPdf;
+import Modelo.Crud_Pdf;
 import Modelo.Pdf;
 import Modelo.Tabla_Pdf;
 import Vista.Frm_Pantalla_Principal;
@@ -29,13 +29,13 @@ import javax.swing.table.DefaultTableModel;
 public class Crl_rutina implements MouseListener, ActionListener, KeyListener {
 
     Frm_Pantalla_Principal frm_pantalla_principal;
-    CrudPdf crudPdf;
+    Crud_Pdf crudPdf;
     Pdf modelo_pdf;
     Tabla_Pdf tabla_pdf;
     int id = -1;
     String ruta_archivo = "";
 
-    public Crl_rutina(Frm_Pantalla_Principal frm_pantalla_principal, CrudPdf crudPdf, Pdf modelo_pdf, Tabla_Pdf tabla_pdf) {
+    public Crl_rutina(Frm_Pantalla_Principal frm_pantalla_principal, Crud_Pdf crudPdf, Pdf modelo_pdf, Tabla_Pdf tabla_pdf) {
         this.frm_pantalla_principal = frm_pantalla_principal;
         this.crudPdf = crudPdf;
         this.modelo_pdf = modelo_pdf;
@@ -136,7 +136,7 @@ public class Crl_rutina implements MouseListener, ActionListener, KeyListener {
 
     public void guardar_pdf(String nombre, File ruta) {
 
-        CrudPdf pa = new CrudPdf();
+        Crud_Pdf pa = new Crud_Pdf();
         Pdf po = new Pdf();
         po.setNombrepdf(nombre);
         try {
@@ -153,7 +153,7 @@ public class Crl_rutina implements MouseListener, ActionListener, KeyListener {
 
     public void eliminar_pdf(int id) {
 
-        CrudPdf pa = new CrudPdf();
+        Crud_Pdf pa = new Crud_Pdf();
         Pdf po = new Pdf();
         po.setId(id);
         pa.Eliminar_PdfVO(po);
@@ -162,7 +162,7 @@ public class Crl_rutina implements MouseListener, ActionListener, KeyListener {
 
     public void modificar_pdf(int codigo, String nombre, File ruta) {
 
-        CrudPdf pa = new CrudPdf();
+        Crud_Pdf pa = new Crud_Pdf();
         Pdf po = new Pdf();
         po.setId(codigo);
         po.setNombrepdf(nombre);

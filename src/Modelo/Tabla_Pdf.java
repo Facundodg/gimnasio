@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Tabla_Pdf {
 
-    CrudPdf dao = null;
+    Crud_Pdf dao = null;
 
     public void visualizar_PdfVO(JTable tabla) {
 
@@ -29,7 +29,7 @@ public class Tabla_Pdf {
             icono = new ImageIcon(get_Image("/img/32pdf.png"));
         }
 
-        dao = new CrudPdf();
+        dao = new Crud_Pdf();
         Pdf vo = new Pdf();
         ArrayList<Pdf> list = dao.Listar_PdfVO();
 

@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CrudPdf {
+public class Crud_Pdf {
 
     /*Metodo listar*/
     public ArrayList<Pdf> Listar_PdfVO() {

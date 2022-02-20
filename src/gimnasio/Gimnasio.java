@@ -5,21 +5,24 @@ import Controlador.Crl_configuraciones;
 import Controlador.Crl_nutricionista;
 import Controlador.Crl_producto;
 import Controlador.Crl_rutina;
+import Controlador.Crl_turno;
 import Controlador.Crl_usuario;
 import Modelo.Cliente;
 import Modelo.Configuraciones;
-import Modelo.CrudPdf;
+import Modelo.Crud_Pdf;
 import Modelo.Crud_cliente;
 import Modelo.Crud_configuraciones;
 import Modelo.Crud_dias;
 import Modelo.Crud_fecha;
 import Modelo.Crud_producto;
+import Modelo.Crud_turno;
 import Modelo.Crud_usuario;
 import Modelo.Dia;
 import Modelo.Fecha;
 import Modelo.Pdf;
 import Modelo.Producto;
 import Modelo.Tabla_Pdf;
+import Modelo.Turno;
 import Modelo.Usuario;
 import Vista.Frm_Ingreso;
 import Vista.Frm_Pantalla_Principal;
@@ -46,13 +49,15 @@ public class Gimnasio {
         Dia dia = new Dia();
         Configuraciones configuraciones = new Configuraciones();
         Crud_configuraciones mod_configuraciones = new Crud_configuraciones();
-        CrudPdf crudPdf = new CrudPdf();
+        Crud_Pdf crudPdf = new Crud_Pdf();
         Pdf modelo_pdf = new Pdf();
         Tabla_Pdf tabla_pdf = new Tabla_Pdf();
+        Crud_turno crud_turno = new Crud_turno();
+        Turno turno = new Turno();
         
-//        (Frm_Pantalla_Principal frm_pantalla_principal, CrudPdf crudPdf, Pdf modelo_pdf, Tabla_Pdf tabla_pdf)
+        //Frm_Pantalla_Principal frm_Pantalla_Principal, Crud_turno crud_turno, Turno turno)
 
-      
+        Crl_turno crl_turno = new  Crl_turno(frm_pantalla_principal,crud_turno,turno);
         Crl_rutina crl_rutina = new Crl_rutina(frm_pantalla_principal, crudPdf, modelo_pdf, tabla_pdf);
         Crl_configuraciones crl_configuraciones = new Crl_configuraciones(frm_pantalla_principal,frm_usuario_info,frm_registro,frm_ingreso,configuraciones,mod_configuraciones);
         Crl_nutricionista crl_nutricionista = new Crl_nutricionista(frm_pantalla_principal);
