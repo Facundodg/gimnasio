@@ -72,18 +72,25 @@ public class CrudPdf {
     /*Metodo Modificar*/
     public void Modificar_PdfVO(Pdf vo) {
         Conexion conec = new Conexion();
-        String sql = "UPDATE rutina SET nombrepdf = ?, archivopdf = ? WHERE Id = ?;";
+        String sql = "UPDATE rutina SET Nombre = ?, Pdf = ? WHERE Id = ?;";
         PreparedStatement ps = null;
+        
         try {
+            
             ps = conec.getConexion().prepareStatement(sql);
             ps.setString(1, vo.getNombrepdf());
             ps.setBytes(2, vo.getArchivopdf());
             ps.setInt(3, vo.getId());
             ps.executeUpdate();
+            
         } catch (SQLException ex) {
+            
             System.out.println(ex.getMessage());
+            
         } catch (Exception ex) {
+            
             System.out.println(ex.getMessage());
+            
         } finally {
             try {
                 ps.close();

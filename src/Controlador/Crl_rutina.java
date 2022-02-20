@@ -39,6 +39,7 @@ public class Crl_rutina implements MouseListener, ActionListener {
         frm_pantalla_principal.btnseleccionar.addActionListener(this);
         frm_pantalla_principal.tlbRutinas.addMouseListener(this);
         frm_pantalla_principal.lbEliminarRutina.addMouseListener(this);
+        frm_pantalla_principal.lbModificarRutina.addMouseListener(this);
 
     }
 
@@ -68,8 +69,28 @@ public class Crl_rutina implements MouseListener, ActionListener {
 
         if (e.getSource() == frm_pantalla_principal.lbEliminarRutina) {
 
-            eliminar_pdf(Integer.parseInt(frm_pantalla_principal.txtIdRutina.getText()));
+            eliminar_pdf(Integer.parseInt(frm_pantalla_principal.lbIdRutina.getText()));
             tabla_pdf.visualizar_PdfVO(frm_pantalla_principal.tlbRutinas);
+            ruta_archivo = "";
+
+        }
+
+        if (e.getSource() == frm_pantalla_principal.lbModificarRutina) {
+
+            String nombre = frm_pantalla_principal.TxtNombreRutina.getText();
+            File ruta = new File(ruta_archivo);
+            
+            if (nombre.trim().length() != 0 && ruta_archivo.trim().length() != 0) {
+                
+                modificar_pdf(Integer.parseInt(frm_pantalla_principal.lbIdRutina.getText()), nombre, ruta);
+                tabla_pdf.visualizar_PdfVO(frm_pantalla_principal.tlbRutinas);
+                
+            } else if (ruta_archivo.trim().length() == 0) {
+                
+                modificar_pdf(Integer.parseInt(frm_pantalla_principal.lbIdRutina.getText()), nombre, ruta);
+                tabla_pdf.visualizar_PdfVO(frm_pantalla_principal.tlbRutinas);
+                
+            }
             ruta_archivo = "";
 
         }
@@ -121,12 +142,30 @@ public class Crl_rutina implements MouseListener, ActionListener {
     }
 
     public void eliminar_pdf(int id) {
-        
+
         CrudPdf pa = new CrudPdf();
         Pdf po = new Pdf();
         po.setId(id);
         pa.Eliminar_PdfVO(po);
-        
+
+    }
+
+    public void modificar_pdf(int codigo, String nombre, File ruta) {
+
+        CrudPdf pa = new CrudPdf();
+        Pdf po = new Pdf();
+        po.setId(codigo);
+        po.setNombrepdf(nombre);
+        try {
+            byte[] pdf = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(pdf);
+            po.setArchivopdf(pdf);
+        } catch (IOException ex) {
+            po.setArchivopdf(null);
+            System.out.println("Error al agregar archivo pdf " + ex.getMessage());
+        }
+        pa.Modificar_PdfVO(po);
     }
 
     @Override

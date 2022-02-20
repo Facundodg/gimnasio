@@ -194,11 +194,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tlbRutinas = new javax.swing.JTable();
         lbguardarRutina = new javax.swing.JLabel();
-        lbModificarProducto3 = new javax.swing.JLabel();
+        lbModificarRutina = new javax.swing.JLabel();
         lbEliminarRutina = new javax.swing.JLabel();
         lbEliminarrProducto3 = new javax.swing.JLabel();
         btnseleccionar = new javax.swing.JButton();
-        txtIdRutina = new javax.swing.JLabel();
+        lbIdRutina = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -955,13 +955,13 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbguardarRutina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(lbguardarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 502, 148, 40));
 
-        lbModificarProducto3.setForeground(new java.awt.Color(0, 0, 0));
-        lbModificarProducto3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbModificarProducto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modificarProducto.png"))); // NOI18N
-        lbModificarProducto3.setText("MODIFICAR");
-        lbModificarProducto3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbModificarProducto3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(lbModificarProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 502, 148, 40));
+        lbModificarRutina.setForeground(new java.awt.Color(0, 0, 0));
+        lbModificarRutina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbModificarRutina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/modificarProducto.png"))); // NOI18N
+        lbModificarRutina.setText("MODIFICAR");
+        lbModificarRutina.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbModificarRutina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(lbModificarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 502, 148, 40));
 
         lbEliminarRutina.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarRutina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -980,15 +980,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jPanel6.add(lbEliminarrProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 548, 148, 40));
 
         btnseleccionar.setText("Seleccionar...");
-        btnseleccionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnseleccionarActionPerformed(evt);
-            }
-        });
         jPanel6.add(btnseleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 36, 314, -1));
 
-        txtIdRutina.setText("Id:");
-        jPanel6.add(txtIdRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        lbIdRutina.setText("Id:");
+        jPanel6.add(lbIdRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1928,7 +1923,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
             while (rs.next()) {
 
-                txtIdRutina.setText(rs.getString("Id"));
+                lbIdRutina.setText(rs.getString("Id"));
                 
             }
 
@@ -2199,10 +2194,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdProductoActionPerformed
 
-    private void btnseleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnseleccionarActionPerformed
-
-    }//GEN-LAST:event_btnseleccionarActionPerformed
-
     private void tlbRutinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbRutinasMouseClicked
 
         traerID();
@@ -2408,6 +2399,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbHistorial;
     public javax.swing.JLabel lbHistorial1;
     public javax.swing.JLabel lbHistorial2;
+    public javax.swing.JLabel lbIdRutina;
     public javax.swing.JLabel lbLimpiarCliente;
     public javax.swing.JLabel lbLimpiarProducto;
     public javax.swing.JLabel lbMasculinoColor;
@@ -2415,9 +2407,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbModificarCliente;
     public javax.swing.JLabel lbModificarProducto;
     public javax.swing.JLabel lbModificarProducto2;
-    public javax.swing.JLabel lbModificarProducto3;
     public javax.swing.JLabel lbModificarProducto4;
     public javax.swing.JLabel lbModificarProducto6;
+    public javax.swing.JLabel lbModificarRutina;
     public javax.swing.JLabel lbNombreUsuario;
     public javax.swing.JLabel lbResultadoGC;
     public javax.swing.JLabel lbResultadoIMC;
@@ -2462,7 +2454,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel txtHora;
     public javax.swing.JTextField txtIdCliente;
     public javax.swing.JTextField txtIdProducto;
-    public javax.swing.JLabel txtIdRutina;
     public javax.swing.JTextField txtNombreProducto;
     public javax.swing.JTextField txtNumTelefono;
     public javax.swing.JTextField txtPago;

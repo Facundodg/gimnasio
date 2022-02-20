@@ -2243,7 +2243,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lbModificarProducto3">
+                    <Component class="javax.swing.JLabel" name="lbModificarRutina">
                       <Properties>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="0" red="0" type="rgb"/>
@@ -2331,9 +2331,6 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Seleccionar..."/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnseleccionarActionPerformed"/>
-                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
@@ -2343,7 +2340,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="txtIdRutina">
+                    <Component class="javax.swing.JLabel" name="lbIdRutina">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Id:"/>
                       </Properties>
