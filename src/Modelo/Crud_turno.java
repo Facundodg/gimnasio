@@ -12,7 +12,7 @@ public class Crud_turno extends Conexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "INSERT INTO turno (Nombre,Dni,Fecha,Hora) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO turno (Nombre,Dni,Telefono,Direccion,Sexo,Edad,Motivo,Fecha,Hora) VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
 
@@ -20,8 +20,13 @@ public class Crud_turno extends Conexion{
 
             ps.setString(1, tu.getNombreTurno());
             ps.setInt(2, tu.getDniTurno());
-            ps.setDate(3, tu.getFechaTurno());
-            ps.setTime(4, tu.getHoraTurno());
+            ps.setLong(3, tu.getTelefonoTurno());
+            ps.setString(4, tu.getDireccionTurno());
+            ps.setString(5, tu.getSexoTurno());
+            ps.setInt(6, tu.getEdadTurno());
+            ps.setString(7, tu.getMotivoTurno());
+            ps.setDate(8, tu.getFechaTurno());
+            ps.setTime(9, tu.getHoraTurno());
             
             ps.execute();
 
@@ -30,6 +35,7 @@ public class Crud_turno extends Conexion{
         } catch (SQLException e) {
 
             System.out.println(e);
+            System.out.println("AQUI ES EL PROBLEMA");
 
             return false;
 

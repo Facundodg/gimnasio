@@ -73,6 +73,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
         frm_pantalla_principal.lbLimpiarCliente.addMouseListener(this);
 
         RestarDiasCliente();
+        refrescarTablaClienteTurno();
         traerFechaHoyAyer();
         refrescarTabla();
 
@@ -205,6 +206,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
                     Double.parseDouble(frm_pantalla_principal.txtPago.getText()));
 
             refrescarTabla();
+            refrescarTablaClienteTurno();
             Limpiar();
 
         }
@@ -351,6 +353,62 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
 
     }
 
+    public void refrescarTablaClienteTurno() {
+
+        try {
+
+            DefaultTableModel modelo = new DefaultTableModel();
+
+            frm_pantalla_principal.tlbClientesTurno.setModel(modelo);
+
+            PreparedStatement ps = null;
+
+            ResultSet rs = null;
+
+            Conexion conn = new Conexion();
+
+            Connection con = conn.getConexion();
+
+            String sql = "SELECT Id,NomApe,Dni FROM cliente ORDER BY NomApe";
+
+            ps = con.prepareStatement(sql);
+
+            rs = ps.executeQuery();
+
+            ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+            int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+            modelo.addColumn("Id"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+            modelo.addColumn("Nombre y Apellido");//por eso los tenemos que reasignar.
+            modelo.addColumn("DNI");
+
+
+            while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                Object[] filas = new Object[cantidadColumnas];
+
+                for (int i = 0; i < cantidadColumnas; i++) {
+
+                    filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                }
+
+                modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+            }
+
+        } catch (SQLException e) {
+
+            System.out.println(e);
+
+        }
+
+        System.out.println(ANSI_YELLOW + "---TABLA REFRESCADA---");
+        System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+
+    }
+
     public void TamañoColumnasCliente() {
 
         TableColumnModel columnModel = frm_pantalla_principal.tlbCliente_IC.getColumnModel();
@@ -451,7 +509,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
     public void FechaActual() {
 
         //FECHA ACTUAL
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");    
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
         Date fechaActual;
 
         try {
@@ -737,6 +795,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
 
         if (e.getSource() == frm_pantalla_principal.popuItemLimpiarCliente) {
             Limpiar();
+            refrescarTablaClienteTurno();
         }
 
         //GUARDAR CLIENTE
@@ -863,6 +922,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
                     Double.parseDouble(frm_pantalla_principal.txtPago.getText()));
 
             refrescarTabla();
+            refrescarTablaClienteTurno();
             Limpiar();
 
         }
@@ -990,6 +1050,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
                     Double.parseDouble(frm_pantalla_principal.txtPago.getText()));
 
             refrescarTabla();
+            refrescarTablaClienteTurno();
             Limpiar();
 
         }
@@ -1001,6 +1062,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
             if (mod_cliente.eliminar(cliente)) {
                 JOptionPane.showMessageDialog(null, "Se Elimino Cliente.");
                 refrescarTabla();
+                refrescarTablaClienteTurno();
                 Limpiar();
 
             } else {
@@ -1011,6 +1073,7 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
 
         if (e.getSource() == frm_pantalla_principal.lbLimpiarCliente) {
             Limpiar();
+            refrescarTablaClienteTurno();
         }
 
     }

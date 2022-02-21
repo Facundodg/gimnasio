@@ -8,6 +8,51 @@ public class Turno {
     private int id;
     private String nombreTurno;
     private int dniTurno;
+    private Long telefonoTurno;
+    private String direccionTurno;
+    private String sexoTurno;
+    private int edadTurno;
+    private String motivoTurno;
+
+    public Long getTelefonoTurno() {
+        return telefonoTurno;
+    }
+
+    public void setTelefonoTurno(Long telefonoTurno) {
+        this.telefonoTurno = telefonoTurno;
+    }
+
+    public String getDireccionTurno() {
+        return direccionTurno;
+    }
+
+    public void setDireccionTurno(String direccionTurno) {
+        this.direccionTurno = direccionTurno;
+    }
+
+    public String getSexoTurno() {
+        return sexoTurno;
+    }
+
+    public void setSexoTurno(String sexoTurno) {
+        this.sexoTurno = sexoTurno;
+    }
+
+    public int getEdadTurno() {
+        return edadTurno;
+    }
+
+    public void setEdadTurno(int edadTurno) {
+        this.edadTurno = edadTurno;
+    }
+
+    public String getMotivoTurno() {
+        return motivoTurno;
+    }
+
+    public void setMotivoTurno(String motivoTurno) {
+        this.motivoTurno = motivoTurno;
+    }
     private Date fechaTurno;
     private Time horaTurno;
 
