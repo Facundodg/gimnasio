@@ -132,17 +132,13 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
-        jPanel20 = new javax.swing.JPanel();
-        jPanel26 = new javax.swing.JPanel();
-        jPanel27 = new javax.swing.JPanel();
         jLabel62 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
         lbHistorial = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
         lbHistorial1 = new javax.swing.JLabel();
         lbHistorial2 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -632,77 +628,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 150, 20));
 
-        jLabel60.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel60.setText("may 30");
-        jLabel60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, 50, 20));
-
-        jPanel20.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 20, 20));
-
-        jPanel26.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 120, 20, 20));
-
-        jPanel27.setBackground(new java.awt.Color(51, 255, 0));
-        jPanel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
-        jPanel27.setLayout(jPanel27Layout);
-        jPanel27Layout.setHorizontalGroup(
-            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-        jPanel27Layout.setVerticalGroup(
-            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, 20, 20));
-
         jLabel62.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(0, 0, 0));
         jLabel62.setText("CAJA:");
         jLabel62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 150, 20));
-
-        jLabel63.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel63.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel63.setText("men 3");
-        jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 50, 20));
-
-        jLabel64.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel64.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel64.setText("men 10");
-        jLabel64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, 60, 20));
 
         lbHistorial.setForeground(new java.awt.Color(0, 0, 0));
         lbHistorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -710,7 +640,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbHistorial.setText("VENDER");
         lbHistorial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 115, 40));
+        jPanel3.add(lbHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 103, 115, 40));
 
         jLabel61.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel61.setForeground(new java.awt.Color(0, 0, 0));
@@ -732,7 +662,19 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbHistorial2.setText("AYUDA");
         lbHistorial2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbHistorial2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbHistorial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 70, 115, 40));
+        jPanel3.add(lbHistorial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 103, 120, 40));
+
+        jLabel60.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel60.setText("GANANCIA DEL MES:");
+        jLabel60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 240, 20));
+
+        jLabel63.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel63.setText("VENDIDO HOY:");
+        jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 150, 20));
 
         jTabbedPaneMain.addTab("TIENDA", jPanel3);
 
@@ -908,7 +850,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbGuardarCliente.setText("GUARDAR");
         lbGuardarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbGuardarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 130, 40));
+        jPanel4.add(lbGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 130, 40));
 
         lbModificarCliente.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -916,7 +858,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarCliente.setText("MODIFICAR");
         lbModificarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 130, 40));
+        jPanel4.add(lbModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 550, 130, 40));
 
         lbModificarProducto6.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarProducto6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -924,7 +866,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarProducto6.setText("PDF");
         lbModificarProducto6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarProducto6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbModificarProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 550, 130, 40));
+        jPanel4.add(lbModificarProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 550, 130, 40));
 
         lbLimpiarCliente.setForeground(new java.awt.Color(0, 0, 0));
         lbLimpiarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -932,7 +874,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbLimpiarCliente.setText("LIMPIAR");
         lbLimpiarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbLimpiarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 550, 130, 40));
+        jPanel4.add(lbLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 550, 130, 40));
 
         jcbFiltrar1.setBackground(new java.awt.Color(204, 204, 255));
         jcbFiltrar1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOMBRE(DES)", "NOMBRE(ACE)", "CANTIDAD(DES)", "CANTIDAD(ACE)", "COSTO(DES)", "COSTO(ACE)", "VENTA(DES)", "VENTA(ACE)" }));
@@ -949,7 +891,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarCliente.setText("ELIMINAR");
         lbEliminarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 130, 40));
+        jPanel4.add(lbEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, 130, 40));
 
         jTabbedPaneMain.addTab("CLIENTE", jPanel4);
 
@@ -2498,7 +2440,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
@@ -2524,14 +2465,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     public javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

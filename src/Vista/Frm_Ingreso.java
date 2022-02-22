@@ -27,64 +27,16 @@ public class Frm_Ingreso extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         //---------GIF DE CORRER--------------
-        ImageIcon gif = new ImageIcon(getClass().getResource("/img/Gif_correr_ingreso.gif")); //pones la ruta de la imagen
-        Icon fondo = new ImageIcon(gif.getImage().getScaledInstance(lbGif_frm_ingreso.getWidth(), lbGif_frm_ingreso.getHeight(), Image.SCALE_DEFAULT));
-        lbGif_frm_ingreso.setIcon(fondo);
+        ImageIcon gif = new ImageIcon(getClass().getResource("/img/candado.png")); //pones la ruta de la imagen
+        Icon fondo = new ImageIcon(gif.getImage().getScaledInstance(lbCandado.getWidth(), lbCandado.getHeight(), Image.SCALE_DEFAULT));
+        lbCandado.setIcon(fondo);
         this.repaint();
 
         setIconImage(new ImageIcon(getClass().getResource("../img/icono_gym.png")).getImage());
 
     }
 
-    public static void left(JComponent componente, int milisegundos, int saltos, int pares) {
 
-        (new Thread() {
-
-            @Override
-            public void run() {
-                
-                System.out.println("corriendo");
-                for (int i = componente.getWidth(); i >= pares; i -= saltos) {
-                    try {
-                        Thread.sleep(milisegundos);
-                        componente.setPreferredSize(new Dimension(i, componente.getHeight()));
-                        SwingUtilities.updateComponentTreeUI(componente);
-
-                    } catch (Exception e) {
-
-                        System.out.println(e);
-
-                    }
-                }
-            }
-
-        }).start();
-
-    }
-
-    public static void right(JComponent componente, int milisegundos, int saltos, int pares) {
-
-        (new Thread() {
-
-            @Override
-            public void run() {
-                for (int i = componente.getWidth(); i <= pares; i += saltos) {
-                    try {
-                        Thread.sleep(milisegundos);
-                        componente.setPreferredSize(new Dimension(i, componente.getHeight()));
-                        SwingUtilities.updateComponentTreeUI(componente);
-
-                    } catch (Exception e) {
-
-                        System.out.println(e);
-
-                    }
-                }
-            }
-
-        }).start();
-
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -96,22 +48,16 @@ public class Frm_Ingreso extends javax.swing.JFrame {
         lbContraseña = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         btnIngresar = new java.awt.Button();
-        lbGif_frm_ingreso = new javax.swing.JLabel();
+        lbCandado = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
         btnRegistroIngreso = new java.awt.Button();
         jsContraseña = new javax.swing.JSeparator();
         jsUsuario = new javax.swing.JSeparator();
         lbSalirSistemaIngreso = new javax.swing.JLabel();
         lbMinimizarVentana = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lbUsuario1 = new javax.swing.JLabel();
+        lbUsuario2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -131,18 +77,20 @@ public class Frm_Ingreso extends javax.swing.JFrame {
         lbContraseña.setText("CONTRASEÑA");
 
         txtUsuario.setBackground(new java.awt.Color(102, 102, 255));
-        txtUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.setBorder(null);
 
         btnIngresar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnIngresar.setLabel("Ingresar");
+        btnIngresar.setLabel("INGRESAR");
 
         txtContraseña.setBackground(new java.awt.Color(102, 102, 255));
-        txtContraseña.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtContraseña.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txtContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtContraseña.setBorder(null);
 
         btnRegistroIngreso.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnRegistroIngreso.setLabel("Registrarse");
+        btnRegistroIngreso.setLabel("REGISTRARME");
 
         jsContraseña.setBackground(new java.awt.Color(0, 0, 0));
         jsContraseña.setForeground(new java.awt.Color(0, 0, 0));
@@ -164,117 +112,89 @@ public class Frm_Ingreso extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("-->");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
+        lbUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbUsuario1.setForeground(new java.awt.Color(0, 0, 0));
+        lbUsuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
 
-        jPanel3.setBackground(new java.awt.Color(102, 102, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.setPreferredSize(new java.awt.Dimension(100, 0));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("-MEJORA DE INTERFAZ");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 380, -1));
-
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("-ACOMODO DE LA INTERFAZ");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 380, 20));
-
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("ACTUALIZACIONES");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, -1));
-
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("-MANTENIMINTO DE LA BD");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 380, -1));
-
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("-INGRESO DE EVENTOS DE BOTON (GUARDAR,ELIMINAR,MODIFICAR) EN TIENDA");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 380, 20));
-
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("-INGRESO DE FILTROS DE LA PARTE DE TIENDAS");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 380, 20));
+        lbUsuario2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbUsuario2.setForeground(new java.awt.Color(0, 0, 0));
+        lbUsuario2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/key.png"))); // NOI18N
 
         javax.swing.GroupLayout jpIngresoUsuarioLayout = new javax.swing.GroupLayout(jpIngresoUsuario);
         jpIngresoUsuario.setLayout(jpIngresoUsuarioLayout);
         jpIngresoUsuarioLayout.setHorizontalGroup(
             jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpIngresoUsuarioLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lbSalirSistemaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(lbMinimizarVentana)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpIngresoUsuarioLayout.createSequentialGroup()
+                                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbUsuario1)
+                                    .addComponent(lbUsuario2, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jsContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbUsuario)
+                                    .addComponent(lbContraseña)
+                                    .addComponent(jsUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8))
+                            .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(btnRegistroIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 28, Short.MAX_VALUE))))
+            .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
                 .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(lbGif_frm_ingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbUsuario)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jsUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbContraseña)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jsContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)
+                        .addComponent(lbCandado, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(btnRegistroIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(280, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(lbSalirSistemaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbMinimizarVentana)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jpIngresoUsuarioLayout.setVerticalGroup(
             jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
+                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lbMinimizarVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lbSalirSistemaIngreso))
+                .addGap(15, 15, 15)
+                .addComponent(lbCandado, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
+                        .addComponent(lbUsuario)
+                        .addGap(3, 3, 3)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jsUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(lbContraseña)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
+                        .addComponent(lbUsuario1)
+                        .addGap(42, 42, 42)
+                        .addComponent(lbUsuario2)))
+                .addGap(1, 1, 1)
+                .addComponent(jsContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbSalirSistemaIngreso)
-                            .addComponent(lbMinimizarVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addGap(419, 419, 419)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                                .addComponent(lbGif_frm_ingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(16, 16, 16)
-                                .addComponent(lbUsuario)
-                                .addGap(3, 3, 3)
-                                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3)
-                                .addComponent(jsUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbContraseña)
-                                .addGap(13, 13, 13)
-                                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3)
-                                .addComponent(jsContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRegistroIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(11, 11, 11)))
+                    .addComponent(btnRegistroIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(113, 113, 113)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -288,10 +208,12 @@ public class Frm_Ingreso extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpIngresoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jpIngresoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 440));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -299,24 +221,6 @@ public class Frm_Ingreso extends javax.swing.JFrame {
     private void lbMinimizarVentanaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMinimizarVentanaMouseClicked
         this.setState(ICONIFIED);
     }//GEN-LAST:event_lbMinimizarVentanaMouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-
-        if (estado) {
-            
-            right(jPanel3, 1, 2, 385);
-            estado = false;
-            jLabel2.setText("<--");
-            
-        } else {
-            
-            left(jPanel3, 1, 2, 100);
-            estado = true;
-            jLabel2.setText("-->");
-
-        }
-
-    }//GEN-LAST:event_jLabel2MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -354,23 +258,17 @@ public class Frm_Ingreso extends javax.swing.JFrame {
     public java.awt.Button btnIngresar;
     public java.awt.Button btnRegistroIngreso;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jpIngresoUsuario;
     public javax.swing.JSeparator jsContraseña;
     public javax.swing.JSeparator jsUsuario;
+    private javax.swing.JLabel lbCandado;
     public javax.swing.JLabel lbContraseña;
-    private javax.swing.JLabel lbGif_frm_ingreso;
     public javax.swing.JLabel lbMinimizarVentana;
     public javax.swing.JLabel lbSalirSistemaIngreso;
     public javax.swing.JLabel lbUsuario;
+    public javax.swing.JLabel lbUsuario1;
+    public javax.swing.JLabel lbUsuario2;
     public javax.swing.JPasswordField txtContraseña;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
