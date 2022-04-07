@@ -67,40 +67,54 @@ public class Frm_Ingreso extends javax.swing.JFrame {
 
         jpIngresoUsuario.setBackground(new java.awt.Color(102, 102, 255));
         jpIngresoUsuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jpIngresoUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario.setText("USUARIO");
+        jpIngresoUsuario.add(lbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 210, -1, -1));
 
         lbContraseña.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbContraseña.setForeground(new java.awt.Color(0, 0, 0));
         lbContraseña.setText("CONTRASEÑA");
+        jpIngresoUsuario.add(lbContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 282, -1, -1));
 
         txtUsuario.setBackground(new java.awt.Color(102, 102, 255));
         txtUsuario.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.setBorder(null);
+        jpIngresoUsuario.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 230, 237, 17));
 
         btnIngresar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnIngresar.setLabel("INGRESAR");
+        jpIngresoUsuario.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 343, 120, 43));
+        btnIngresar.getAccessibleContext().setAccessibleName("INGRESAR");
+
+        jpIngresoUsuario.add(lbCandado, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 49, 128, 128));
 
         txtContraseña.setBackground(new java.awt.Color(102, 102, 255));
         txtContraseña.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txtContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtContraseña.setBorder(null);
+        jpIngresoUsuario.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 305, 236, 17));
 
         btnRegistroIngreso.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnRegistroIngreso.setLabel("REGISTRARME");
+        jpIngresoUsuario.add(btnRegistroIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 343, 124, 43));
+        btnRegistroIngreso.getAccessibleContext().setAccessibleName("REGISTRARME");
 
         jsContraseña.setBackground(new java.awt.Color(0, 0, 0));
         jsContraseña.setForeground(new java.awt.Color(0, 0, 0));
+        jpIngresoUsuario.add(jsContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 323, 245, 10));
 
         jsUsuario.setBackground(new java.awt.Color(0, 0, 0));
         jsUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        jpIngresoUsuario.add(jsUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 250, 245, 10));
 
         lbSalirSistemaIngreso.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lbSalirSistemaIngreso.setForeground(new java.awt.Color(0, 0, 0));
         lbSalirSistemaIngreso.setText("x");
+        jpIngresoUsuario.add(lbSalirSistemaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 2, 17, -1));
 
         lbMinimizarVentana.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lbMinimizarVentana.setForeground(new java.awt.Color(0, 0, 0));
@@ -111,92 +125,18 @@ public class Frm_Ingreso extends javax.swing.JFrame {
                 lbMinimizarVentanaMouseClicked(evt);
             }
         });
+        jpIngresoUsuario.add(lbMinimizarVentana, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 2, -1, 32));
+        jpIngresoUsuario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 499, 12, -1));
 
         lbUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbUsuario1.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
+        jpIngresoUsuario.add(lbUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 216, -1, -1));
 
         lbUsuario2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbUsuario2.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/key.png"))); // NOI18N
-
-        javax.swing.GroupLayout jpIngresoUsuarioLayout = new javax.swing.GroupLayout(jpIngresoUsuario);
-        jpIngresoUsuario.setLayout(jpIngresoUsuarioLayout);
-        jpIngresoUsuarioLayout.setHorizontalGroup(
-            jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpIngresoUsuarioLayout.createSequentialGroup()
-                                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbUsuario1)
-                                    .addComponent(lbUsuario2, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jsContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbUsuario)
-                                    .addComponent(lbContraseña)
-                                    .addComponent(jsUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(8, 8, 8))
-                            .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(btnRegistroIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 28, Short.MAX_VALUE))))
-            .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(lbCandado, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbSalirSistemaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbMinimizarVentana)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jpIngresoUsuarioLayout.setVerticalGroup(
-            jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lbMinimizarVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(lbSalirSistemaIngreso))
-                .addGap(15, 15, 15)
-                .addComponent(lbCandado, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addComponent(lbUsuario)
-                        .addGap(3, 3, 3)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(jsUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(lbContraseña)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpIngresoUsuarioLayout.createSequentialGroup()
-                        .addComponent(lbUsuario1)
-                        .addGap(42, 42, 42)
-                        .addComponent(lbUsuario2)))
-                .addGap(1, 1, 1)
-                .addComponent(jsContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpIngresoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegistroIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(113, 113, 113)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jpIngresoUsuario.add(lbUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 290, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -263,7 +203,7 @@ public class Frm_Ingreso extends javax.swing.JFrame {
     public javax.swing.JSeparator jsContraseña;
     public javax.swing.JSeparator jsUsuario;
     private javax.swing.JLabel lbCandado;
-    public javax.swing.JLabel lbContraseña;
+    private javax.swing.JLabel lbContraseña;
     public javax.swing.JLabel lbMinimizarVentana;
     public javax.swing.JLabel lbSalirSistemaIngreso;
     public javax.swing.JLabel lbUsuario;

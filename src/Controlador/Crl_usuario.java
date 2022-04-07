@@ -216,8 +216,6 @@ public class Crl_usuario implements ActionListener, KeyListener, MouseListener {
             frm_ingreso.jpIngresoUsuario.setBackground(Color.GRAY);
             frm_ingreso.txtUsuario.setBackground(Color.GRAY);
             frm_ingreso.txtContraseña.setBackground(Color.GRAY);
-            frm_ingreso.lbUsuario.setForeground(Color.WHITE);
-            frm_ingreso.lbContraseña.setForeground(Color.WHITE);
             frm_ingreso.jsUsuario.setBackground(Color.WHITE);
             frm_ingreso.jsContraseña.setBackground(Color.WHITE);
             frm_ingreso.lbSalirSistemaIngreso.setForeground(Color.WHITE);

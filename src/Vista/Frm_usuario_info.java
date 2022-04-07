@@ -26,14 +26,13 @@ public class Frm_usuario_info extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lbFotoInfoUsuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbPuestoInfo = new javax.swing.JLabel();
         lbId = new javax.swing.JLabel();
         lbSalirCuentaUsuarioInfo = new javax.swing.JLabel();
         lbBorrarCuenta = new javax.swing.JLabel();
         lbSalirUsuarioInfo = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcbTamañoFuenteTabla = new javax.swing.JComboBox<>();
         jrbSonido = new javax.swing.JRadioButton();
         jrbModoNocturno = new javax.swing.JRadioButton();
         lbPuestoInfo1 = new javax.swing.JLabel();
@@ -41,7 +40,9 @@ public class Frm_usuario_info extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         lbNombreUsuarioInfo = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        lbCambiarIdioma = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        lbPuestoInfo2 = new javax.swing.JLabel();
+        lbFotoInfoUsuario = new com.bolivia.label.CLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -50,21 +51,17 @@ public class Frm_usuario_info extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbFotoInfoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbFotoInfoUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(lbFotoInfoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 68, 70));
-
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOMBRE:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 41, 60, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 60, 20));
 
         lbPuestoInfo.setForeground(new java.awt.Color(0, 0, 0));
         lbPuestoInfo.setText("PUEST");
-        jPanel1.add(lbPuestoInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 90, -1));
+        jPanel1.add(lbPuestoInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, -1));
 
         lbId.setForeground(new java.awt.Color(0, 0, 0));
         lbId.setText("id");
-        jPanel1.add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 70, 30));
+        jPanel1.add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 40, 30));
 
         lbSalirCuentaUsuarioInfo.setForeground(new java.awt.Color(0, 0, 255));
         lbSalirCuentaUsuarioInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -79,7 +76,7 @@ public class Frm_usuario_info extends javax.swing.JFrame {
                 lbSalirCuentaUsuarioInfoMouseExited(evt);
             }
         });
-        jPanel1.add(lbSalirCuentaUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 140, 30));
+        jPanel1.add(lbSalirCuentaUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 130, 30));
 
         lbBorrarCuenta.setForeground(new java.awt.Color(0, 0, 255));
         lbBorrarCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,37 +90,37 @@ public class Frm_usuario_info extends javax.swing.JFrame {
                 lbBorrarCuentaMouseExited(evt);
             }
         });
-        jPanel1.add(lbBorrarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 130, 30));
+        jPanel1.add(lbBorrarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 120, 30));
 
         lbSalirUsuarioInfo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lbSalirUsuarioInfo.setForeground(new java.awt.Color(0, 0, 0));
         lbSalirUsuarioInfo.setText("x");
         jPanel1.add(lbSalirUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 9, -1, 18));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jcbTamañoFuenteTabla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grande", "Mediana", "Chica" }));
+        jcbTamañoFuenteTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jcbTamañoFuenteTablaActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 90, -1));
+        jPanel1.add(jcbTamañoFuenteTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 130, -1));
 
         jrbSonido.setBackground(new java.awt.Color(204, 204, 255));
         jrbSonido.setForeground(new java.awt.Color(0, 0, 0));
         jrbSonido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jrbSonido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jrbSonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 50, 50));
+        jPanel1.add(jrbSonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 50, 50));
 
         jrbModoNocturno.setBackground(new java.awt.Color(204, 204, 255));
         jrbModoNocturno.setForeground(new java.awt.Color(0, 0, 0));
         jrbModoNocturno.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jrbModoNocturno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jrbModoNocturno, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 50, 50));
+        jPanel1.add(jrbModoNocturno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 50, 50));
 
         lbPuestoInfo1.setForeground(new java.awt.Color(0, 0, 0));
-        lbPuestoInfo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbPuestoInfo1.setText("IDIOMA:");
-        jPanel1.add(lbPuestoInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 60, 20));
+        lbPuestoInfo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbPuestoInfo1.setText("TAMAÑO DE FUENTE DE LA TABLA");
+        jPanel1.add(lbPuestoInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 200, 30));
 
         lbCambiar.setForeground(new java.awt.Color(0, 0, 255));
         lbCambiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -137,64 +134,59 @@ public class Frm_usuario_info extends javax.swing.JFrame {
                 lbCambiarMouseExited(evt);
             }
         });
-        jPanel1.add(lbCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 70, 30));
+        jPanel1.add(lbCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, 30));
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("PUESTO:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 60, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 60, -1));
 
         lbNombreUsuarioInfo.setForeground(new java.awt.Color(0, 0, 0));
         lbNombreUsuarioInfo.setText("NAME");
-        jPanel1.add(lbNombreUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 90, 20));
+        jPanel1.add(lbNombreUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 90, 20));
 
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("ID:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 20, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 20, 30));
 
-        lbCambiarIdioma.setForeground(new java.awt.Color(0, 0, 255));
-        lbCambiarIdioma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbCambiarIdioma.setText("CAMBIAR IDIOMA");
-        lbCambiarIdioma.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lbCambiarIdioma.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lbCambiarIdiomaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbCambiarIdiomaMouseExited(evt);
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(lbCambiarIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 130, 30));
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 130, -1));
+
+        lbPuestoInfo2.setForeground(new java.awt.Color(0, 0, 0));
+        lbPuestoInfo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbPuestoInfo2.setText("IDIOMA");
+        jPanel1.add(lbPuestoInfo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 60, 30));
+
+        lbFotoInfoUsuario.setText("");
+        jPanel1.add(lbFotoInfoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jcbTamañoFuenteTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTamañoFuenteTablaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jcbTamañoFuenteTablaActionPerformed
 
     private void lbCambiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCambiarMouseEntered
         
         lbCambiar.setForeground(Color.red);
         
     }//GEN-LAST:event_lbCambiarMouseEntered
-
-    private void lbCambiarIdiomaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCambiarIdiomaMouseEntered
-       
-        
-        lbCambiarIdioma.setForeground(Color.red);
-        
-    }//GEN-LAST:event_lbCambiarIdiomaMouseEntered
 
     private void lbSalirCuentaUsuarioInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirCuentaUsuarioInfoMouseEntered
        
@@ -231,11 +223,9 @@ public class Frm_usuario_info extends javax.swing.JFrame {
 
     }//GEN-LAST:event_lbBorrarCuentaMouseExited
 
-    private void lbCambiarIdiomaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCambiarIdiomaMouseExited
-
-        lbCambiarIdioma.setForeground(Color.BLUE);
-
-    }//GEN-LAST:event_lbCambiarIdiomaMouseExited
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,21 +263,22 @@ public class Frm_usuario_info extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JComboBox<String> jcbTamañoFuenteTabla;
     public javax.swing.JRadioButton jrbModoNocturno;
     public javax.swing.JRadioButton jrbSonido;
     public javax.swing.JLabel lbBorrarCuenta;
     public javax.swing.JLabel lbCambiar;
-    public javax.swing.JLabel lbCambiarIdioma;
-    public javax.swing.JLabel lbFotoInfoUsuario;
+    public com.bolivia.label.CLabel lbFotoInfoUsuario;
     public javax.swing.JLabel lbId;
     public javax.swing.JLabel lbNombreUsuarioInfo;
     public javax.swing.JLabel lbPuestoInfo;
     public javax.swing.JLabel lbPuestoInfo1;
+    public javax.swing.JLabel lbPuestoInfo2;
     public javax.swing.JLabel lbSalirCuentaUsuarioInfo;
     public javax.swing.JLabel lbSalirUsuarioInfo;
     // End of variables declaration//GEN-END:variables

@@ -906,6 +906,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         TxtNombreRutina.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.add(TxtNombreRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 6, 183, -1));
 
+        tlbRutinas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tlbRutinas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -921,7 +922,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tlbRutinas);
 
-        jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 75, 314, 390));
+        jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 75, -1, 460));
 
         lbguardarRutina.setForeground(new java.awt.Color(0, 0, 0));
         lbguardarRutina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -929,7 +930,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbguardarRutina.setText("GUARDAR");
         lbguardarRutina.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbguardarRutina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(lbguardarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 502, 148, 40));
+        jPanel6.add(lbguardarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 110, 40));
 
         lbModificarRutina.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarRutina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -937,7 +938,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarRutina.setText("MODIFICAR");
         lbModificarRutina.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarRutina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(lbModificarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 502, 148, 40));
+        jPanel6.add(lbModificarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, 110, 40));
 
         lbEliminarRutina.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarRutina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -945,7 +946,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarRutina.setText("ELIMINAR");
         lbEliminarRutina.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarRutina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(lbEliminarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 548, 148, 40));
+        jPanel6.add(lbEliminarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 100, 40));
 
         lbEliminarrProducto3.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarrProducto3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -953,20 +954,20 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarrProducto3.setText("LIMPIAR");
         lbEliminarrProducto3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarrProducto3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(lbEliminarrProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 548, 148, 40));
+        jPanel6.add(lbEliminarrProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 100, 40));
 
         btnseleccionar.setText("Seleccionar...");
-        jPanel6.add(btnseleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 36, 314, -1));
+        jPanel6.add(btnseleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 200, 30));
 
         lbIdRutina.setText("Id:");
-        jPanel6.add(lbIdRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        jPanel6.add(lbIdRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 120, 20));
 
         lbIdRutina1.setForeground(new java.awt.Color(0, 0, 0));
         lbIdRutina1.setText("BUSCAR");
-        jPanel6.add(lbIdRutina1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, 40));
+        jPanel6.add(lbIdRutina1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 40));
 
         txtBuscarRutina.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(txtBuscarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 250, -1));
+        jPanel6.add(txtBuscarRutina, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 170, -1));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -983,6 +984,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(204, 204, 255));
 
+        tlbUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tlbUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1080,7 +1082,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbUsuarioImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCargarImagenUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                            .addComponent(btnCargarImagenUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(122, 122, 122)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
@@ -1101,7 +1103,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1339,7 +1341,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                             .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                        .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                         .addGap(43, 43, 43))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -1424,7 +1426,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
                 .addComponent(jLabel23)
                 .addGap(23, 23, 23))
             .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1584,7 +1586,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+            .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPaneMain.addTab("TURNOS", jPanel15);
@@ -1909,7 +1911,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnModoNocturno, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(550, Short.MAX_VALUE))
+                .addContainerGap(560, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
@@ -1935,7 +1937,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 594, Short.MAX_VALUE)
+            .addGap(0, 604, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
@@ -1951,7 +1953,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jTabbedPaneMain.addTab("CALCULOS REGISTRO", jPanel17);
 
-        jPanel1.add(jTabbedPaneMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 10, 830, 620));
+        jPanel1.add(jTabbedPaneMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 0, 830, 630));
 
         panel_salir_sistema.setBackground(new java.awt.Color(102, 102, 255));
 
@@ -2095,18 +2097,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_TBTiendaActionPerformed
 
-    private void jrbMujerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMujerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jrbMujerActionPerformed
-
-    private void jrbOtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbOtroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jrbOtroActionPerformed
-
-    private void btnGuardaCliente_ICActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaCliente_ICActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardaCliente_ICActionPerformed
-
     private void TBRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBRutinaActionPerformed
         jTabbedPaneMain.setSelectedIndex(2);
         TBCliente.setSelected(false);
@@ -2153,47 +2143,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_TBDietaActionPerformed
 
-    private void tlbProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbProductosMouseClicked
-
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        Conexion conn = new Conexion();
-
-        Connection con = conn.getConexion();
-
-        int Fila = tlbProductos.getSelectedRow();
-
-        String codigo = tlbProductos.getValueAt(Fila, 1).toString();
-
-        String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad FROM producto WHERE Codigo=?";
-
-        try {
-
-            ps = con.prepareStatement(sql);
-
-            ps.setString(1, codigo);
-
-            rs = ps.executeQuery();
-
-            while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
-
-                txtIdProducto.setText(rs.getString("Id"));
-                txtCodigoProducto.setText(rs.getString("Codigo"));
-                txtNombreProducto.setText(rs.getString("Nombre"));
-                txtCostoProducto.setText(rs.getString("Costo"));
-                txtVentaProducto.setText(rs.getString("Venta"));
-                txtCantidadProducto.setText(rs.getString("Cantidad"));
-
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-    }//GEN-LAST:event_tlbProductosMouseClicked
-
     private void TBAtencionAlClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBAtencionAlClienteActionPerformed
 
         jTabbedPaneMain.setSelectedIndex(4);
@@ -2208,6 +2157,94 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private void lbMinimizarVentanaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMinimizarVentanaMouseClicked
         this.setState(ICONIFIED);
     }//GEN-LAST:event_lbMinimizarVentanaMouseClicked
+
+    private void jlWebMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlWebMouseExited
+
+        ImageIcon imagen7 = new ImageIcon(getClass().getResource("/img/icon-web.png")); //pones la ruta de la imagen
+        Icon fondo7 = new ImageIcon(imagen7.getImage().getScaledInstance(43, 48, Image.SCALE_DEFAULT));
+        jlWeb.setIcon(fondo7);
+    }//GEN-LAST:event_jlWebMouseExited
+
+    private void jlWebMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlWebMouseEntered
+
+        ImageIcon imagen7 = new ImageIcon(getClass().getResource("/img/icon-web-64px.png")); //pones la ruta de la imagen
+        Icon fondo7 = new ImageIcon(imagen7.getImage().getScaledInstance(57, 64, Image.SCALE_DEFAULT));
+        jlWeb.setIcon(fondo7);
+    }//GEN-LAST:event_jlWebMouseEntered
+
+    private void jlFacebookMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlFacebookMouseExited
+
+        ImageIcon imagen6 = new ImageIcon(getClass().getResource("/img/fb_icon.png")); //pones la ruta de la imagen
+        Icon fondo6 = new ImageIcon(imagen6.getImage().getScaledInstance(48, 48, Image.SCALE_DEFAULT));
+        jlFacebook.setIcon(fondo6);
+    }//GEN-LAST:event_jlFacebookMouseExited
+
+    private void jlFacebookMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlFacebookMouseEntered
+
+        ImageIcon imagen6 = new ImageIcon(getClass().getResource("/img/fb_icon-64px.png")); //pones la ruta de la imagen
+        Icon fondo6 = new ImageIcon(imagen6.getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
+        jlFacebook.setIcon(fondo6);
+    }//GEN-LAST:event_jlFacebookMouseEntered
+
+    private void jlnstagramMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlnstagramMouseExited
+
+        ImageIcon imagen5 = new ImageIcon(getClass().getResource("/img/instagram_logo_icon.png")); //pones la ruta de la imagen
+        Icon fondo5 = new ImageIcon(imagen5.getImage().getScaledInstance(48, 48, Image.SCALE_DEFAULT));
+        jlnstagram.setIcon(fondo5);
+    }//GEN-LAST:event_jlnstagramMouseExited
+
+    private void jlnstagramMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlnstagramMouseEntered
+
+        ImageIcon imagen5 = new ImageIcon(getClass().getResource("/img/instagram_logo_icon_64px.png")); //pones la ruta de la imagen
+        Icon fondo5 = new ImageIcon(imagen5.getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
+        jlnstagram.setIcon(fondo5);
+    }//GEN-LAST:event_jlnstagramMouseEntered
+
+    private void jlDiscordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlDiscordMouseExited
+
+        ImageIcon imagen4 = new ImageIcon(getClass().getResource("/img/discord_icon.png")); //pones la ruta de la imagen
+        Icon fondo4 = new ImageIcon(imagen4.getImage().getScaledInstance(48, 38, Image.SCALE_DEFAULT));
+        jlDiscord.setIcon(fondo4);
+    }//GEN-LAST:event_jlDiscordMouseExited
+
+    private void jlDiscordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlDiscordMouseEntered
+
+        ImageIcon imagen4 = new ImageIcon(getClass().getResource("/img/discord_icon_64px.png")); //pones la ruta de la imagen
+        Icon fondo4 = new ImageIcon(imagen4.getImage().getScaledInstance(64, 51, Image.SCALE_DEFAULT));
+        jlDiscord.setIcon(fondo4);
+    }//GEN-LAST:event_jlDiscordMouseEntered
+
+    private void tlbRutinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbRutinasMouseClicked
+
+        traerID();
+
+        int column = tlbRutinas.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY() / tlbRutinas.getRowHeight();
+
+        if (row < tlbRutinas.getRowCount() && row >= 0 && column < tlbRutinas.getColumnCount() && column >= 0) {
+            int id = (int) tlbRutinas.getValueAt(row, 0);
+            Object value = tlbRutinas.getValueAt(row, column);
+            if (value instanceof JButton) {
+                ((JButton) value).doClick();
+                JButton boton = (JButton) value;
+
+                if (boton.getText().equals("Vacio")) {
+                    JOptionPane.showMessageDialog(null, "No hay archivo");
+                } else {
+                    Crud_Pdf pd = new Crud_Pdf();
+                    pd.ejecutar_archivoPDF(id);
+                    try {
+                        Desktop.getDesktop().open(new File("new.pdf"));
+                    } catch (Exception ex) {
+                    }
+                }
+
+            } else {
+                String name = "" + tlbRutinas.getValueAt(row, 1);
+                TxtNombreRutina.setText(name);
+            }
+        }
+    }//GEN-LAST:event_tlbRutinasMouseClicked
 
     private void tlbCliente_ICMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbCliente_ICMouseClicked
 
@@ -2262,104 +2299,61 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tlbCliente_ICMouseClicked
 
-    private void jlDiscordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlDiscordMouseEntered
+    private void jrbOtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbOtroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbOtroActionPerformed
 
-        ImageIcon imagen4 = new ImageIcon(getClass().getResource("/img/discord_icon_64px.png")); //pones la ruta de la imagen
-        Icon fondo4 = new ImageIcon(imagen4.getImage().getScaledInstance(64, 51, Image.SCALE_DEFAULT));
-        jlDiscord.setIcon(fondo4);
+    private void jrbMujerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMujerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbMujerActionPerformed
 
-    }//GEN-LAST:event_jlDiscordMouseEntered
-
-    private void jlDiscordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlDiscordMouseExited
-
-        ImageIcon imagen4 = new ImageIcon(getClass().getResource("/img/discord_icon.png")); //pones la ruta de la imagen
-        Icon fondo4 = new ImageIcon(imagen4.getImage().getScaledInstance(48, 38, Image.SCALE_DEFAULT));
-        jlDiscord.setIcon(fondo4);
-
-    }//GEN-LAST:event_jlDiscordMouseExited
-
-    private void jlnstagramMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlnstagramMouseEntered
-
-        ImageIcon imagen5 = new ImageIcon(getClass().getResource("/img/instagram_logo_icon_64px.png")); //pones la ruta de la imagen
-        Icon fondo5 = new ImageIcon(imagen5.getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
-        jlnstagram.setIcon(fondo5);
-
-    }//GEN-LAST:event_jlnstagramMouseEntered
-
-    private void jlnstagramMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlnstagramMouseExited
-
-        ImageIcon imagen5 = new ImageIcon(getClass().getResource("/img/instagram_logo_icon.png")); //pones la ruta de la imagen
-        Icon fondo5 = new ImageIcon(imagen5.getImage().getScaledInstance(48, 48, Image.SCALE_DEFAULT));
-        jlnstagram.setIcon(fondo5);
-
-    }//GEN-LAST:event_jlnstagramMouseExited
-
-    private void jlFacebookMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlFacebookMouseEntered
-
-        ImageIcon imagen6 = new ImageIcon(getClass().getResource("/img/fb_icon-64px.png")); //pones la ruta de la imagen
-        Icon fondo6 = new ImageIcon(imagen6.getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
-        jlFacebook.setIcon(fondo6);
-
-    }//GEN-LAST:event_jlFacebookMouseEntered
-
-    private void jlFacebookMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlFacebookMouseExited
-
-        ImageIcon imagen6 = new ImageIcon(getClass().getResource("/img/fb_icon.png")); //pones la ruta de la imagen
-        Icon fondo6 = new ImageIcon(imagen6.getImage().getScaledInstance(48, 48, Image.SCALE_DEFAULT));
-        jlFacebook.setIcon(fondo6);
-
-    }//GEN-LAST:event_jlFacebookMouseExited
-
-    private void jlWebMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlWebMouseEntered
-
-        ImageIcon imagen7 = new ImageIcon(getClass().getResource("/img/icon-web-64px.png")); //pones la ruta de la imagen
-        Icon fondo7 = new ImageIcon(imagen7.getImage().getScaledInstance(57, 64, Image.SCALE_DEFAULT));
-        jlWeb.setIcon(fondo7);
-    }//GEN-LAST:event_jlWebMouseEntered
-
-    private void jlWebMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlWebMouseExited
-
-        ImageIcon imagen7 = new ImageIcon(getClass().getResource("/img/icon-web.png")); //pones la ruta de la imagen
-        Icon fondo7 = new ImageIcon(imagen7.getImage().getScaledInstance(43, 48, Image.SCALE_DEFAULT));
-        jlWeb.setIcon(fondo7);
-
-    }//GEN-LAST:event_jlWebMouseExited
+    private void btnGuardaCliente_ICActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaCliente_ICActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardaCliente_ICActionPerformed
 
     private void txtIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdProductoActionPerformed
 
-    private void tlbRutinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbRutinasMouseClicked
+    private void tlbProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbProductosMouseClicked
 
-        traerID();
-        
-        int column = tlbRutinas.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY() / tlbRutinas.getRowHeight();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
-        if (row < tlbRutinas.getRowCount() && row >= 0 && column < tlbRutinas.getColumnCount() && column >= 0) {
-            int id = (int) tlbRutinas.getValueAt(row, 0);
-            Object value = tlbRutinas.getValueAt(row, column);
-            if (value instanceof JButton) {
-                ((JButton) value).doClick();
-                JButton boton = (JButton) value;
+        Conexion conn = new Conexion();
 
-                if (boton.getText().equals("Vacio")) {
-                    JOptionPane.showMessageDialog(null, "No hay archivo");
-                } else {
-                    Crud_Pdf pd = new Crud_Pdf();
-                    pd.ejecutar_archivoPDF(id);
-                    try {
-                        Desktop.getDesktop().open(new File("new.pdf"));
-                    } catch (Exception ex) {
-                    }
-                }
+        Connection con = conn.getConexion();
 
-            } else {
-                String name = "" + tlbRutinas.getValueAt(row, 1);
-                TxtNombreRutina.setText(name);
+        int Fila = tlbProductos.getSelectedRow();
+
+        String codigo = tlbProductos.getValueAt(Fila, 1).toString();
+
+        String sql = "SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad FROM producto WHERE Codigo=?";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, codigo);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                txtIdProducto.setText(rs.getString("Id"));
+                txtCodigoProducto.setText(rs.getString("Codigo"));
+                txtNombreProducto.setText(rs.getString("Nombre"));
+                txtCostoProducto.setText(rs.getString("Costo"));
+                txtVentaProducto.setText(rs.getString("Venta"));
+                txtCantidadProducto.setText(rs.getString("Cantidad"));
+
             }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_tlbRutinasMouseClicked
+
+    }//GEN-LAST:event_tlbProductosMouseClicked
 
     public static void main(String args[]) {
 

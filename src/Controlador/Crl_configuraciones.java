@@ -7,7 +7,10 @@ import Vista.Frm_Pantalla_Principal;
 import Vista.Frm_registro;
 import Vista.Frm_usuario_info;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -18,7 +21,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-public class Crl_configuraciones implements MouseListener {
+public class Crl_configuraciones implements MouseListener, ItemListener {
 
     Frm_Pantalla_Principal frm_Pantalla_Principal;
     Frm_usuario_info frm_usuario_info;
@@ -41,6 +44,8 @@ public class Crl_configuraciones implements MouseListener {
         frm_usuario_info.jrbModoNocturno.addMouseListener(this);
         frm_usuario_info.jrbSonido.addMouseListener(this);
         frm_Pantalla_Principal.btnGuardaCliente_IC.addMouseListener(this);
+
+        frm_usuario_info.jcbTamañoFuenteTabla.addItemListener(this);
 
     }
 
@@ -77,8 +82,6 @@ public class Crl_configuraciones implements MouseListener {
                 frm_ingreso.jpIngresoUsuario.setBackground(Color.GRAY);
                 frm_ingreso.txtUsuario.setBackground(Color.GRAY);
                 frm_ingreso.txtContraseña.setBackground(Color.GRAY);
-                frm_ingreso.lbUsuario.setForeground(Color.WHITE);
-                frm_ingreso.lbContraseña.setForeground(Color.WHITE);
                 frm_ingreso.jsUsuario.setBackground(Color.WHITE);
                 frm_ingreso.jsContraseña.setBackground(Color.WHITE);
                 frm_ingreso.lbSalirSistemaIngreso.setForeground(Color.WHITE);
@@ -121,8 +124,6 @@ public class Crl_configuraciones implements MouseListener {
                 frm_ingreso.jpIngresoUsuario.setBackground(Color.blue);
                 frm_ingreso.txtUsuario.setBackground(Color.blue);
                 frm_ingreso.txtContraseña.setBackground(Color.blue);
-                frm_ingreso.lbUsuario.setForeground(Color.BLACK);
-                frm_ingreso.lbContraseña.setForeground(Color.BLACK);
                 frm_ingreso.jsUsuario.setBackground(Color.BLACK);
                 frm_ingreso.jsContraseña.setBackground(Color.BLACK);
                 frm_ingreso.lbSalirSistemaIngreso.setForeground(Color.BLACK);
@@ -151,7 +152,7 @@ public class Crl_configuraciones implements MouseListener {
 
                 System.out.println("sonido activado");
                 sonido = true;
-                
+
                 sonido();
 
             } else {
@@ -216,6 +217,47 @@ public class Crl_configuraciones implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+
+        if (e.getSource() == frm_usuario_info.jcbTamañoFuenteTabla) {
+
+            String filtro = frm_usuario_info.jcbTamañoFuenteTabla.getSelectedItem().toString();
+
+            Font fuenteGrande = new Font("Arial", 1, 17);
+            Font fuenteMediana = new Font("Arial", 1, 15);
+            Font fuenteChica = new Font("Arial", 1, 12);
+
+//        txtNombrecontacto.setFont(fuente);
+            if (filtro.equals("Grande")) {
+
+                System.out.println("entro grandee");
+                frm_Pantalla_Principal.tlbCliente_IC.setFont(fuenteGrande);
+                frm_Pantalla_Principal.tlbProductos.setFont(fuenteGrande);
+                frm_Pantalla_Principal.tlbTurnos.setFont(fuenteGrande);
+                frm_Pantalla_Principal.tlbClientesTurno.setFont(fuenteGrande);
+
+            } else if (filtro.equals("Mediana")) {
+                System.out.println("entro mediano");
+
+                frm_Pantalla_Principal.tlbCliente_IC.setFont(fuenteMediana);
+                frm_Pantalla_Principal.tlbProductos.setFont(fuenteMediana);
+                frm_Pantalla_Principal.tlbTurnos.setFont(fuenteMediana);
+                frm_Pantalla_Principal.tlbClientesTurno.setFont(fuenteMediana);
+
+            } else if (filtro.equals("Chica")) {
+                System.out.println("entro chico");
+
+                frm_Pantalla_Principal.tlbCliente_IC.setFont(fuenteChica);
+                frm_Pantalla_Principal.tlbProductos.setFont(fuenteChica);
+                frm_Pantalla_Principal.tlbTurnos.setFont(fuenteChica);
+                frm_Pantalla_Principal.tlbClientesTurno.setFont(fuenteChica);
+            }
+
+        }
+
     }
 
 }
