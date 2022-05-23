@@ -28,6 +28,7 @@ import Vista.Frm_Ingreso;
 import Vista.Frm_Pantalla_Principal;
 import Vista.Frm_registro;
 import Vista.Frm_usuario_info;
+import Vista.Frm_venta;
 
 public class Gimnasio {
 
@@ -37,6 +38,7 @@ public class Gimnasio {
         Frm_Ingreso frm_ingreso = new Frm_Ingreso();
         Frm_Pantalla_Principal frm_pantalla_principal = new Frm_Pantalla_Principal();
         Frm_registro frm_registro = new Frm_registro();
+        Frm_venta frm_venta = new Frm_venta();
         Usuario usuario = new Usuario();
         Crud_usuario mod_usuario = new Crud_usuario();
         Cliente cliente = new Cliente();
@@ -61,7 +63,7 @@ public class Gimnasio {
         Crl_rutina crl_rutina = new Crl_rutina(frm_pantalla_principal, crudPdf, modelo_pdf, tabla_pdf);
         Crl_configuraciones crl_configuraciones = new Crl_configuraciones(frm_pantalla_principal,frm_usuario_info,frm_registro,frm_ingreso,configuraciones,mod_configuraciones);
         Crl_nutricionista crl_nutricionista = new Crl_nutricionista(frm_pantalla_principal);
-        Crl_producto crl_producto = new Crl_producto(frm_pantalla_principal, producto, mod_producto);
+        Crl_producto crl_producto = new Crl_producto(frm_pantalla_principal, frm_venta ,producto, mod_producto);
         Crl_cliente crl_cliente = new Crl_cliente(frm_pantalla_principal, cliente, mod_cliente, mod_dias, mod_fecha, fecha, dia);
         Crl_usuario crl_usuario = new Crl_usuario(frm_ingreso, usuario, mod_usuario, frm_pantalla_principal, frm_registro, frm_usuario_info);
 

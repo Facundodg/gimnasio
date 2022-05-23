@@ -8,6 +8,7 @@ import Modelo.Conexion;
 import Modelo.Crud_producto;
 import Modelo.Producto;
 import Vista.Frm_Pantalla_Principal;
+import Vista.Frm_venta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -16,6 +17,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,11 +38,14 @@ import javax.swing.table.TableColumnModel;
 public class Crl_producto implements ActionListener, KeyListener, MouseListener, ItemListener {
 
     Frm_Pantalla_Principal frm_pantalla_principal;
+    Frm_venta frm_venta;
     Producto producto;
     Crud_producto mod_producto;
 
-    public Crl_producto(Frm_Pantalla_Principal frm_pantalla_principal, Producto producto, Crud_producto mod_producto) {
+    public Crl_producto(Frm_Pantalla_Principal frm_pantalla_principal, Frm_venta frm_venta, Producto producto, Crud_producto mod_producto) {
+
         this.frm_pantalla_principal = frm_pantalla_principal;
+        this.frm_venta = frm_venta;
         this.producto = producto;
         this.mod_producto = mod_producto;
 
@@ -48,6 +53,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
         this.frm_pantalla_principal.jcbFiltrar.addItemListener(this);
 
         frm_pantalla_principal.lbCerrarSesion.addMouseListener(this);
+        frm_pantalla_principal.lbVender.addMouseListener(this);
         frm_pantalla_principal.popuItemEliminarProducto.addMouseListener(this);
         frm_pantalla_principal.popuItemModificarProducto.addMouseListener(this);
         frm_pantalla_principal.popuItemLimpiarProducto.addMouseListener(this);
@@ -58,7 +64,11 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
         frm_pantalla_principal.lbGenerarPDFProducto.addMouseListener(this);
         frm_pantalla_principal.lbLimpiarProducto.addMouseListener(this);
 
+        frm_venta.lbSalirVenta.addMouseListener(this);
+
         refrescarTabla();
+        capital();
+
     }
 
     @Override
@@ -91,6 +101,88 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
     }
 
+    //capital de la tienda
+    public void capital() {
+
+        PreparedStatement ps = null;
+
+        ResultSet rs = null;
+
+        ResultSetMetaData rmtd = null;
+
+        Conexion conn = new Conexion();
+
+        Connection con = conn.getConexion();
+
+        String sql = "SELECT SUM(Cantidad*Costo) as resultado FROM producto";
+
+        try {
+            //SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Nombre
+            //SELECT SUM(cantidad*precio) as resultado FROM productos_carrito_compra
+
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            rmtd = rs.getMetaData();
+
+            while (rs.next()) {
+
+                double totalCapital = rs.getDouble(1);
+
+                System.out.println("Capital Total: " + totalCapital);
+
+                frm_pantalla_principal.lbCapital.setText("CAPITAL: " + String.valueOf(totalCapital) + "$");
+
+            }
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+    }
+
+    //Cantidad de produtos
+    public void cantidadDeProcutos() {
+
+        PreparedStatement ps = null;
+
+        ResultSet rs = null;
+
+        ResultSetMetaData rmtd = null;
+
+        Conexion conn = new Conexion();
+
+        Connection con = conn.getConexion();
+
+        String sql = "SELECT SUM(Cantidad) as resultado FROM producto";
+
+        try {
+            //SELECT Id,Codigo,Nombre,Costo,Venta,Cantidad,Fecha FROM producto ORDER BY Nombre
+            //SELECT SUM(cantidad*precio) as resultado FROM productos_carrito_compra
+
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            rmtd = rs.getMetaData();
+
+            while (rs.next()) {
+
+                int totalCantidad = rs.getInt(1);
+
+                System.out.println("Cantidad de productos: " + totalCantidad);
+
+                frm_pantalla_principal.lbCantidadDeProductos.setText("CANT PRODUCTOS: " + String.valueOf(totalCantidad));
+
+            }
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+    }
+
     //refresca la tabla
     public void refrescarTabla() {
 
@@ -99,6 +191,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
             DefaultTableModel modelo = new DefaultTableModel();
 
             frm_pantalla_principal.tlbProductos.setModel(modelo);
+            frm_venta.tlbStockPantallaVenta.setModel(modelo); // tabla de la interfaz de ventas
 
             PreparedStatement ps = null;
 
@@ -150,6 +243,8 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
         System.out.println(ANSI_CYAN + "----------------------------------------------------------");
 
         TamañoColumnasCliente();
+        capital();
+        cantidadDeProcutos();
     }
 
     //cuando se refresca se hace llamado a este metodo para que la tabla adquiera un tamaño fijo 
@@ -165,7 +260,18 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
         columnModel.getColumn(5).setPreferredWidth(40);
         columnModel.getColumn(6).setPreferredWidth(40);
 
+        TableColumnModel columnModelVentas = frm_venta.tlbStockPantallaVenta.getColumnModel();
+
+        columnModelVentas.getColumn(0).setPreferredWidth(15);
+        columnModelVentas.getColumn(1).setPreferredWidth(60);
+        columnModelVentas.getColumn(2).setPreferredWidth(100);
+        columnModelVentas.getColumn(3).setPreferredWidth(40);
+        columnModelVentas.getColumn(4).setPreferredWidth(40);
+        columnModelVentas.getColumn(5).setPreferredWidth(40);
+        columnModelVentas.getColumn(6).setPreferredWidth(40);
+
         System.out.println(ANSI_YELLOW + "---ACOMODANDO TAMAÑO COLUMNAS TABLA: producto---");
+        System.out.println(ANSI_YELLOW + "---ACOMODANDO TAMAÑO COLUMNAS TABLA: ventas---");
         System.out.println(ANSI_CYAN + "----------------------------------------------------------");
 
     }
@@ -304,6 +410,19 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
     @Override
     public void mousePressed(MouseEvent e) {
+
+        if (e.getSource() == frm_venta.lbSalirVenta) {
+
+            frm_venta.setVisible(false);
+
+        }
+
+        if (e.getSource() == frm_pantalla_principal.lbVender) {
+
+            frm_venta.setVisible(true);
+            frm_venta.setLocationRelativeTo(null);
+
+        }
 
         if (e.getSource() == frm_pantalla_principal.lbGuardarProducto) {
 

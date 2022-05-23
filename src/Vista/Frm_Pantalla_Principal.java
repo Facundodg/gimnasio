@@ -49,9 +49,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         Icon fondo2 = new ImageIcon(imagen2.getImage().getScaledInstance(jrbmujerIMC.getWidth(), jrbmujerIMC.getHeight(), Image.SCALE_DEFAULT));
         jrbmujerIMC.setIcon(fondo2);
 
-        ImageIcon imagen3 = new ImageIcon(getClass().getResource("/img/bmi-bar.png")); //pones la ruta de la imagen
-        Icon fondo3 = new ImageIcon(imagen3.getImage().getScaledInstance(lbBarraIMC.getWidth(), lbBarraIMC.getHeight(), Image.SCALE_DEFAULT));
-        lbBarraIMC.setIcon(fondo3);
+        //ImageIcon imagen3 = new ImageIcon(getClass().getResource("/img/bmi-bar.png")); //pones la ruta de la imagen
+        //Icon fondo3 = new ImageIcon(imagen3.getImage().getScaledInstance(lbBarraIMC.getWidth(), lbBarraIMC.getHeight(), Image.SCALE_DEFAULT));
+        //lbBarraIMC.setIcon(fondo3);
 
         ImageIcon imagen4 = new ImageIcon(getClass().getResource("/img/discord_icon.png")); //pones la ruta de la imagen
         Icon fondo4 = new ImageIcon(imagen4.getImage().getScaledInstance(48, 38, Image.SCALE_DEFAULT));
@@ -131,11 +131,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jcbFiltrar = new javax.swing.JComboBox<>();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
+        lbCapital = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
-        lbHistorial = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
-        lbHistorial1 = new javax.swing.JLabel();
+        lbVender = new javax.swing.JLabel();
+        lbCantidadDeProductos = new javax.swing.JLabel();
         lbHistorial2 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
@@ -300,10 +299,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jcbObjetivo = new javax.swing.JComboBox<>();
-        lbBarraIMC = new javax.swing.JLabel();
-        jPGraficaPastel = new javax.swing.JPanel();
-        jScrollPane8 = new javax.swing.JScrollPane();
         jPanel14 = new javax.swing.JPanel();
+        lbAyudaCalculadora = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        lbLimpiarCamposCalculadora = new javax.swing.JLabel();
+        jPGraficaPastel = new javax.swing.JPanel();
+        lbVolverTurno = new javax.swing.JLabel();
         lbResultadoIMC = new javax.swing.JLabel();
         lbResultadoTMB = new javax.swing.JLabel();
         lbResultadoTMBObjetivo = new javax.swing.JLabel();
@@ -314,7 +315,16 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbGramosCarbohidrato = new javax.swing.JLabel();
         lbGramosGrasa = new javax.swing.JLabel();
         lbGramosProteina = new javax.swing.JLabel();
-        lbVolverTurno = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
         jPanel21 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         btnModoNocturno = new java.awt.Button();
@@ -568,7 +578,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbGuardarProducto.setText("GUARDAR");
         lbGuardarProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbGuardarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbGuardarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 115, 40));
+        jPanel3.add(lbGuardarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 150, 40));
 
         lbModificarProducto.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -576,7 +586,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarProducto.setText("MODIFICAR");
         lbModificarProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 550, 115, 40));
+        jPanel3.add(lbModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 550, 150, 40));
 
         lbGenerarPDFProducto.setForeground(new java.awt.Color(0, 0, 0));
         lbGenerarPDFProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -584,7 +594,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbGenerarPDFProducto.setText("PDF");
         lbGenerarPDFProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbGenerarPDFProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbGenerarPDFProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 550, 115, 40));
+        jPanel3.add(lbGenerarPDFProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 550, 130, 40));
 
         lbEliminarrProducto.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarrProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -592,7 +602,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarrProducto.setText("ELIMINAR");
         lbEliminarrProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarrProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbEliminarrProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 550, 115, 40));
+        jPanel3.add(lbEliminarrProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 550, 130, 40));
 
         lbLimpiarProducto.setForeground(new java.awt.Color(0, 0, 0));
         lbLimpiarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -600,7 +610,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbLimpiarProducto.setText("LIMPIAR");
         lbLimpiarProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbLimpiarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbLimpiarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 115, 40));
+        jPanel3.add(lbLimpiarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, 140, 40));
 
         jLabel51.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(0, 0, 0));
@@ -622,39 +632,28 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 240, 20));
 
-        jLabel59.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel59.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel59.setText("CAPITAL:");
-        jLabel59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 150, 20));
+        lbCapital.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbCapital.setForeground(new java.awt.Color(0, 0, 0));
+        lbCapital.setText("CAPITAL:");
+        jPanel3.add(lbCapital, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 170, 20));
 
         jLabel62.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel62.setText("CAJA:");
-        jLabel62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 150, 20));
+        jLabel62.setText("CAJA: 1");
+        jPanel3.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 170, 20));
 
-        lbHistorial.setForeground(new java.awt.Color(0, 0, 0));
-        lbHistorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/venta.png"))); // NOI18N
-        lbHistorial.setText("VENDER");
-        lbHistorial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 103, 115, 40));
+        lbVender.setForeground(new java.awt.Color(0, 0, 0));
+        lbVender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/venta.png"))); // NOI18N
+        lbVender.setText("VENDER");
+        lbVender.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbVender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(lbVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 103, 115, 40));
 
-        jLabel61.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel61.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel61.setText("CANT DE PRODUCTOS:");
-        jLabel61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 240, 20));
-
-        lbHistorial1.setForeground(new java.awt.Color(0, 0, 0));
-        lbHistorial1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbHistorial1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/historial.png"))); // NOI18N
-        lbHistorial1.setText("HISTORIAL");
-        lbHistorial1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbHistorial1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(lbHistorial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 115, 40));
+        lbCantidadDeProductos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbCantidadDeProductos.setForeground(new java.awt.Color(0, 0, 0));
+        lbCantidadDeProductos.setText("CANT DE PRODUCTOS:");
+        jPanel3.add(lbCantidadDeProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 240, 20));
 
         lbHistorial2.setForeground(new java.awt.Color(0, 0, 0));
         lbHistorial2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -674,7 +673,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel63.setForeground(new java.awt.Color(0, 0, 0));
         jLabel63.setText("VENDIDO HOY:");
         jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 150, 20));
+        jPanel3.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 170, 20));
 
         jTabbedPaneMain.addTab("TIENDA", jPanel3);
 
@@ -1633,19 +1632,20 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         pnlCalcularIMC.setForeground(new java.awt.Color(0, 0, 0));
         pnlCalcularIMC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pnlCalcularIMC.setText("CALCULAR ");
+        pnlCalcularIMC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
         jPanel25Layout.setHorizontalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalcularIMC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addComponent(pnlCalcularIMC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlCalcularIMC, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel24.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 200, 30));
+        jPanel24.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 200, 30));
 
         jSlPeso.setBackground(new java.awt.Color(102, 102, 255));
         jSlPeso.setForeground(new java.awt.Color(255, 255, 255));
@@ -1718,7 +1718,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jcbIntencidadEntrenamiento.setBackground(new java.awt.Color(255, 255, 255));
         jcbIntencidadEntrenamiento.setForeground(new java.awt.Color(0, 0, 0));
         jcbIntencidadEntrenamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Muy Ligero", "Ligero", "Moderado", "Activo", "Muy Activo" }));
-        jPanel24.add(jcbIntencidadEntrenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 220, 30));
+        jPanel24.add(jcbIntencidadEntrenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 210, 30));
 
         jLabel43.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(0, 0, 0));
@@ -1730,20 +1730,56 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel44.setForeground(new java.awt.Color(0, 0, 0));
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel44.setText("Objetivo");
-        jPanel24.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 220, 20));
+        jPanel24.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 210, 20));
 
         jcbObjetivo.setBackground(new java.awt.Color(255, 255, 255));
         jcbObjetivo.setForeground(new java.awt.Color(0, 0, 0));
         jcbObjetivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bajar Peso", "Subir Peso", "Mantener Peso" }));
-        jPanel24.add(jcbObjetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 220, 30));
+        jPanel24.add(jcbObjetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 210, 30));
 
-        jPanel19.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 240, 600));
+        jPanel14.setBackground(new java.awt.Color(51, 255, 51));
 
-        lbBarraIMC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbBarraIMC.setForeground(new java.awt.Color(102, 255, 0));
-        lbBarraIMC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbBarraIMC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel19.add(lbBarraIMC, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 550, 300, 40));
+        lbAyudaCalculadora.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbAyudaCalculadora.setForeground(new java.awt.Color(0, 0, 0));
+        lbAyudaCalculadora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbAyudaCalculadora.setText("AYUDA");
+        lbAyudaCalculadora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbAyudaCalculadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbAyudaCalculadora, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel24.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 530, 70, -1));
+
+        jPanel20.setBackground(new java.awt.Color(51, 255, 51));
+
+        lbLimpiarCamposCalculadora.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbLimpiarCamposCalculadora.setForeground(new java.awt.Color(0, 0, 0));
+        lbLimpiarCamposCalculadora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbLimpiarCamposCalculadora.setText("LIMPIAR CAMPOS");
+        lbLimpiarCamposCalculadora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbLimpiarCamposCalculadora, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbLimpiarCamposCalculadora, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel24.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 120, -1));
+
+        jPanel19.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 240, 610));
 
         jPGraficaPastel.setBackground(new java.awt.Color(204, 204, 255));
         jPGraficaPastel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1761,124 +1797,123 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jPanel19.add(jPGraficaPastel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 200));
 
-        jScrollPane8.setBackground(new java.awt.Color(204, 204, 255));
-
-        lbResultadoIMC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbResultadoIMC.setForeground(new java.awt.Color(102, 204, 0));
-        lbResultadoIMC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbResultadoIMC.setText("txt IMC");
-        lbResultadoIMC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbResultadoTMB.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbResultadoTMB.setForeground(new java.awt.Color(102, 204, 0));
-        lbResultadoTMB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbResultadoTMB.setText("txt TMB");
-        lbResultadoTMB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbResultadoTMBObjetivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbResultadoTMBObjetivo.setForeground(new java.awt.Color(102, 204, 0));
-        lbResultadoTMBObjetivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbResultadoTMBObjetivo.setText("txt TMB OBJETIVO");
-        lbResultadoTMBObjetivo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbResultadoGC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbResultadoGC.setForeground(new java.awt.Color(102, 204, 0));
-        lbResultadoGC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbResultadoGC.setText("txt GC");
-        lbResultadoGC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbCaloriasCarbono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbCaloriasCarbono.setForeground(new java.awt.Color(102, 204, 0));
-        lbCaloriasCarbono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbCaloriasCarbono.setText("txt Calorias carbohidratos");
-        lbCaloriasCarbono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbCaloriasGrasa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbCaloriasGrasa.setForeground(new java.awt.Color(102, 204, 0));
-        lbCaloriasGrasa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbCaloriasGrasa.setText("txt Calorias grasa");
-        lbCaloriasGrasa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbCaloriasProteina.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbCaloriasProteina.setForeground(new java.awt.Color(102, 204, 0));
-        lbCaloriasProteina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbCaloriasProteina.setText("txt Calorias proteina");
-        lbCaloriasProteina.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbGramosCarbohidrato.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbGramosCarbohidrato.setForeground(new java.awt.Color(102, 204, 0));
-        lbGramosCarbohidrato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbGramosCarbohidrato.setText("txt Gramos cabohidratos");
-        lbGramosCarbohidrato.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbGramosGrasa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbGramosGrasa.setForeground(new java.awt.Color(102, 204, 0));
-        lbGramosGrasa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbGramosGrasa.setText("txt Gramos grasas");
-        lbGramosGrasa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbGramosProteina.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbGramosProteina.setForeground(new java.awt.Color(102, 204, 0));
-        lbGramosProteina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbGramosProteina.setText("txt Gramos proteina");
-        lbGramosProteina.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lbGramosProteina, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                    .addComponent(lbGramosGrasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbGramosCarbohidrato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbCaloriasProteina, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbCaloriasGrasa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbCaloriasCarbono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                    .addComponent(lbResultadoGC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbResultadoTMBObjetivo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbResultadoTMB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbResultadoIMC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbResultadoIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbResultadoTMB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbResultadoTMBObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbResultadoGC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbCaloriasCarbono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbCaloriasGrasa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbCaloriasProteina, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbGramosCarbohidrato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbGramosGrasa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbGramosProteina, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
-        );
-
-        jScrollPane8.setViewportView(jPanel14);
-
-        jPanel19.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 310, 320));
-
         lbVolverTurno.setForeground(new java.awt.Color(0, 0, 0));
         lbVolverTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbVolverTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
         lbVolverTurno.setText("VOLVER A TURNOS");
         lbVolverTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbVolverTurno.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel19.add(lbVolverTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 170, 40));
+        jPanel19.add(lbVolverTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, 170, 40));
+
+        lbResultadoIMC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbResultadoIMC.setForeground(new java.awt.Color(102, 204, 0));
+        lbResultadoIMC.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbResultadoIMC.setText("txt IMC");
+        jPanel19.add(lbResultadoIMC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 350, 30));
+
+        lbResultadoTMB.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbResultadoTMB.setForeground(new java.awt.Color(102, 204, 0));
+        lbResultadoTMB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbResultadoTMB.setText("txt TMB");
+        jPanel19.add(lbResultadoTMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 350, 30));
+
+        lbResultadoTMBObjetivo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbResultadoTMBObjetivo.setForeground(new java.awt.Color(102, 204, 0));
+        lbResultadoTMBObjetivo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbResultadoTMBObjetivo.setText("txt TMB OBJETIVO");
+        jPanel19.add(lbResultadoTMBObjetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 280, 30));
+
+        lbResultadoGC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbResultadoGC.setForeground(new java.awt.Color(102, 204, 0));
+        lbResultadoGC.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbResultadoGC.setText("txt GC");
+        jPanel19.add(lbResultadoGC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 270, 30));
+
+        lbCaloriasCarbono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbCaloriasCarbono.setForeground(new java.awt.Color(102, 204, 0));
+        lbCaloriasCarbono.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbCaloriasCarbono.setText("txt Calorias carbohidratos");
+        jPanel19.add(lbCaloriasCarbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 220, 30));
+
+        lbCaloriasGrasa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbCaloriasGrasa.setForeground(new java.awt.Color(102, 204, 0));
+        lbCaloriasGrasa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbCaloriasGrasa.setText("txt Calorias grasa");
+        jPanel19.add(lbCaloriasGrasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 220, 30));
+
+        lbCaloriasProteina.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbCaloriasProteina.setForeground(new java.awt.Color(102, 204, 0));
+        lbCaloriasProteina.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbCaloriasProteina.setText("txt Calorias proteina");
+        jPanel19.add(lbCaloriasProteina, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 250, 30));
+
+        lbGramosCarbohidrato.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbGramosCarbohidrato.setForeground(new java.awt.Color(102, 204, 0));
+        lbGramosCarbohidrato.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbGramosCarbohidrato.setText("txt Gramos cabohidratos");
+        jPanel19.add(lbGramosCarbohidrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 220, 30));
+
+        lbGramosGrasa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbGramosGrasa.setForeground(new java.awt.Color(102, 204, 0));
+        lbGramosGrasa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbGramosGrasa.setText("txt Gramos grasas");
+        jPanel19.add(lbGramosGrasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, 270, 30));
+
+        lbGramosProteina.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbGramosProteina.setForeground(new java.awt.Color(102, 204, 0));
+        lbGramosProteina.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbGramosProteina.setText("txt Gramos proteina");
+        jPanel19.add(lbGramosProteina, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 260, 20));
+
+        jLabel47.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel47.setText("Gramos Proteina:");
+        jPanel19.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, -1, 20));
+
+        jLabel48.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel48.setText("IMC:");
+        jPanel19.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, 30));
+
+        jLabel49.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel49.setText("TMB:");
+        jPanel19.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, 30));
+
+        jLabel50.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel50.setText("TMB Objetivo:");
+        jPanel19.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 30));
+
+        jLabel53.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel53.setText("Grasa Corporal:");
+        jPanel19.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, 30));
+
+        jLabel54.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel54.setText("Calorias Carbohidratos:");
+        jPanel19.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, 30));
+
+        jLabel55.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel55.setText("Calorias Carbohidratos:");
+        jPanel19.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, 30));
+
+        jLabel56.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel56.setText("Calorias Proteina:");
+        jPanel19.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, 30));
+
+        jLabel64.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel64.setText("Gramos Carbohidratos:");
+        jPanel19.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, 30));
+
+        jLabel74.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel74.setText("Gramos Grasas:");
+        jPanel19.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, -1, 30));
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -2423,17 +2458,24 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
@@ -2444,6 +2486,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPGraficaPastel;
@@ -2459,6 +2502,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     public javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
@@ -2484,7 +2528,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     public javax.swing.JSlider jSlAltura;
     public javax.swing.JSlider jSlCC;
     public javax.swing.JSlider jSlEdad;
@@ -2511,10 +2554,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JRadioButton jrbOtro;
     public javax.swing.JRadioButton jrbhombreIMC;
     public javax.swing.JRadioButton jrbmujerIMC;
-    public javax.swing.JLabel lbBarraIMC;
+    public javax.swing.JLabel lbAyudaCalculadora;
     public javax.swing.JLabel lbCaloriasCarbono;
     public javax.swing.JLabel lbCaloriasGrasa;
     public javax.swing.JLabel lbCaloriasProteina;
+    public javax.swing.JLabel lbCantidadDeProductos;
+    public javax.swing.JLabel lbCapital;
     public javax.swing.JLabel lbCerrarSesion;
     public javax.swing.JLabel lbEliminarCliente;
     public javax.swing.JLabel lbEliminarRutina;
@@ -2533,12 +2578,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbGuardarProducto;
     public javax.swing.JLabel lbGuardarProducto2;
     public javax.swing.JLabel lbGuardarTurno;
-    public javax.swing.JLabel lbHistorial;
-    public javax.swing.JLabel lbHistorial1;
     public javax.swing.JLabel lbHistorial2;
     public javax.swing.JLabel lbIdRutina;
     public javax.swing.JLabel lbIdRutina1;
     public javax.swing.JLabel lbIrCalculadora;
+    public javax.swing.JLabel lbLimpiarCamposCalculadora;
     public javax.swing.JLabel lbLimpiarCliente;
     public javax.swing.JLabel lbLimpiarProducto;
     public javax.swing.JLabel lbLimpiarTurno;
@@ -2558,6 +2602,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbResultadoTMBObjetivo;
     public javax.swing.JLabel lbSalirSistema;
     public javax.swing.JLabel lbUsuarioImagen;
+    public javax.swing.JLabel lbVender;
     public javax.swing.JLabel lbVolverTurno;
     public javax.swing.JLabel lbguardarRutina;
     public javax.swing.JPanel panel_salir_sistema;

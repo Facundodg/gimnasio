@@ -6,27 +6,29 @@
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Crud_producto.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Pdf.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/Frm_Ingreso.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_rutina.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Conexion.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Configuraciones.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_cliente.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/ColorCeldaProducto.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/Frm_Pantalla_Principal.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Crud_cliente.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/Frm_usuario_info.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_producto.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/Frm_veridicacion_Cliente.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Crud_Pdf.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/imgTabla.java</file>
-            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_rutina.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Tabla_Pdf.java</file>
-            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Conexion.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_nutricionista.java</file>
-            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Configuraciones.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Turno.java</file>
-            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_cliente.java</file>
-            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/ColorCeldaProducto.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Crud_usuario.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/Frm_registro.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Crud_turno.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/gimnasio/Gimnasio.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_usuario.java</file>
-            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/Frm_Pantalla_Principal.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_configuraciones.java</file>
-            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Crud_cliente.java</file>
+            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Modelo/Imagen.java</file>
             <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Controlador/Crl_turno.java</file>
-            <file>file:/C:/Users/Claudia/Documents/Gimnasio/src/Vista/Frm_usuario_info.java</file>
         </group>
     </open-files>
 </project-private>

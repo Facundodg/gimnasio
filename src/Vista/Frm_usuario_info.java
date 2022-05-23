@@ -43,6 +43,7 @@ public class Frm_usuario_info extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         lbPuestoInfo2 = new javax.swing.JLabel();
         lbFotoInfoUsuario = new com.bolivia.label.CLabel();
+        lbSalirVenta1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -53,15 +54,15 @@ public class Frm_usuario_info extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOMBRE:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 60, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 60, 20));
 
         lbPuestoInfo.setForeground(new java.awt.Color(0, 0, 0));
         lbPuestoInfo.setText("PUEST");
-        jPanel1.add(lbPuestoInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, -1));
+        jPanel1.add(lbPuestoInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 60, -1));
 
         lbId.setForeground(new java.awt.Color(0, 0, 0));
         lbId.setText("id");
-        jPanel1.add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 40, 30));
+        jPanel1.add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 40, 30));
 
         lbSalirCuentaUsuarioInfo.setForeground(new java.awt.Color(0, 0, 255));
         lbSalirCuentaUsuarioInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -76,7 +77,7 @@ public class Frm_usuario_info extends javax.swing.JFrame {
                 lbSalirCuentaUsuarioInfoMouseExited(evt);
             }
         });
-        jPanel1.add(lbSalirCuentaUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 130, 30));
+        jPanel1.add(lbSalirCuentaUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 130, 30));
 
         lbBorrarCuenta.setForeground(new java.awt.Color(0, 0, 255));
         lbBorrarCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -90,7 +91,7 @@ public class Frm_usuario_info extends javax.swing.JFrame {
                 lbBorrarCuentaMouseExited(evt);
             }
         });
-        jPanel1.add(lbBorrarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 120, 30));
+        jPanel1.add(lbBorrarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 120, 30));
 
         lbSalirUsuarioInfo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lbSalirUsuarioInfo.setForeground(new java.awt.Color(0, 0, 0));
@@ -103,24 +104,24 @@ public class Frm_usuario_info extends javax.swing.JFrame {
                 jcbTamañoFuenteTablaActionPerformed(evt);
             }
         });
-        jPanel1.add(jcbTamañoFuenteTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 130, -1));
+        jPanel1.add(jcbTamañoFuenteTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 130, -1));
 
         jrbSonido.setBackground(new java.awt.Color(204, 204, 255));
         jrbSonido.setForeground(new java.awt.Color(0, 0, 0));
         jrbSonido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jrbSonido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jrbSonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 50, 50));
+        jPanel1.add(jrbSonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 50, 50));
 
         jrbModoNocturno.setBackground(new java.awt.Color(204, 204, 255));
         jrbModoNocturno.setForeground(new java.awt.Color(0, 0, 0));
         jrbModoNocturno.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jrbModoNocturno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jrbModoNocturno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 50, 50));
+        jPanel1.add(jrbModoNocturno, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 50, 50));
 
         lbPuestoInfo1.setForeground(new java.awt.Color(0, 0, 0));
         lbPuestoInfo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbPuestoInfo1.setText("TAMAÑO DE FUENTE DE LA TABLA");
-        jPanel1.add(lbPuestoInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 200, 30));
+        jPanel1.add(lbPuestoInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 200, 30));
 
         lbCambiar.setForeground(new java.awt.Color(0, 0, 255));
         lbCambiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -134,19 +135,19 @@ public class Frm_usuario_info extends javax.swing.JFrame {
                 lbCambiarMouseExited(evt);
             }
         });
-        jPanel1.add(lbCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, 30));
+        jPanel1.add(lbCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 80, 30));
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("PUESTO:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 60, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 60, -1));
 
         lbNombreUsuarioInfo.setForeground(new java.awt.Color(0, 0, 0));
         lbNombreUsuarioInfo.setText("NAME");
-        jPanel1.add(lbNombreUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 90, 20));
+        jPanel1.add(lbNombreUsuarioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 90, 20));
 
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("ID:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 20, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 20, 30));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -154,15 +155,20 @@ public class Frm_usuario_info extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 130, -1));
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 130, -1));
 
         lbPuestoInfo2.setForeground(new java.awt.Color(0, 0, 0));
         lbPuestoInfo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbPuestoInfo2.setText("IDIOMA");
-        jPanel1.add(lbPuestoInfo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 60, 30));
+        jPanel1.add(lbPuestoInfo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 60, 30));
 
         lbFotoInfoUsuario.setText("");
-        jPanel1.add(lbFotoInfoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        jPanel1.add(lbFotoInfoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+
+        lbSalirVenta1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lbSalirVenta1.setForeground(new java.awt.Color(0, 0, 0));
+        lbSalirVenta1.setText("USAURIO");
+        jPanel1.add(lbSalirVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,7 +178,7 @@ public class Frm_usuario_info extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -281,5 +287,6 @@ public class Frm_usuario_info extends javax.swing.JFrame {
     public javax.swing.JLabel lbPuestoInfo2;
     public javax.swing.JLabel lbSalirCuentaUsuarioInfo;
     public javax.swing.JLabel lbSalirUsuarioInfo;
+    public javax.swing.JLabel lbSalirVenta1;
     // End of variables declaration//GEN-END:variables
 }
