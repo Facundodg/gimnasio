@@ -52,6 +52,8 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
         this.frm_pantalla_principal.txtBuscarProducto.addKeyListener(this);
         this.frm_pantalla_principal.jcbFiltrar.addItemListener(this);
 
+        this.frm_venta.txtBuscadorProductosVentas.addKeyListener(this);
+
         frm_pantalla_principal.lbCerrarSesion.addMouseListener(this);
         frm_pantalla_principal.lbVender.addMouseListener(this);
         frm_pantalla_principal.popuItemEliminarProducto.addMouseListener(this);
@@ -311,6 +313,8 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
             frm_pantalla_principal.tlbProductos.setModel(modelo);
             TamañoColumnasCliente();
+            
+            con.close();
 
         } catch (Exception e) {
 
@@ -355,6 +359,96 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
             frm_pantalla_principal.tlbProductos.setModel(modelo);
             TamañoColumnasCliente();
+            con.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+
+    }
+
+    //a la hora de buscar dependiendo del tipo de busqueda filtra por "NOMBRE" en la ventana "VENTAS"
+    public void FiltrarDatosNombreVentas(String valor) {
+
+        String[] titulos = {"Id", "Codigo", "Nombre", "Costo", "Venta", "Cantidad", "Fecha"};
+        String[] registros = new String[8];
+
+        PreparedStatement ps = null;
+        Conexion conn = new Conexion();
+        Connection con = conn.getConexion();
+
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+
+        String sql = "select * from producto where Nombre like '%" + valor + "%'    ";
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                registros[0] = rs.getString("Id");
+                registros[1] = rs.getString("Codigo");
+                registros[2] = rs.getString("Nombre");
+                registros[3] = rs.getString("Costo");
+                registros[4] = rs.getString("Venta");
+                registros[5] = rs.getString("Cantidad");
+                registros[6] = rs.getString("Fecha");
+
+                modelo.addRow(registros);
+
+            }
+
+            frm_venta.tlbStockPantallaVenta.setModel(modelo);
+            TamañoColumnasCliente();
+            con.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+
+    }
+
+    public void FiltrarDatosCodigoVentas(String valor) {
+
+        String[] titulos = {"Id", "Codigo", "Nombre", "Costo", "Venta", "Cantidad", "Fecha"};
+        String[] registros = new String[8];
+
+        PreparedStatement ps = null;
+        Conexion conn = new Conexion();
+        Connection con = conn.getConexion();
+
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+
+        String sql = "select * from producto where Codigo like '%" + valor + "%'    ";
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                registros[0] = rs.getString("Id");
+                registros[1] = rs.getString("Codigo");
+                registros[2] = rs.getString("Nombre");
+                registros[3] = rs.getString("Costo");
+                registros[4] = rs.getString("Venta");
+                registros[5] = rs.getString("Cantidad");
+                registros[6] = rs.getString("Fecha");
+
+                modelo.addRow(registros);
+
+            }
+
+            frm_venta.tlbStockPantallaVenta.setModel(modelo);
+            TamañoColumnasCliente();
+            con.close();
 
         } catch (Exception e) {
 
@@ -399,6 +493,23 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
             System.out.println(".......esta buscando por nombre..........");
             FiltrarDatosNombre(frm_pantalla_principal.txtBuscarProducto.getText());
             System.out.println(ANSI_GREEN + "Buscando Producto: " + ANSI_RESET + frm_pantalla_principal.txtBuscarProducto.getText());
+        }
+
+        //Nombre Producto, Codigo
+        String metodoBusquedaVenta = frm_venta.jcbTipoDeBusqueda.getSelectedItem().toString();
+
+        if (metodoBusquedaVenta.equals("Nombre Producto")) {
+
+            System.out.println(".......esta buscando por nombre en la ventana ventas..........");
+            FiltrarDatosNombreVentas(frm_venta.txtBuscadorProductosVentas.getText());
+            System.out.println(ANSI_GREEN + "Buscando Producto: " + ANSI_RESET + frm_venta.txtBuscadorProductosVentas.getText());
+
+        } else if (metodoBusquedaVenta.equals("Codigo de Barra")) {
+
+            System.out.println(".......esta buscando por codigo en la ventana ventas..........");
+            FiltrarDatosCodigoVentas(frm_venta.txtBuscadorProductosVentas.getText());
+            System.out.println(ANSI_GREEN + "Buscando Producto: " + ANSI_RESET + frm_venta.txtBuscadorProductosVentas.getText());
+
         }
 
     }
