@@ -313,7 +313,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
             frm_pantalla_principal.tlbProductos.setModel(modelo);
             TamañoColumnasCliente();
-            
+
             con.close();
 
         } catch (Exception e) {
@@ -414,6 +414,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
     }
 
+    //FILTRA LOS PRODUCTOS DE MANERA MANUAL
     public void FiltrarDatosCodigoVentas(String valor) {
 
         String[] titulos = {"Id", "Codigo", "Nombre", "Costo", "Venta", "Cantidad", "Fecha"};
@@ -455,6 +456,78 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
             JOptionPane.showMessageDialog(null, e);
 
         }
+
+    }
+
+    //FILTRA LOS PRODUCTOS / REVISA QUE TENGAS STOCK Y LO AGREGA AL CARRITO
+    public void agregarCarrito(String valor) {
+
+        String[] registros = new String[6];
+        DefaultTableModel m;
+
+        Conexion conn = new Conexion();
+        Connection con = conn.getConexion();
+
+        //DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String sql = "select * from producto where Codigo like '%" + valor + "%'    ";
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                registros[0] = rs.getString("Codigo");
+                registros[1] = rs.getString("Nombre");
+                registros[2] = rs.getString("Cantidad");
+                registros[3] = rs.getString("Costo");
+                registros[4] = rs.getString("Venta");
+
+                double total = Integer.parseInt(frm_venta.txtCantidadProductosVentas.getText()) * Double.parseDouble(registros[4]);
+
+                registros[5] = String.valueOf(total);
+
+                //modelo.addRow(registros);
+            }
+
+            if (Integer.parseInt(registros[2]) >= Integer.parseInt(frm_venta.txtCantidadProductosVentas.getText())) {
+
+                m = (DefaultTableModel) frm_venta.tlbCarrito.getModel();
+                m.addRow(registros);
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "FALTA DE STOCK EN ESTE PRODUCTO " + registros[1]);
+
+            }
+
+            frm_venta.lbTotal.setText("TOTAL: " +ActualizaTotal()+ "$");
+                    
+            con.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+
+    }
+
+    //METODO DE ACTUALIZAR TOTAL
+    public double ActualizaTotal() {
+
+        int contar = frm_venta.tlbCarrito.getRowCount();
+
+        double suma = 0.0;
+
+        for (int i = 0; i < contar; i++) {
+
+            suma = suma + Double.parseDouble(frm_venta.tlbCarrito.getValueAt(i, 5).toString());
+
+        }
+
+        return suma;
 
     }
 
@@ -504,7 +577,19 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
             FiltrarDatosNombreVentas(frm_venta.txtBuscadorProductosVentas.getText());
             System.out.println(ANSI_GREEN + "Buscando Producto: " + ANSI_RESET + frm_venta.txtBuscadorProductosVentas.getText());
 
-        } else if (metodoBusquedaVenta.equals("Codigo de Barra")) {
+        } else if (metodoBusquedaVenta.equals("Codigo de Barra (aparato)")) {
+
+            //7790895068164
+            if (frm_venta.txtBuscadorProductosVentas.getText().length() == 13) {
+
+                System.out.println(".......esta buscando por codigo en la ventana ventas..........");
+                agregarCarrito(frm_venta.txtBuscadorProductosVentas.getText());
+                System.out.println(ANSI_GREEN + "Buscando Producto: " + ANSI_RESET + frm_venta.txtBuscadorProductosVentas.getText());
+                frm_venta.txtBuscadorProductosVentas.setText("");
+
+            }
+
+        } else if (metodoBusquedaVenta.equals("Codigo de Barra (manual)")) {
 
             System.out.println(".......esta buscando por codigo en la ventana ventas..........");
             FiltrarDatosCodigoVentas(frm_venta.txtBuscadorProductosVentas.getText());

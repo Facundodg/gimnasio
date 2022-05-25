@@ -629,7 +629,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel58.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(0, 0, 0));
         jLabel58.setText("VENDIDOS EN EL MES:");
-        jLabel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 240, 20));
 
         lbCapital.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -666,13 +665,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel60.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(0, 0, 0));
         jLabel60.setText("GANANCIA DEL MES:");
-        jLabel60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 240, 20));
 
         jLabel63.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel63.setForeground(new java.awt.Color(0, 0, 0));
         jLabel63.setText("VENDIDO HOY:");
-        jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 170, 20));
 
         jTabbedPaneMain.addTab("TIENDA", jPanel3);
