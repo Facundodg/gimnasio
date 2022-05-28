@@ -67,6 +67,9 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
         frm_pantalla_principal.lbLimpiarProducto.addMouseListener(this);
 
         frm_venta.lbSalirVenta.addMouseListener(this);
+        frm_venta.lbEliminarProductoCarrito.addMouseListener(this);
+        frm_venta.lbAgregarProductoAlCarrito.addMouseListener(this);
+        frm_venta.lbLimpiarCarrito.addMouseListener(this);
 
         refrescarTabla();
         capital();
@@ -464,6 +467,12 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
         String[] registros = new String[6];
         DefaultTableModel m;
+        m = (DefaultTableModel) frm_venta.tlbCarrito.getModel();
+        String codigo;
+        int puntero = 0;
+        int cantidad;
+        String cantidadBD = "";
+        
 
         Conexion conn = new Conexion();
         Connection con = conn.getConexion();
@@ -480,9 +489,11 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
                 registros[0] = rs.getString("Codigo");
                 registros[1] = rs.getString("Nombre");
-                registros[2] = rs.getString("Cantidad");
+                registros[2] = frm_venta.txtCantidadProductosVentas.getText();
                 registros[3] = rs.getString("Costo");
                 registros[4] = rs.getString("Venta");
+
+                cantidadBD = rs.getString("Cantidad");
 
                 double total = Integer.parseInt(frm_venta.txtCantidadProductosVentas.getText()) * Double.parseDouble(registros[4]);
 
@@ -491,10 +502,58 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
                 //modelo.addRow(registros);
             }
 
-            if (Integer.parseInt(registros[2]) >= Integer.parseInt(frm_venta.txtCantidadProductosVentas.getText())) {
+            if (Integer.parseInt(registros[2]) <= Integer.parseInt(cantidadBD)) {
 
-                m = (DefaultTableModel) frm_venta.tlbCarrito.getModel();
-                m.addRow(registros);
+                int contar = frm_venta.tlbCarrito.getRowCount();
+
+                int cantidadTotal = Integer.parseInt(registros[2]);
+
+                for (int i = 0; i < contar; i++) {
+
+                    codigo = frm_venta.tlbCarrito.getValueAt(i, 0).toString();
+
+                    if (codigo.equals(registros[0])) {
+
+                        cantidad = Integer.parseInt(frm_venta.tlbCarrito.getValueAt(i, 2).toString());
+                        cantidadTotal = cantidadTotal + cantidad;
+                        m.removeRow(i);
+                        break;
+                        
+                    }
+
+                }
+
+                if (Integer.parseInt(cantidadBD) >= cantidadTotal) {
+
+                    registros[2] = String.valueOf(cantidadTotal);
+
+                    double total = Integer.parseInt(registros[2]) * Double.parseDouble(registros[4]);
+
+                    registros[5] = String.valueOf(total);
+
+                    m.addRow(registros);
+
+                    frm_venta.lbTotal.setText("TOTAL: " + ActualizaTotal() + "$");
+                    frm_venta.lbGananciaTotalVenta.setText("GANANCIA: " + ActualizarGanancia() + "$");
+                    frm_venta.txtCantidadProductosVentas.setText("1");
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "FALTA DE STOCK PARA SEGUIR AGREGANDO");
+
+                    registros[2] = cantidadBD;
+
+                    double total = Integer.parseInt(registros[2]) * Double.parseDouble(registros[4]);
+
+                    registros[5] = String.valueOf(total);
+
+                    m.addRow(registros);
+
+                    frm_venta.lbTotal.setText("TOTAL: " + ActualizaTotal() + "$");
+                    frm_venta.lbGananciaTotalVenta.setText("GANANCIA: " + ActualizarGanancia() + "$");
+                    frm_venta.txtCantidadProductosVentas.setText("1");
+
+                }
 
             } else {
 
@@ -502,15 +561,117 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
             }
 
-            frm_venta.lbTotal.setText("TOTAL: " +ActualizaTotal()+ "$");
-                    
+            frm_venta.lbTotal.setText("TOTAL: " + ActualizaTotal() + "$");
+            frm_venta.lbGananciaTotalVenta.setText("GANANCIA: " + ActualizarGanancia() + "$");
+            frm_venta.txtCantidadProductosVentas.setText("1");
+
             con.close();
 
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
 
         }
+
+    }
+
+    //METODO PARA ELIMINAR UN PRODUCTO DEL CARRITO
+    public void EliminarProductosCarritos() {
+
+        DefaultTableModel m = new DefaultTableModel();
+        int filaSeleccionada;
+
+        try {
+
+            filaSeleccionada = frm_venta.tlbCarrito.getSelectedRow();
+
+            if (filaSeleccionada == -1) {
+
+                JOptionPane.showMessageDialog(null, "Seleccione la fila a elimnar del carrito.");
+
+                System.out.println("....................................");
+                System.out.println("No seleccionaste fila para eliminar.");
+
+            } else {
+
+                m = (DefaultTableModel) frm_venta.tlbCarrito.getModel();
+                m.removeRow(filaSeleccionada);
+
+                frm_venta.lbTotal.setText("TOTAL: " + ActualizaTotal() + "$");
+                frm_venta.lbGananciaTotalVenta.setText("GANANCIA: " + ActualizarGanancia() + "$");
+                frm_venta.txtCantidadProductosVentas.setText("1");
+
+            }
+
+        } catch (Exception e) {
+
+            System.out.println(e);
+
+        }
+
+    }
+
+    //METODO PARA LIMPIAR CARRITO
+    public void limpiaCarrito() {
+
+        DefaultTableModel m = new DefaultTableModel();
+
+        int filas = m.getRowCount();
+
+        m.addColumn("Codigo");
+        m.addColumn("Nombre");
+        m.addColumn("Cantidad");
+        m.addColumn("Costo");
+        m.addColumn("Venta");
+        m.addColumn("Total");
+
+        for (int i = 0; i < filas; i++) {
+
+            m.removeRow(0);
+
+        }
+
+        frm_venta.tlbCarrito.setModel(m);
+        frm_venta.lbTotal.setText("TOTAL: " + ActualizaTotal() + "$");
+        frm_venta.lbGananciaTotalVenta.setText("GANANCIA: " + ActualizarGanancia() + "$");
+        frm_venta.txtCantidadProductosVentas.setText("1");
+
+    }
+
+    //METODO DE ACTUALIZAR LA GANANCIA
+    public double ActualizarGanancia() {
+
+        int contar = frm_venta.tlbCarrito.getRowCount();
+
+        double gananciaTotal = 0.0;
+
+        double ganancia = 0.0;
+
+        double costo = 0.0;
+
+        int cantidad = 0;
+
+        for (int i = 0; i < contar; i++) {
+
+            //ganancia = ganancia + Double.parseDouble(frm_venta.tlbCarrito.getValueAt(i, 5).toString());
+            cantidad = Integer.parseInt(frm_venta.tlbCarrito.getValueAt(i, 2).toString());
+
+            costo = Double.parseDouble(frm_venta.tlbCarrito.getValueAt(i, 3).toString());
+
+            ganancia = Double.parseDouble(frm_venta.tlbCarrito.getValueAt(i, 4).toString());
+
+            gananciaTotal = gananciaTotal + ((ganancia - costo) * cantidad);
+
+            ganancia = 0.0;
+
+            costo = 0.0;
+
+            cantidad = 0;
+
+        }
+
+        return gananciaTotal;
 
     }
 
@@ -607,9 +768,28 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
     @Override
     public void mousePressed(MouseEvent e) {
 
+        if (e.getSource() == frm_venta.lbLimpiarCarrito) {
+
+            limpiaCarrito();
+
+        }
+
+        if (e.getSource() == frm_venta.lbAgregarProductoAlCarrito) {
+
+            agregarCarrito(frm_venta.lbIdStockVenta.getText());
+
+        }
+
+        if (e.getSource() == frm_venta.lbEliminarProductoCarrito) {
+
+            EliminarProductosCarritos();
+
+        }
+
         if (e.getSource() == frm_venta.lbSalirVenta) {
 
             frm_venta.setVisible(false);
+            limpiaCarrito();
 
         }
 
