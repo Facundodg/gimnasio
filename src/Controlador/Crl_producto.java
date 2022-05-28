@@ -5,7 +5,7 @@ import static Controlador.Crl_cliente.ANSI_GREEN;
 import static Controlador.Crl_cliente.ANSI_RESET;
 import static Controlador.Crl_cliente.ANSI_YELLOW;
 import Modelo.Conexion;
-import Modelo.Crud_producto;
+import Servicios.Crud_producto;
 import Modelo.Producto;
 import Vista.Frm_Pantalla_Principal;
 import Vista.Frm_venta;
@@ -469,16 +469,14 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
         DefaultTableModel m;
         m = (DefaultTableModel) frm_venta.tlbCarrito.getModel();
         String codigo;
-        int puntero = 0;
         int cantidad;
         String cantidadBD = "";
-        
 
         Conexion conn = new Conexion();
         Connection con = conn.getConexion();
 
         //DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String sql = "select * from producto where Codigo like '%" + valor + "%'    ";
+        String sql = "select * from producto where Codigo like '%" + valor + "%'";
 
         try {
 
@@ -518,7 +516,7 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
                         cantidadTotal = cantidadTotal + cantidad;
                         m.removeRow(i);
                         break;
-                        
+
                     }
 
                 }

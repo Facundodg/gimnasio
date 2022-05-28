@@ -3,7 +3,7 @@ package Controlador;
 import static Controlador.Crl_cliente.ANSI_CYAN;
 import static Controlador.Crl_cliente.ANSI_YELLOW;
 import Modelo.Conexion;
-import Modelo.Crud_turno;
+import Servicios.Crud_turno;
 import Modelo.Turno;
 import Vista.Frm_Pantalla_Principal;
 import java.awt.event.ItemEvent;

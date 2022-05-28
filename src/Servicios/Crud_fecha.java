@@ -1,25 +1,31 @@
-package Modelo;
+package Servicios;
 
+import Modelo.Conexion;
+import Modelo.Fecha;
+import static Controlador.Crl_cliente.ANSI_CYAN;
+import static Controlador.Crl_cliente.ANSI_YELLOW;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class Crud_configuraciones extends Conexion {
+public class Crud_fecha extends Conexion {
 
-    // MODIFICAR MODO NOCTURNO
-    public boolean modificarModoNorcturno(Configuraciones conf) {
+    public boolean guardar_fecha_hoy(Fecha fech) {
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE configuraciones SET ModoNocturno=? WHERE usuarioId=?";
+        String sql = "INSERT INTO fecha (Fecha_hoy) VALUES (?)";
 
         try {
 
             ps = con.prepareStatement(sql);
 
-            ps.setBoolean(1, conf.getModoNocturno());
-            ps.setString(2, conf.getUsuarioId());
+            ps.setDate(1, fech.getFecha_hoy());
 
             ps.execute();
 
@@ -43,23 +49,20 @@ public class Crud_configuraciones extends Conexion {
 
             }
         }
-
     }
 
-    // MODIFICAR IDIOMA
-    public boolean modificarIdioma(Configuraciones conf) {
+    public boolean guardar_fecha_ayer(Fecha fech) {
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE configuraciones SET Idioma=? WHERE usuarioId=?";
+        String sql = "INSERT INTO fecha (Fecha_ayer) VALUES (?)";
 
         try {
 
             ps = con.prepareStatement(sql);
 
-            ps.setString(1, conf.getIdioma());
-            ps.setString(2, conf.getUsuarioId());
+            ps.setDate(1, fech.getFecha_ayer());
 
             ps.execute();
 
@@ -83,47 +86,68 @@ public class Crud_configuraciones extends Conexion {
 
             }
         }
+    }
 
+    public boolean modificar_fecha_hoy(Fecha fech) {
+
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+
+        String sql = "UPDATE fecha SET Fecha_hoy=? WHERE Id=?";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+
+            ps.setDate(1, fech.getFecha_hoy());
+            ps.setInt(2, fech.getId());
+
+            ps.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+
+            System.out.println(e);
+
+            return false;
+
+        } finally {
+
+            try {
+
+                con.close();
+
+            } catch (SQLException e) {
+
+                System.out.println(e);
+
+            }
+        }
     }
     
-    // MODIFICAR SONIDO
-    public boolean modificarSonido(Configuraciones conf) {
+    public void intercambiarFechas(Fecha fech){
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE configuraciones SET Sonido=? WHERE usuarioId=?";
+        String sql = "UPDATE fecha SET Fecha_ayer = Fecha_hoy";
 
         try {
 
             ps = con.prepareStatement(sql);
-
-            ps.setBoolean(1, conf.getSonido());
-            ps.setString(2, conf.getUsuarioId());
-
             ps.execute();
 
-            return true;
+            System.out.println(ANSI_YELLOW + "---SE INTERCAMBIO LAS FECHAS---");
+            System.out.println(ANSI_CYAN + "----------------------------------------------------------");
 
-        } catch (SQLException e) {
 
-            System.out.println(e);
+        } catch (SQLException ex) {
+            Logger.getLogger(Crud_dias.class.getName()).log(Level.SEVERE, null, ex);
 
-            return false;
-
-        } finally {
-
-            try {
-
-                con.close();
-
-            } catch (SQLException e) {
-
-                System.out.println(e);
-
-            }
         }
-
+        
     }
+
 
 }

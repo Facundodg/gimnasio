@@ -2,9 +2,9 @@ package Controlador;
 
 import Modelo.Cliente;
 import Modelo.Conexion;
-import Modelo.Crud_cliente;
-import Modelo.Crud_dias;
-import Modelo.Crud_fecha;
+import Servicios.Crud_cliente;
+import Servicios.Crud_dias;
+import Servicios.Crud_fecha;
 import Modelo.Dia;
 import Modelo.Fecha;
 import Vista.Frm_Pantalla_Principal;

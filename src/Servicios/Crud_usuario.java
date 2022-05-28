@@ -1,5 +1,7 @@
-package Modelo;
+package Servicios;
 
+import Modelo.Conexion;
+import Modelo.Usuario;
 import static Controlador.Crl_cliente.ANSI_CYAN;
 import static Controlador.Crl_cliente.ANSI_GREEN;
 import static Controlador.Crl_cliente.ANSI_RESET;

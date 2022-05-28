@@ -1,73 +1,27 @@
-package Modelo;
+package Servicios;
 
+import Modelo.Conexion;
+import Modelo.Configuraciones;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Crud_producto extends Conexion {
+public class Crud_configuraciones extends Conexion {
 
-    // GUARDAR
-    public boolean guardar(Producto pro) {
+    // MODIFICAR MODO NOCTURNO
+    public boolean modificarModoNorcturno(Configuraciones conf) {
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "INSERT INTO producto (Codigo,Nombre,Costo,Venta,Cantidad,Fecha) VALUES (?,?,?,?,?,?)";
+        String sql = "UPDATE configuraciones SET ModoNocturno=? WHERE usuarioId=?";
 
         try {
 
             ps = con.prepareStatement(sql);
 
-            ps.setString(1, pro.getCodigo_producto());
-            ps.setString(2, pro.getNombre_producto());
-            ps.setDouble(3, pro.getCosto_producto());
-            ps.setDouble(4, pro.getVenta_producto());
-            ps.setInt(5, pro.getCantidad_producto());
-            ps.setDate(6, pro.getFecha_producto());
-
-            ps.execute();
-
-            return true;
-
-        } catch (SQLException e) {
-
-            System.out.println(e);
-
-            return false;
-
-        } finally {
-
-            try {
-
-                con.close();
-
-            } catch (SQLException e) {
-
-                System.out.println(e);
-
-            }
-        }
-    }
-
-    // MODIFICAR
-    public boolean modificar(Producto pro) {
-
-        PreparedStatement ps = null;
-        Connection con = getConexion();
-
-        String sql = "UPDATE producto SET Codigo=?,Nombre=?,Costo=?,Venta=?,Cantidad=?,Fecha=? WHERE Id=?";
-
-        try {
-
-            ps = con.prepareStatement(sql);
-
-            ps.setString(1, pro.getCodigo_producto());
-            ps.setString(2, pro.getNombre_producto());
-            ps.setDouble(3, pro.getCosto_producto());
-            ps.setDouble(4, pro.getVenta_producto());
-            ps.setInt(5, pro.getCantidad_producto());
-            ps.setDate(6, pro.getFecha_producto());
-            ps.setInt(7, pro.getId_producto());
+            ps.setBoolean(1, conf.getModoNocturno());
+            ps.setString(2, conf.getUsuarioId());
 
             ps.execute();
 
@@ -94,19 +48,60 @@ public class Crud_producto extends Conexion {
 
     }
 
-    //ELIMINAR
-    public boolean eliminar(Producto pro) {
+    // MODIFICAR IDIOMA
+    public boolean modificarIdioma(Configuraciones conf) {
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM producto WHERE Id=?";
+        String sql = "UPDATE configuraciones SET Idioma=? WHERE usuarioId=?";
 
         try {
 
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1, pro.getId_producto());
+            ps.setString(1, conf.getIdioma());
+            ps.setString(2, conf.getUsuarioId());
+
+            ps.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+
+            System.out.println(e);
+
+            return false;
+
+        } finally {
+
+            try {
+
+                con.close();
+
+            } catch (SQLException e) {
+
+                System.out.println(e);
+
+            }
+        }
+
+    }
+    
+    // MODIFICAR SONIDO
+    public boolean modificarSonido(Configuraciones conf) {
+
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+
+        String sql = "UPDATE configuraciones SET Sonido=? WHERE usuarioId=?";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+
+            ps.setBoolean(1, conf.getSonido());
+            ps.setString(2, conf.getUsuarioId());
 
             ps.execute();
 

@@ -1,5 +1,7 @@
-package Modelo;
+package Servicios;
 
+import Modelo.Conexion;
+import Modelo.Pdf;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

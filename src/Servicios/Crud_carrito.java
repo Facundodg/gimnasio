@@ -1,29 +1,30 @@
-package Modelo;
+package Servicios;
 
-import static Controlador.Crl_cliente.ANSI_CYAN;
-import static Controlador.Crl_cliente.ANSI_YELLOW;
+import Modelo.Carrito;
+import Modelo.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class Crud_fecha extends Conexion {
+public class Crud_carrito extends Conexion {
 
-    public boolean guardar_fecha_hoy(Fecha fech) {
+    // GUARDAR
+    public boolean guardar(Carrito car) {
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "INSERT INTO fecha (Fecha_hoy) VALUES (?)";
+        String sql = "INSERT INTO ventas (Codigo,Nombre,Cantidad,Venta,Total) VALUES (?,?,?,?,?)";
 
         try {
 
             ps = con.prepareStatement(sql);
 
-            ps.setDate(1, fech.getFecha_hoy());
+            ps.setString(1, car.getCodigo());
+            ps.setString(2, car.getNombre());
+            ps.setInt(3, car.getCantidad());
+            ps.setDouble(4, car.getVenta());
+            ps.setDouble(5, car.getTotal());
 
             ps.execute();
 
@@ -49,18 +50,23 @@ public class Crud_fecha extends Conexion {
         }
     }
 
-    public boolean guardar_fecha_ayer(Fecha fech) {
+    // MODIFICAR
+    public boolean modificar(Carrito car) {
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "INSERT INTO fecha (Fecha_ayer) VALUES (?)";
+        String sql = "UPDATE ventas SET Codigo=?,Nombre=?,Cantidad=?,Venta=?,Total=? WHERE Id=?";
 
         try {
 
             ps = con.prepareStatement(sql);
 
-            ps.setDate(1, fech.getFecha_ayer());
+            ps.setString(1, car.getCodigo());
+            ps.setString(2, car.getNombre());
+            ps.setInt(3, car.getCantidad());
+            ps.setDouble(4, car.getVenta());
+            ps.setDouble(5, car.getTotal());
 
             ps.execute();
 
@@ -84,21 +90,22 @@ public class Crud_fecha extends Conexion {
 
             }
         }
+
     }
 
-    public boolean modificar_fecha_hoy(Fecha fech) {
+    //ELIMINAR
+    public boolean eliminar(Carrito car) {
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE fecha SET Fecha_hoy=? WHERE Id=?";
+        String sql = "DELETE FROM ventas WHERE Id=?";
 
         try {
 
             ps = con.prepareStatement(sql);
 
-            ps.setDate(1, fech.getFecha_hoy());
-            ps.setInt(2, fech.getId());
+            ps.setInt(1, car.getId());
 
             ps.execute();
 
@@ -122,30 +129,45 @@ public class Crud_fecha extends Conexion {
 
             }
         }
+
     }
-    
-    public void intercambiarFechas(Fecha fech){
+
+    //RESTAR CANTIDAD
+    public boolean restarCantidad(int cantidad, String codigo) {
 
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE fecha SET Fecha_ayer = Fecha_hoy";
+        //UPDATE producto SET Cantidad = Cantidad - 5 where Id = 0001;
+        String sql = "UPDATE producto SET Cantidad = Cantidad - " + cantidad + " where Codigo = " + codigo + "";
 
         try {
 
             ps = con.prepareStatement(sql);
             ps.execute();
 
-            System.out.println(ANSI_YELLOW + "---SE INTERCAMBIO LAS FECHAS---");
-            System.out.println(ANSI_CYAN + "----------------------------------------------------------");
+            return true;
 
+        } catch (SQLException e) {
 
-        } catch (SQLException ex) {
-            Logger.getLogger(Crud_dias.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(e);
 
+            return false;
+
+        } finally {
+
+            try {
+
+                con.close();
+
+            } catch (SQLException e) {
+
+                System.out.println(e);
+               
+
+            }
         }
-        
-    }
 
+    }
 
 }

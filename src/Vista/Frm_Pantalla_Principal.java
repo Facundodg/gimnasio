@@ -1,8 +1,8 @@
 package Vista;
 
+import Servicios.Crud_Pdf;
 import Controlador.Crl_producto;
 import Modelo.Conexion;
-import Modelo.Crud_Pdf;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Image;

@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Conexion;
-import Modelo.Crud_Pdf;
+import Servicios.Crud_Pdf;
 import Modelo.Pdf;
 import Modelo.Tabla_Pdf;
 import Vista.Frm_Pantalla_Principal;

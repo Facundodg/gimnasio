@@ -1,5 +1,6 @@
 package gimnasio;
 
+import Controlador.Crl_carrito;
 import Controlador.Crl_cliente;
 import Controlador.Crl_configuraciones;
 import Controlador.Crl_nutricionista;
@@ -7,16 +8,18 @@ import Controlador.Crl_producto;
 import Controlador.Crl_rutina;
 import Controlador.Crl_turno;
 import Controlador.Crl_usuario;
+import Modelo.Carrito;
 import Modelo.Cliente;
 import Modelo.Configuraciones;
-import Modelo.Crud_Pdf;
-import Modelo.Crud_cliente;
-import Modelo.Crud_configuraciones;
-import Modelo.Crud_dias;
-import Modelo.Crud_fecha;
-import Modelo.Crud_producto;
-import Modelo.Crud_turno;
-import Modelo.Crud_usuario;
+import Servicios.Crud_Pdf;
+import Servicios.Crud_carrito;
+import Servicios.Crud_cliente;
+import Servicios.Crud_configuraciones;
+import Servicios.Crud_dias;
+import Servicios.Crud_fecha;
+import Servicios.Crud_producto;
+import Servicios.Crud_turno;
+import Servicios.Crud_usuario;
 import Modelo.Dia;
 import Modelo.Fecha;
 import Modelo.Pdf;
@@ -56,9 +59,12 @@ public class Gimnasio {
         Tabla_Pdf tabla_pdf = new Tabla_Pdf();
         Crud_turno crud_turno = new Crud_turno();
         Turno turno = new Turno();
+        Carrito carrito = new Carrito();
+        Crud_carrito crud_carrito= new Crud_carrito();
         
         //Frm_Pantalla_Principal frm_Pantalla_Principal, Crud_turno crud_turno, Turno turno)
 
+        Crl_carrito crl_carrito = new Crl_carrito(frm_pantalla_principal,frm_venta,producto,mod_producto,crud_carrito,carrito);
         Crl_turno crl_turno = new  Crl_turno(frm_pantalla_principal,crud_turno,turno);
         Crl_rutina crl_rutina = new Crl_rutina(frm_pantalla_principal, crudPdf, modelo_pdf, tabla_pdf);
         Crl_configuraciones crl_configuraciones = new Crl_configuraciones(frm_pantalla_principal,frm_usuario_info,frm_registro,frm_ingreso,configuraciones,mod_configuraciones);

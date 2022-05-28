@@ -49,7 +49,7 @@ public class Frm_venta extends javax.swing.JFrame {
         lbSalirVenta1 = new javax.swing.JLabel();
         lbLimpiarCarrito = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lbModificarProducto1 = new javax.swing.JLabel();
+        lbVenderProductos = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lbEliminarProductoCarrito = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -143,21 +143,21 @@ public class Frm_venta extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 204, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbModificarProducto1.setForeground(new java.awt.Color(0, 0, 0));
-        lbModificarProducto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbModificarProducto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrito.png"))); // NOI18N
-        lbModificarProducto1.setText("VENDER");
-        lbModificarProducto1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbVenderProductos.setForeground(new java.awt.Color(0, 0, 0));
+        lbVenderProductos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVenderProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrito.png"))); // NOI18N
+        lbVenderProductos.setText("VENDER");
+        lbVenderProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbModificarProducto1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+            .addComponent(lbVenderProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbModificarProducto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+            .addComponent(lbVenderProductos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 0, 0));
@@ -419,10 +419,10 @@ public class Frm_venta extends javax.swing.JFrame {
     public javax.swing.JLabel lbIdCarritoVentas;
     public javax.swing.JLabel lbIdStockVenta;
     public javax.swing.JLabel lbLimpiarCarrito;
-    public javax.swing.JLabel lbModificarProducto1;
     public javax.swing.JLabel lbSalirVenta;
     public javax.swing.JLabel lbSalirVenta1;
     public javax.swing.JLabel lbTotal;
+    public javax.swing.JLabel lbVenderProductos;
     public javax.swing.JTable tlbCarrito;
     public javax.swing.JTable tlbStockPantallaVenta;
     public javax.swing.JTextField txtBuscadorProductosVentas;

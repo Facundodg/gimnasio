@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Configuraciones;
-import Modelo.Crud_configuraciones;
+import Servicios.Crud_configuraciones;
 import Vista.Frm_Ingreso;
 import Vista.Frm_Pantalla_Principal;
 import Vista.Frm_registro;

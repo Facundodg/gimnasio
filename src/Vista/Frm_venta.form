@@ -442,17 +442,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lbModificarProducto1" alignment="0" pref="169" max="32767" attributes="0"/>
+                  <Component id="lbVenderProductos" alignment="0" pref="169" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lbModificarProducto1" alignment="1" pref="38" max="32767" attributes="0"/>
+                  <Component id="lbVenderProductos" alignment="1" pref="38" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lbModificarProducto1">
+            <Component class="javax.swing.JLabel" name="lbVenderProductos">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>

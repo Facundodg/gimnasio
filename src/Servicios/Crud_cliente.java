@@ -1,5 +1,7 @@
-package Modelo;
+package Servicios;
 
+import Modelo.Cliente;
+import Modelo.Conexion;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
