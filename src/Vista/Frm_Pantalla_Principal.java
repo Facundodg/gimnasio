@@ -52,7 +52,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         //ImageIcon imagen3 = new ImageIcon(getClass().getResource("/img/bmi-bar.png")); //pones la ruta de la imagen
         //Icon fondo3 = new ImageIcon(imagen3.getImage().getScaledInstance(lbBarraIMC.getWidth(), lbBarraIMC.getHeight(), Image.SCALE_DEFAULT));
         //lbBarraIMC.setIcon(fondo3);
-
         ImageIcon imagen4 = new ImageIcon(getClass().getResource("/img/discord_icon.png")); //pones la ruta de la imagen
         Icon fondo4 = new ImageIcon(imagen4.getImage().getScaledInstance(48, 38, Image.SCALE_DEFAULT));
         jlDiscord.setIcon(fondo4);
@@ -237,8 +236,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        lblogo = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
@@ -250,7 +248,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         txtDniTurno = new javax.swing.JTextField();
         txtNombreTurno = new javax.swing.JTextField();
-        txtDniTurno1 = new javax.swing.JTextField();
+        txtBuscarClienteDniParaTurno = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
         txtDireccionTurno = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
@@ -724,9 +722,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jPanel4.add(txtEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 150, -1));
 
         JcbMedicaSiNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
-        jPanel4.add(JcbMedicaSiNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 130, -1));
-        jPanel4.add(jdFechaFinMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 130, -1));
-        jPanel4.add(jdFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 130, -1));
+        jPanel4.add(JcbMedicaSiNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 150, -1));
+        jPanel4.add(jdFechaFinMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 150, -1));
+        jPanel4.add(jdFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 150, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
@@ -741,7 +739,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                 btnGuardaCliente_ICActionPerformed(evt);
             }
         });
-        jPanel4.add(btnGuardaCliente_IC, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 118, -1));
+        jPanel4.add(btnGuardaCliente_IC, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, 20, -1));
         btnGuardaCliente_IC.getAccessibleContext().setAccessibleDescription("Guardar Cliente");
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -781,7 +779,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("PAGO");
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
-        jPanel4.add(txtPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 130, -1));
+        jPanel4.add(txtPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 150, -1));
 
         tlbCliente_IC.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tlbCliente_IC.setModel(new javax.swing.table.DefaultTableModel(
@@ -808,37 +806,37 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tlbCliente_IC);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 261, 810, 280));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 241, 810, 310));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("ID");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, -1, 20));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 210, -1, 20));
 
         txtIdCliente.setEnabled(false);
-        jPanel4.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 40, -1));
+        jPanel4.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 210, 40, -1));
 
         jLabel26.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("BUSCAR");
-        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
-        jPanel4.add(txtBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 154, -1));
+        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jPanel4.add(txtBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 154, -1));
 
         JcbNombreDni.setBackground(new java.awt.Color(204, 204, 255));
         JcbNombreDni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "DNI" }));
-        jPanel4.add(JcbNombreDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 125, -1));
-        jPanel4.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, 41, -1));
+        jPanel4.add(JcbNombreDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 180, -1));
+        jPanel4.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 41, -1));
 
         jLabel29.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Edad");
-        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, -1, -1));
-        jPanel4.add(txtDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 41, -1));
+        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, -1, 30));
+        jPanel4.add(txtDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, 41, -1));
 
         jLabel33.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Dias");
-        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, -1, 20));
+        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, 20));
 
         lbGuardarCliente.setForeground(new java.awt.Color(0, 0, 0));
         lbGuardarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -846,7 +844,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbGuardarCliente.setText("GUARDAR");
         lbGuardarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbGuardarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 130, 40));
+        jPanel4.add(lbGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 130, 40));
 
         lbModificarCliente.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -854,7 +852,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarCliente.setText("MODIFICAR");
         lbModificarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 550, 130, 40));
+        jPanel4.add(lbModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 130, 40));
 
         lbModificarProducto6.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarProducto6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -862,7 +860,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarProducto6.setText("PDF");
         lbModificarProducto6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarProducto6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbModificarProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 550, 130, 40));
+        jPanel4.add(lbModificarProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 560, 130, 40));
 
         lbLimpiarCliente.setForeground(new java.awt.Color(0, 0, 0));
         lbLimpiarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -870,16 +868,16 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbLimpiarCliente.setText("LIMPIAR");
         lbLimpiarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbLimpiarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 550, 130, 40));
+        jPanel4.add(lbLimpiarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 560, 130, 40));
 
         jcbFiltrar1.setBackground(new java.awt.Color(204, 204, 255));
         jcbFiltrar1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOMBRE(DES)", "NOMBRE(ACE)", "CANTIDAD(DES)", "CANTIDAD(ACE)", "COSTO(DES)", "COSTO(ACE)", "VENTA(DES)", "VENTA(ACE)" }));
-        jPanel4.add(jcbFiltrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, 130, -1));
+        jPanel4.add(jcbFiltrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 160, -1));
 
         jLabel52.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(0, 0, 0));
         jLabel52.setText("ORDENAR POR");
-        jPanel4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 110, 20));
+        jPanel4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 110, 20));
 
         lbEliminarCliente.setForeground(new java.awt.Color(0, 0, 0));
         lbEliminarCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -887,7 +885,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarCliente.setText("ELIMINAR");
         lbEliminarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(lbEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, 130, 40));
+        jPanel4.add(lbEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 130, 40));
 
         jTabbedPaneMain.addTab("CLIENTE", jPanel4);
 
@@ -989,6 +987,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                 "Puesto", "Nombre", "Contraseña", "Imagen"
             }
         ));
+        tlbUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tlbUsuarioMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(tlbUsuario);
 
         lbGuardarProducto2.setForeground(new java.awt.Color(0, 0, 0));
@@ -1384,48 +1387,39 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel20.setText("imagen fdgSistem");
-        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblogo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lblogo.setForeground(new java.awt.Color(0, 0, 0));
+        lblogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.jpg"))); // NOI18N
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setText("soporte tecnico");
-        jLabel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel22.setText("pagina web");
-        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel22.setText("FDGSystem.com");
 
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel23.setText("V1.9.8");
-        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel23.setText("Sistema para Gimnasios V2.0");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(247, 247, 247)
+                .addComponent(lblogo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(281, Short.MAX_VALUE))
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
-                .addComponent(jLabel23)
-                .addGap(23, 23, 23))
-            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(115, 115, 115)
+                .addComponent(lblogo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel22)))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -1445,54 +1439,55 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbFechaPrueba.setForeground(new java.awt.Color(0, 0, 0));
-        lbFechaPrueba.setText("FECHA Y HORADE TURNO");
-        jPanel16.add(lbFechaPrueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, -1, 30));
+        lbFechaPrueba.setText("FECHA Y HORA");
+        jPanel16.add(lbFechaPrueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 30));
 
         jdcFecha.setDateFormatString("yyyy/MM/dd HH:mm");
-        jPanel16.add(jdcFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 140, -1));
+        jPanel16.add(jdcFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 160, -1));
 
         lbGuardarTurno.setForeground(new java.awt.Color(0, 0, 0));
         lbGuardarTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbGuardarTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fecha.png"))); // NOI18N
         lbGuardarTurno.setText("GUARDAR");
         lbGuardarTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel16.add(lbGuardarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 110, 40));
+        jPanel16.add(lbGuardarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 550, 110, 40));
 
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("DNI");
-        jPanel16.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
+        jPanel16.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 20));
 
         jLabel65.setForeground(new java.awt.Color(0, 0, 0));
         jLabel65.setText("NOMBRE Y APELLIDO");
-        jPanel16.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 30));
-        jPanel16.add(txtDniTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 160, -1));
-        jPanel16.add(txtNombreTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 160, -1));
-        jPanel16.add(txtDniTurno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, 250, -1));
+        jPanel16.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 30));
+        jPanel16.add(txtDniTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 160, -1));
+        jPanel16.add(txtNombreTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 160, -1));
+        jPanel16.add(txtBuscarClienteDniParaTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 190, -1));
 
         jLabel66.setForeground(new java.awt.Color(0, 0, 0));
         jLabel66.setText("ORDENAR POR");
-        jPanel16.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, 40));
-        jPanel16.add(txtDireccionTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 120, -1));
+        jPanel16.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, 40));
+        jPanel16.add(txtDireccionTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, -1));
 
         jLabel67.setForeground(new java.awt.Color(0, 0, 0));
         jLabel67.setText("DIRECCION");
-        jPanel16.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, 30));
-        jPanel16.add(txtSexoTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
+        jPanel16.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, 40));
+        jPanel16.add(txtSexoTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 120, -1));
 
         jLabel68.setForeground(new java.awt.Color(0, 0, 0));
         jLabel68.setText("SEXO");
-        jPanel16.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, 30));
-        jPanel16.add(txtMotivoTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 120, -1));
+        jPanel16.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, 30));
+        jPanel16.add(txtMotivoTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 120, -1));
 
         jLabel69.setForeground(new java.awt.Color(0, 0, 0));
         jLabel69.setText("MOTIVO");
-        jPanel16.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, 30));
+        jPanel16.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, 30));
 
         jLabel70.setForeground(new java.awt.Color(0, 0, 0));
         jLabel70.setText("EDAD");
-        jPanel16.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, 30));
-        jPanel16.add(txtEdadTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 120, -1));
+        jPanel16.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, 30));
+        jPanel16.add(txtEdadTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 120, -1));
 
+        tlbTurnos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tlbTurnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -1508,6 +1503,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         jPanel16.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 254, 810, 290));
 
+        tlbClientesTurno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tlbClientesTurno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -1519,6 +1515,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                 "ID", "Nombre", "Dni"
             }
         ));
+        tlbClientesTurno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tlbClientesTurnoMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(tlbClientesTurno);
 
         jPanel16.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 310, 200));
@@ -1537,7 +1538,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbEliminarrProducto6.setText("ELIMINAR");
         lbEliminarrProducto6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbEliminarrProducto6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel16.add(lbEliminarrProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, 40));
+        jPanel16.add(lbEliminarrProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 100, 40));
 
         lbLimpiarTurno.setForeground(new java.awt.Color(0, 0, 0));
         lbLimpiarTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1545,7 +1546,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbLimpiarTurno.setText("LIMPIAR");
         lbLimpiarTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbLimpiarTurno.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel16.add(lbLimpiarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 100, 40));
+        jPanel16.add(lbLimpiarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 100, 40));
 
         lbModificarProducto7.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarProducto7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1553,25 +1554,25 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         lbModificarProducto7.setText("MODIFICAR");
         lbModificarProducto7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbModificarProducto7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel16.add(lbModificarProducto7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 110, 40));
-        jPanel16.add(txtTelefonoTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 160, -1));
+        jPanel16.add(lbModificarProducto7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 110, 40));
+        jPanel16.add(txtTelefonoTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 160, -1));
 
         jLabel71.setForeground(new java.awt.Color(0, 0, 0));
         jLabel71.setText("TELEFONO");
-        jPanel16.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, 20));
+        jPanel16.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
         jComboBox1.setBackground(new java.awt.Color(204, 204, 255));
         jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel16.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 110, -1));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha (Acendente)", "Fecha (Decendente)", "Hoy", "Mañana", "Ayer" }));
+        jPanel16.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
         jLabel72.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel72.setText("BUSCAR");
+        jLabel72.setText("BUSCAR TURNO");
         jPanel16.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, 20));
-        jPanel16.add(txtDniTurno7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 160, -1));
+        jPanel16.add(txtDniTurno7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 150, -1));
 
         jLabel73.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel73.setText("BUSCAR");
+        jLabel73.setText("BUSCAR CLIENTE");
         jPanel16.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, -1, 40));
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
@@ -2080,7 +2081,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
         String codigo = tlbRutinas.getValueAt(Fila, 0).toString();
 
-            String sql = "SELECT Id FROM rutina WHERE Id = ?";
+        String sql = "SELECT Id FROM rutina WHERE Id = ?";
 
         try {
 
@@ -2093,15 +2094,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
             while (rs.next()) {
 
                 lbIdRutina.setText(rs.getString("Id"));
-                
-            }
 
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    
 
     }
 
@@ -2387,6 +2385,85 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tlbProductosMouseClicked
 
+    private void tlbUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbUsuarioMouseClicked
+
+        PreparedStatement ps = null;
+
+        ResultSet rs = null;
+
+        Conexion conn = new Conexion();
+
+        Connection con = conn.getConexion();
+
+        int Fila = tlbUsuario.getSelectedRow();
+
+        String usuario = tlbUsuario.getValueAt(Fila, 1).toString();
+
+        String sql = "SELECT * FROM usuario WHERE Usuario=?";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, usuario);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                txtIdCliente.setText(rs.getString("Id"));
+                txtApiNom.setText(rs.getString("NomApe"));
+                txtNumTelefono.setText(rs.getString("Telefono"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_tlbUsuarioMouseClicked
+
+    private void tlbClientesTurnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbClientesTurnoMouseClicked
+
+        PreparedStatement ps = null;
+
+        ResultSet rs = null;
+
+        Conexion conn = new Conexion();
+
+        Connection con = conn.getConexion();
+
+        int Fila = tlbClientesTurno.getSelectedRow();
+
+        String codigo = tlbClientesTurno.getValueAt(Fila, 2).toString();
+
+        String sql = "SELECT NomApe,Telefono,Direccion,Correo,Dni,Sexo,Edad FROM cliente WHERE Dni=?";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, codigo);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                txtNombreTurno.setText(rs.getString("NomApe"));
+                txtDniTurno.setText(rs.getString("Dni"));
+                txtTelefonoTurno.setText(rs.getString("Telefono"));
+                txtDireccionTurno.setText(rs.getString("Direccion"));
+                txtSexoTurno.setText(rs.getString("Sexo"));   
+                txtEdadTurno.setText(rs.getString("Edad"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tlbClientesTurnoMouseClicked
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2426,8 +2503,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -2602,6 +2677,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel lbVender;
     public javax.swing.JLabel lbVolverTurno;
     public javax.swing.JLabel lbguardarRutina;
+    private javax.swing.JLabel lblogo;
     public javax.swing.JPanel panel_salir_sistema;
     public javax.swing.JLabel pnlCalcularIMC;
     public javax.swing.JMenuItem popuItemEliminarCliente;
@@ -2625,6 +2701,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txtAltura;
     public javax.swing.JTextField txtApiNom;
     public javax.swing.JTextField txtBuscarCliente;
+    public javax.swing.JTextField txtBuscarClienteDniParaTurno;
     public javax.swing.JTextField txtBuscarProducto;
     public javax.swing.JTextField txtBuscarRutina;
     public javax.swing.JTextField txtCC;
@@ -2637,7 +2714,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txtDireccionTurno;
     public javax.swing.JTextField txtDni;
     public javax.swing.JTextField txtDniTurno;
-    public javax.swing.JTextField txtDniTurno1;
     public javax.swing.JTextField txtDniTurno7;
     public javax.swing.JTextField txtEdad;
     public javax.swing.JTextField txtEdadCalculadora;

@@ -69,7 +69,7 @@ public class Crl_carrito implements MouseListener {
 
             if (crud_carrito.restarCantidad(cantidad, codigo)) {
 
-                JOptionPane.showMessageDialog(null, "SE RESTO");
+                System.out.println("se resto con exito del stock.");
 
             } else {
 

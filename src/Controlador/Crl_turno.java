@@ -8,6 +8,8 @@ import Modelo.Turno;
 import Vista.Frm_Pantalla_Principal;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -15,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,9 +26,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class Crl_turno implements MouseListener, ItemListener {
+public class Crl_turno implements MouseListener, ItemListener, KeyListener {
 
     Frm_Pantalla_Principal frm_Pantalla_Principal;
     Crud_turno crud_turno;
@@ -41,6 +45,8 @@ public class Crl_turno implements MouseListener, ItemListener {
         frm_Pantalla_Principal.lbVolverTurno.addMouseListener(this);
         frm_Pantalla_Principal.lbLimpiarTurno.addMouseListener(this);
         
+        frm_Pantalla_Principal.txtBuscarClienteDniParaTurno.addKeyListener(this);
+
         refrescarTablaTurno();
         limpiarCamposTexto();
 
@@ -119,9 +125,9 @@ public class Crl_turno implements MouseListener, ItemListener {
             frm_Pantalla_Principal.jTabbedPaneMain.setSelectedIndex(6);
 
         }
-        
-        if(e.getSource() == frm_Pantalla_Principal.lbLimpiarTurno){
-            
+
+        if (e.getSource() == frm_Pantalla_Principal.lbLimpiarTurno) {
+
             limpiarCamposTexto();
 
         }
@@ -207,9 +213,9 @@ public class Crl_turno implements MouseListener, ItemListener {
         System.out.println(ANSI_CYAN + "----------------------------------------------------------");
 
     }
-    
-    public void limpiarCamposTexto(){
-        
+
+    public void limpiarCamposTexto() {
+
         frm_Pantalla_Principal.jdcFecha.setDate(null);
         frm_Pantalla_Principal.txtNombreTurno.setText(null);
         frm_Pantalla_Principal.txtDniTurno.setText(null);
@@ -218,6 +224,61 @@ public class Crl_turno implements MouseListener, ItemListener {
         frm_Pantalla_Principal.txtSexoTurno.setText(null);
         frm_Pantalla_Principal.txtEdadTurno.setText(null);
         frm_Pantalla_Principal.txtMotivoTurno.setText(null);
-        
+
+    }
+
+    public void FiltrarDatosDni(String valor) {
+
+        String[] titulos = {"Id","Nombre", "Dni"};
+        String[] registros = new String[3];
+
+        PreparedStatement ps = null;
+        Conexion conn = new Conexion();
+        Connection con = conn.getConexion();
+
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+
+        String sql = "select * from cliente where Dni like '%" + valor + "%'    ";
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                registros[0] = rs.getString("Id");
+                registros[1] = rs.getString("NomApe");
+                registros[2] = rs.getString("Dni");
+
+                modelo.addRow(registros);
+
+            }
+
+            frm_Pantalla_Principal.tlbClientesTurno.setModel(modelo);
+
+            con.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+        FiltrarDatosDni(frm_Pantalla_Principal.txtBuscarClienteDniParaTurno.getText());
+
     }
 }
