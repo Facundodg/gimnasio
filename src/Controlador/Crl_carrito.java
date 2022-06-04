@@ -8,7 +8,10 @@ import Servicios.Crud_carrito;
 import Servicios.Crud_producto;
 import Modelo.Producto;
 import Vista.Frm_Pantalla_Principal;
+import Vista.Frm_factura;
 import Vista.Frm_venta;
+import Vista.impresion;
+import java.awt.Button;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -24,19 +27,26 @@ import javax.swing.table.DefaultTableModel;
 public class Crl_carrito implements MouseListener {
 
     Frm_Pantalla_Principal frm_pantalla_principal;
+    Frm_factura frm_factura;
+    impresion imp;
     Frm_venta frm_venta;
     Producto producto;
     Crud_producto mod_producto;
     Crud_carrito crud_carrito;
     Carrito carrito;
+    
+    Button b1 = new Button("imprimir");
 
     public Crl_carrito(Frm_Pantalla_Principal frm_pantalla_principal,
+            Frm_factura frm_factura,
+            impresion imp,
             Frm_venta frm_venta, Producto producto,
             Crud_producto mod_producto,
-            Crud_carrito crud_carrito,
-            Carrito carrito) {
+            Crud_carrito crud_carrito, Carrito carrito) {
 
         this.frm_pantalla_principal = frm_pantalla_principal;
+        this.frm_factura = frm_factura;
+        this.imp = imp;
         this.frm_venta = frm_venta;
         this.producto = producto;
         this.mod_producto = mod_producto;
@@ -44,6 +54,10 @@ public class Crl_carrito implements MouseListener {
         this.carrito = carrito;
 
         frm_venta.lbVenderProductos.addMouseListener(this);
+   
+        b1.addMouseListener(this);
+        b1.setBounds(370, 570, 100, 50);
+        b1.setVisible(true);
 
     }
 
@@ -315,6 +329,18 @@ public class Crl_carrito implements MouseListener {
 
     }
 
+    //mostrar factura
+    public void factura() {
+
+        imp.lbTotalFactura.setText("HOLAAAAA");
+        frm_factura.setContentPane(imp);
+        frm_factura.add(b1);
+
+        frm_factura.setVisible(true);
+        frm_factura.setLocationRelativeTo(null);
+
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
     }
@@ -325,6 +351,16 @@ public class Crl_carrito implements MouseListener {
         if (e.getSource() == frm_venta.lbVenderProductos) {
 
             generarVenta();
+            JOptionPane.showMessageDialog(null, "SE GENERO LA COMPRA");
+            factura();
+
+        }
+
+        if (e.getSource() == b1) {
+
+       
+            JOptionPane.showMessageDialog(null, "HOLA");
+        
 
         }
 

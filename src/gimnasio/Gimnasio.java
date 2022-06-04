@@ -29,9 +29,11 @@ import Modelo.Turno;
 import Modelo.Usuario;
 import Vista.Frm_Ingreso;
 import Vista.Frm_Pantalla_Principal;
+import Vista.Frm_factura;
 import Vista.Frm_registro;
 import Vista.Frm_usuario_info;
 import Vista.Frm_venta;
+import Vista.impresion;
 
 public class Gimnasio {
 
@@ -42,6 +44,7 @@ public class Gimnasio {
         Frm_Pantalla_Principal frm_pantalla_principal = new Frm_Pantalla_Principal();
         Frm_registro frm_registro = new Frm_registro();
         Frm_venta frm_venta = new Frm_venta();
+        Frm_factura frm_factura = new Frm_factura();
         Usuario usuario = new Usuario();
         Crud_usuario mod_usuario = new Crud_usuario();
         Cliente cliente = new Cliente();
@@ -61,10 +64,11 @@ public class Gimnasio {
         Turno turno = new Turno();
         Carrito carrito = new Carrito();
         Crud_carrito crud_carrito= new Crud_carrito();
+        impresion imp = new impresion();
         
         //Frm_Pantalla_Principal frm_Pantalla_Principal, Crud_turno crud_turno, Turno turno)
 
-        Crl_carrito crl_carrito = new Crl_carrito(frm_pantalla_principal,frm_venta,producto,mod_producto,crud_carrito,carrito);
+        Crl_carrito crl_carrito = new Crl_carrito(frm_pantalla_principal,frm_factura,imp,frm_venta,producto,mod_producto,crud_carrito,carrito);
         Crl_turno crl_turno = new  Crl_turno(frm_pantalla_principal,crud_turno,turno);
         Crl_rutina crl_rutina = new Crl_rutina(frm_pantalla_principal, crudPdf, modelo_pdf, tabla_pdf);
         Crl_configuraciones crl_configuraciones = new Crl_configuraciones(frm_pantalla_principal,frm_usuario_info,frm_registro,frm_ingreso,configuraciones,mod_configuraciones);
