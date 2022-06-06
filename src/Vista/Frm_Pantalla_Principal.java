@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +22,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-public class Frm_Pantalla_Principal extends javax.swing.JFrame {
+public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnable {
+
+    String hora, minutos, segundos, ampm;
+    Calendar calendario;
+    Thread h1;
 
     public Frm_Pantalla_Principal() {
 
@@ -67,6 +72,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         ImageIcon imagen7 = new ImageIcon(getClass().getResource("/img/icon-web.png")); //pones la ruta de la imagen
         Icon fondo7 = new ImageIcon(imagen7.getImage().getScaledInstance(43, 48, Image.SCALE_DEFAULT));
         jlWeb.setIcon(fondo7);
+        
+        h1 = new Thread(this);
+        h1.start();
+        
 
         this.repaint();
 
@@ -493,7 +502,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
         txtHora.setForeground(new java.awt.Color(0, 0, 0));
         txtHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtHora.setText("00:00:00");
-        jPanel2.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 80, -1));
+        jPanel2.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 100, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 190, 510));
 
@@ -2454,7 +2463,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
                 txtDniTurno.setText(rs.getString("Dni"));
                 txtTelefonoTurno.setText(rs.getString("Telefono"));
                 txtDireccionTurno.setText(rs.getString("Direccion"));
-                txtSexoTurno.setText(rs.getString("Sexo"));   
+                txtSexoTurno.setText(rs.getString("Sexo"));
                 txtEdadTurno.setText(rs.getString("Edad"));
 
             }
@@ -2733,4 +2742,48 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txtTelefonoTurno;
     public javax.swing.JTextField txtVentaProducto;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+
+        Thread ct = Thread.currentThread();
+
+        while (ct == h1) {
+
+            calcula();
+            txtHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+
+            try {
+
+                Thread.sleep(1000);
+
+            } catch (InterruptedException e) {
+
+                JOptionPane.showMessageDialog(null, e);
+
+            }
+
+        }
+
+    }
+
+    private void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        Date fechaHoraactual = new Date();
+        calendario.setTime(fechaHoraactual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+            if (h == 00) {
+                hora = "12";
+            } else {
+                hora = h > 9 ? "" + h : "0" + h;
+            }
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+    }
 }

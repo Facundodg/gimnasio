@@ -14,6 +14,8 @@ import Vista.impresion;
 import java.awt.Button;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,8 +36,9 @@ public class Crl_carrito implements MouseListener {
     Crud_producto mod_producto;
     Crud_carrito crud_carrito;
     Carrito carrito;
-    
-    Button b1 = new Button("imprimir");
+
+    Button b1 = new Button("Imprimir");
+    Button b2 = new Button("Salir");
 
     public Crl_carrito(Frm_Pantalla_Principal frm_pantalla_principal,
             Frm_factura frm_factura,
@@ -54,10 +57,14 @@ public class Crl_carrito implements MouseListener {
         this.carrito = carrito;
 
         frm_venta.lbVenderProductos.addMouseListener(this);
-   
+
         b1.addMouseListener(this);
-        b1.setBounds(370, 570, 100, 50);
+        b1.setBounds(260, 570, 260, 50);
         b1.setVisible(true);
+
+        b2.addMouseListener(this);
+        b2.setBounds(0, 570, 260, 50);
+        b2.setVisible(true);
 
     }
 
@@ -97,7 +104,7 @@ public class Crl_carrito implements MouseListener {
         System.out.println(frm_venta.lbTotal.getText());
 
         refrescarTabla();
-        limpiaCarrito();
+        //limpiaCarrito();
 
         System.out.println("----------------------------------------------");
 
@@ -168,6 +175,28 @@ public class Crl_carrito implements MouseListener {
         frm_venta.lbTotal.setText("TOTAL: " + ActualizaTotal() + "$");
         frm_venta.lbGananciaTotalVenta.setText("GANANCIA: " + ActualizarGanancia() + "$");
         frm_venta.txtCantidadProductosVentas.setText("1");
+
+    }
+
+    //METODO PARA LIMPIAR FACTURA
+    public void limpiaFactura() {
+
+        DefaultTableModel m = new DefaultTableModel();
+
+        int filas = m.getRowCount();
+
+        m.addColumn("Nombre");
+        m.addColumn("Cantidad");
+        m.addColumn("Precio");
+        m.addColumn("Total");
+
+        for (int i = 0; i < filas; i++) {
+
+            m.removeRow(0);
+
+        }
+
+        imp.tlbFactura.setModel(m);
 
     }
 
@@ -332,12 +361,57 @@ public class Crl_carrito implements MouseListener {
     //mostrar factura
     public void factura() {
 
-        imp.lbTotalFactura.setText("HOLAAAAA");
+        DefaultTableModel m;
+        m = (DefaultTableModel) imp.tlbFactura.getModel();
+
+        imp.lbTotalFactura.setText(frm_venta.lbTotal.getText());
+        imp.lbFechaFactura.setText(frm_pantalla_principal.txtFecha.getText());
+        imp.lbHoraFactura.setText(frm_pantalla_principal.txtHora.getText());
+
+        int contar = frm_venta.tlbCarrito.getRowCount();
+
+        String[] fila = new String[4];
+
+        for (int i = 0; i < contar; i++) {
+
+            fila[0] = frm_venta.tlbCarrito.getValueAt(i, 1).toString();
+            fila[1] = frm_venta.tlbCarrito.getValueAt(i, 2).toString();
+            fila[2] = frm_venta.tlbCarrito.getValueAt(i, 4).toString();
+            fila[3] = frm_venta.tlbCarrito.getValueAt(i, 5).toString();
+
+            System.out.println("fila " + i + ":" + fila[i]);
+
+            m.addRow(fila);
+
+        }
+
         frm_factura.setContentPane(imp);
         frm_factura.add(b1);
+        frm_factura.add(b2);
 
         frm_factura.setVisible(true);
         frm_factura.setLocationRelativeTo(null);
+
+    }
+
+    //IMPRIMIR FACTURA
+    public void imprimir() {
+
+        PrinterJob job = PrinterJob.getPrinterJob();
+
+        job.setPrintable(imp);
+        
+        if (job.printDialog()) {
+            try {
+                job.print();
+            } catch (PrinterException ex) {
+                Logger.getLogger(Crl_carrito.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "No se pudo imprimir.");
+            
+        }
 
     }
 
@@ -350,17 +424,24 @@ public class Crl_carrito implements MouseListener {
 
         if (e.getSource() == frm_venta.lbVenderProductos) {
 
+            limpiaFactura();
             generarVenta();
             JOptionPane.showMessageDialog(null, "SE GENERO LA COMPRA");
             factura();
+            limpiaCarrito();
 
         }
 
         if (e.getSource() == b1) {
+            
+            imprimir(); 
 
-       
-            JOptionPane.showMessageDialog(null, "HOLA");
-        
+        }
+
+        if (e.getSource() == b2) {
+
+            limpiaFactura();
+            frm_factura.setVisible(false);
 
         }
 
