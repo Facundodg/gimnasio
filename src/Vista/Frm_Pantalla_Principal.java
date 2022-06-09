@@ -3,10 +3,15 @@ package Vista;
 import Servicios.Crud_Pdf;
 import Controlador.Crl_producto;
 import Modelo.Conexion;
+import Modelo.Usuario;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +22,11 @@ import java.util.*;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnable {
@@ -72,10 +79,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         ImageIcon imagen7 = new ImageIcon(getClass().getResource("/img/icon-web.png")); //pones la ruta de la imagen
         Icon fondo7 = new ImageIcon(imagen7.getImage().getScaledInstance(43, 48, Image.SCALE_DEFAULT));
         jlWeb.setIcon(fondo7);
-        
+
         h1 = new Thread(this);
         h1.start();
-        
 
         this.repaint();
 
@@ -215,12 +221,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         lbEliminarrProducto4 = new javax.swing.JLabel();
         lbEliminarrProducto5 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombreUsuario = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jcbPuestosUsuario = new javax.swing.JComboBox<>();
         jLabel45 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        txtContraseñaUsuario = new javax.swing.JPasswordField();
+        txtContraseñaConfirmarUsuario = new javax.swing.JPasswordField();
         jLabel46 = new javax.swing.JLabel();
         lbUsuarioImagen = new javax.swing.JLabel();
         btnCargarImagenUsuario = new java.awt.Button();
@@ -337,6 +343,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         btnModoNocturno = new java.awt.Button();
         jPanel17 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel59 = new javax.swing.JLabel();
         panel_salir_sistema = new javax.swing.JPanel();
         lbSalirSistema = new javax.swing.JLabel();
         lbMinimizarVentana = new javax.swing.JLabel();
@@ -1042,21 +1054,26 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("NOMBRE");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreUsuario.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel27.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("PUESTO");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Nutricionista" }));
+        jcbPuestosUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Nutricionista" }));
 
         jLabel45.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(0, 0, 0));
         jLabel45.setText("CONTRASEÑA");
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
+        txtContraseñaUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtContraseñaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaUsuarioActionPerformed(evt);
+            }
+        });
 
-        jPasswordField2.setBackground(new java.awt.Color(255, 255, 255));
+        txtContraseñaConfirmarUsuario.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel46.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(0, 0, 0));
@@ -1083,15 +1100,19 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
                             .addComponent(jLabel25))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombreUsuario)
+                            .addComponent(jcbPuestosUsuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtContraseñaUsuario)
+                            .addComponent(txtContraseñaConfirmarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbUsuarioImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCargarImagenUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(122, 122, 122)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(btnCargarImagenUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                                .addGap(122, 122, 122))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(lbUsuarioImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1111,8 +1132,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel10Layout.createSequentialGroup()
@@ -1122,19 +1143,19 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
                         .addGroup(jPanel10Layout.createSequentialGroup()
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jcbPuestosUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtContraseñaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtContraseñaConfirmarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(lbEliminarrProducto4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1971,15 +1992,73 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
 
         jPanel28.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel27.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("1");
+
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("00:00:00");
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addGroup(jPanel27Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBox1))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(jCheckBox1)
+                .addContainerGap())
+        );
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Media Hora", "Hora", "Hora y media", "Dos Horas", "Dos Horas y media", "Tres Horas", " " }));
+
+        jLabel59.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel59.setText("ALQUILAR");
+        jLabel59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 828, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel28Layout.createSequentialGroup()
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(456, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 604, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
@@ -1993,7 +2072,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
             .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPaneMain.addTab("CALCULOS REGISTRO", jPanel17);
+        jTabbedPaneMain.addTab("ALQUILER", jPanel17);
 
         jPanel1.add(jTabbedPaneMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 0, 830, 630));
 
@@ -2420,9 +2499,53 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
 
             while (rs.next()) {
 
-                txtIdCliente.setText(rs.getString("Id"));
-                txtApiNom.setText(rs.getString("NomApe"));
-                txtNumTelefono.setText(rs.getString("Telefono"));
+                txtNombreUsuario.setText(rs.getString("Usuario"));
+
+                if (rs.getString("Puesto").toString().equals("Usuario")) {
+
+                    jcbPuestosUsuario.setSelectedIndex(0);
+
+                } else if (rs.getString("Puesto").toString().equals("Nutricionista")) {
+
+                    jcbPuestosUsuario.setSelectedIndex(1);
+
+                }
+
+                ArrayList Imagen = ImagenPerfil(rs.getString("Usuario"));
+                //byte[] imagen = new byte[Imagen.size()];
+
+                if (Imagen != null) {
+                    
+                    Usuario usu = new Usuario();
+
+                    for (int i = 0; i < Imagen.size(); i++) {
+                        
+                        System.out.println(Imagen.get(i));
+                        
+                        //Modusuario = (Usuario) Imagen.get(i);
+                        
+                        usu.setImagen((byte[]) Imagen.get(i));
+
+                        try {
+
+                            byte[] imagen = usu.getImagen();
+                            BufferedImage bufferedImage = null;
+                            InputStream inputStram = new ByteArrayInputStream(imagen);
+                            bufferedImage = ImageIO.read(inputStram);
+                            ImageIcon imagenIcon = new ImageIcon(bufferedImage.getScaledInstance(lbUsuarioImagen.getWidth(), lbUsuarioImagen.getHeight(), 0));
+                            lbUsuarioImagen.setIcon(imagenIcon);
+
+                            //lbUsuarioImagen.getWidth(), lbUsuarioImagen.getHeight()
+                            
+                        } catch (IOException ex) {
+
+                            System.out.println("No se pudo imprimir ql");
+
+                        }
+
+                    }
+
+                }
 
             }
 
@@ -2432,6 +2555,43 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
 
 
     }//GEN-LAST:event_tlbUsuarioMouseClicked
+
+    public ArrayList ImagenPerfil(String nombre) {
+
+        ArrayList imagenes = new ArrayList();
+
+        PreparedStatement ps = null;
+
+        Conexion conn = new Conexion();
+
+        Connection con = conn.getConexion();
+
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM usuario WHERE Usuario = ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, nombre);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                imagenes.add(rs.getBytes("Imagen"));
+
+            }
+
+            return imagenes;
+
+        } catch (SQLException e) {
+
+            return null;
+        }
+
+    }
+
 
     private void tlbClientesTurnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbClientesTurnoMouseClicked
 
@@ -2473,6 +2633,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         }
     }//GEN-LAST:event_tlbClientesTurnoMouseClicked
 
+    private void txtContraseñaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaUsuarioActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2498,8 +2662,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JButton btnseleccionar;
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.ButtonGroup buttonGroup_Genero;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2512,6 +2677,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -2552,6 +2719,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel62;
@@ -2589,6 +2757,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2597,8 +2766,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JPopupMenu jPopupPanelProducto;
     public javax.swing.JPopupMenu jPopupTablaProducto;
     public javax.swing.JPopupMenu jPopupTableCliente;
@@ -2615,13 +2782,13 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JSlider jSlPeso;
     public javax.swing.JTabbedPane jTabbedPaneMain;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     public javax.swing.JComboBox<String> jcbBusquedas;
     public javax.swing.JComboBox<String> jcbFiltrar;
     public javax.swing.JComboBox<String> jcbFiltrar1;
     public javax.swing.JComboBox<String> jcbIntencidadEntrenamiento;
     public javax.swing.JComboBox<String> jcbObjetivo;
+    private javax.swing.JComboBox<String> jcbPuestosUsuario;
     public com.toedter.calendar.JDateChooser jdFechaFinMes;
     public com.toedter.calendar.JDateChooser jdFechaNacimiento;
     public com.toedter.calendar.JDateChooser jdcFecha;
@@ -2716,6 +2883,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JTextField txtCC;
     public javax.swing.JTextField txtCantidadProducto;
     public javax.swing.JTextField txtCodigoProducto;
+    public javax.swing.JPasswordField txtContraseñaConfirmarUsuario;
+    public javax.swing.JPasswordField txtContraseñaUsuario;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtCostoProducto;
     public javax.swing.JTextField txtDias;
@@ -2735,6 +2904,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JTextField txtMotivoTurno;
     public javax.swing.JTextField txtNombreProducto;
     public javax.swing.JTextField txtNombreTurno;
+    private javax.swing.JTextField txtNombreUsuario;
     public javax.swing.JTextField txtNumTelefono;
     public javax.swing.JTextField txtPago;
     public javax.swing.JTextField txtPeso;

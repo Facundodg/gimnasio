@@ -369,9 +369,6 @@ public class Crl_usuario implements ActionListener, KeyListener, MouseListener {
                 for (int i = 0; i < Imagen.size(); i++) {
 
                     usuario = (Usuario) Imagen.get(i);
-//                    Datos[0] = usuario.getPuesto_usuario();
-//                    Datos[1] = usuario.getNombre_usuario();
-//                    Datos[2] = usuario.getContraseña_usuario();
 
                     try {
 

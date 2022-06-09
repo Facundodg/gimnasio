@@ -22,8 +22,8 @@ public class Tabla_Pdf {
             }
         };
         dt.addColumn("Id");
-        dt.addColumn("nombrepdf");
-        dt.addColumn("archivopdf");
+        dt.addColumn("Nombre de PDF");
+        dt.addColumn("Archivo PDF");
 
         ImageIcon icono = null;
         if (get_Image("/img/32pdf.png") != null) {
