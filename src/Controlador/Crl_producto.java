@@ -50,7 +50,8 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
         this.mod_producto = mod_producto;
 
         this.frm_pantalla_principal.txtBuscarProducto.addKeyListener(this);
-        this.frm_pantalla_principal.jcbFiltrar.addItemListener(this);
+        
+        this.frm_pantalla_principal.jcbFiltrar.addItemListener(this); //EEEEEEEEEEEEEEEEEE ATENTO
 
         this.frm_venta.txtBuscadorProductosVentas.addKeyListener(this);
 
@@ -73,6 +74,8 @@ public class Crl_producto implements ActionListener, KeyListener, MouseListener,
 
         refrescarTabla();
         capital();
+        
+        frm_pantalla_principal.txtIdProducto.setVisible(false);
 
     }
 

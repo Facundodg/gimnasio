@@ -1,13 +1,14 @@
 package Servicios;
 
 import Modelo.Conexion;
+import Modelo.Producto;
 import Modelo.Turno;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Crud_turno extends Conexion{
-    
+public class Crud_turno extends Conexion {
+
     // GUARDAR
     public boolean guardar(Turno tu) {
 
@@ -29,7 +30,7 @@ public class Crud_turno extends Conexion{
             ps.setString(7, tu.getMotivoTurno());
             ps.setDate(8, tu.getFechaTurno());
             ps.setTime(9, tu.getHoraTurno());
-            
+
             ps.execute();
 
             return true;
@@ -54,5 +55,44 @@ public class Crud_turno extends Conexion{
             }
         }
     }
-    
+
+    //ELIMINAR
+    public boolean eliminar(Turno tu) {
+
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+
+        String sql = "DELETE FROM turno WHERE Id=?";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+
+            ps.setInt(1, tu.getId());
+
+            ps.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+
+            System.out.println(e);
+
+            return false;
+
+        } finally {
+
+            try {
+
+                con.close();
+
+            } catch (SQLException e) {
+
+                System.out.println(e);
+
+            }
+        }
+
+    }
+
 }

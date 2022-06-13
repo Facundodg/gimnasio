@@ -50,6 +50,8 @@ public class Crl_rutina implements MouseListener, ActionListener, KeyListener {
         frm_pantalla_principal.lbModificarRutina.addMouseListener(this);
         frm_pantalla_principal.TxtNombreRutina.addKeyListener(this);
         frm_pantalla_principal.txtBuscarRutina.addKeyListener(this);
+        
+        frm_pantalla_principal.lbIdRutina.setVisible(false);
 
     }
 

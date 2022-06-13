@@ -87,6 +87,7 @@ public class Crl_usuario implements ActionListener, KeyListener, MouseListener {
         frm_registro.btnCargarImagenUsuario.addActionListener(this);
         frm_registro.btnRegistrarUsuario.addActionListener(this);
         frm_pantalla_principal.btnModoNocturno.addActionListener(this);
+        frm_pantalla_principal.btnCargarImagenUsuario.addActionListener(this);
 
         frm_registro.txtContraseñaConfirmarRegistrar.addKeyListener(this);
         frm_registro.txtContraseñaPuestoRegistrar.addKeyListener(this);
@@ -99,9 +100,12 @@ public class Crl_usuario implements ActionListener, KeyListener, MouseListener {
         frm_registro.lbSalirSistemaRegistro.addMouseListener(this);
         frm_pantalla_principal.lbNombreUsuario.addMouseListener(this);
         frm_usuario_info.lbSalirUsuarioInfo.addMouseListener(this);
+        frm_pantalla_principal.lbGuardarUsuario.addMouseListener(this);
 
         refrescarTablaCliente();
         CargarImagen();
+        
+        frm_pantalla_principal.lbIdUsuarioUsuario.setVisible(false);
 
     }
 
@@ -266,6 +270,25 @@ public class Crl_usuario implements ActionListener, KeyListener, MouseListener {
 
                 ImageIcon miIcono = new ImageIcon(miImage.getScaledInstance(frm_registro.lbUsuarioImagen.getHeight(), frm_registro.lbUsuarioImagen.getWidth(), 0));
                 frm_registro.lbUsuarioImagen.setIcon(miIcono);
+
+            }
+
+        }
+
+        if (e.getSource() == frm_pantalla_principal.btnCargarImagenUsuario) {
+
+            JFileChooser fc = new JFileChooser();
+            fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.PNG", "png");
+            fc.setFileFilter(filtro);
+
+            if (fc.showOpenDialog(frm_registro.btnCargarImagenUsuario) == JFileChooser.APPROVE_OPTION) {
+
+                Ruta = fc.getSelectedFile().getAbsolutePath();
+                Image miImage = new ImageIcon(Ruta).getImage();
+
+                ImageIcon miIcono = new ImageIcon(miImage.getScaledInstance(frm_registro.lbUsuarioImagen.getHeight(), frm_registro.lbUsuarioImagen.getWidth(), 0));
+                frm_pantalla_principal.lbUsuarioImagen.setIcon(miIcono);
 
             }
 
@@ -611,6 +634,49 @@ public class Crl_usuario implements ActionListener, KeyListener, MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
 
+        if (e.getSource() == frm_pantalla_principal.lbGuardarUsuario) {
+
+            usuario.setNombre_usuario(frm_pantalla_principal.txtNombreUsuario.getText());
+
+            if (mod_usuario.UsuarioRepetido(usuario) == false) {
+
+                String contraseña = frm_pantalla_principal.txtContraseñaUsuario.getText();
+                String contraseñaConfirmar = frm_pantalla_principal.txtContraseñaConfirmarUsuario.getText();
+
+                if (contraseña.equals(contraseñaConfirmar)) {
+
+                    String puesto = frm_pantalla_principal.jcbPuestosUsuario.getSelectedItem().toString();
+
+                    if ((puesto.equals("Nutricionista") || puesto.equals("Usuario"))) {
+
+                        usuario.setPuesto_usuario(puesto);
+                        usuario.setImagen(getImagen(Ruta));
+                        usuario.setContraseña_usuario(contraseña);
+
+                        if (mod_usuario.guardar(usuario)) {
+
+                            JOptionPane.showMessageDialog(null, "Se guardo el usuario nuevo.");
+                            CargarImagen();
+
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "LA CONTRASEÑA NO COINCIDE CON EL PUESTO.");
+                            System.out.println("-No se guardo el usuario.");
+
+                        }
+
+                    }
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "LAS CONTRASEÑAS NO COINCIDEN ");
+
+                }
+
+            }
+
+        }
+
         if (e.getSource() == frm_pantalla_principal.lbCerrarSesion) {
 
             frm_pantalla_principal.jTabbedPaneMain.setSelectedIndex(5);
@@ -625,7 +691,7 @@ public class Crl_usuario implements ActionListener, KeyListener, MouseListener {
                 frm_pantalla_principal.setVisible(false);
                 frm_ingreso.txtUsuario.setText("");
                 frm_ingreso.txtContraseña.setText("");
-                
+
                 frm_pantalla_principal.TBUsuario.setSelected(false);
                 frm_pantalla_principal.TBDieta.setSelected(false);
                 frm_pantalla_principal.TBTienda.setSelected(false);

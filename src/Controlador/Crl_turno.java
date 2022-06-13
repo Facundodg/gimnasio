@@ -6,12 +6,16 @@ import Modelo.Conexion;
 import Servicios.Crud_turno;
 import Modelo.Turno;
 import Vista.Frm_Pantalla_Principal;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +25,7 @@ import java.sql.Statement;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +34,7 @@ import javafx.beans.value.ObservableValue;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class Crl_turno implements MouseListener, ItemListener, KeyListener {
+public class Crl_turno implements MouseListener, ItemListener, KeyListener, PropertyChangeListener {
 
     Frm_Pantalla_Principal frm_Pantalla_Principal;
     Crud_turno crud_turno;
@@ -44,20 +49,63 @@ public class Crl_turno implements MouseListener, ItemListener, KeyListener {
         frm_Pantalla_Principal.lbIrCalculadora.addMouseListener(this);
         frm_Pantalla_Principal.lbVolverTurno.addMouseListener(this);
         frm_Pantalla_Principal.lbLimpiarTurno.addMouseListener(this);
-        
+        frm_Pantalla_Principal.lbRefrescarTablaTurno.addMouseListener(this);
+        frm_Pantalla_Principal.lbEliminarTurno.addMouseListener(this);
+
+        frm_Pantalla_Principal.jdcFechaBuscar.addPropertyChangeListener(this);
+
         frm_Pantalla_Principal.txtBuscarClienteDniParaTurno.addKeyListener(this);
 
         refrescarTablaTurno();
         limpiarCamposTexto();
+        
+        frm_Pantalla_Principal.lbIdTurno.setVisible(false);
 
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
+
+        if (e.getSource() == frm_Pantalla_Principal.lbEliminarTurno) {
+
+            String id = frm_Pantalla_Principal.lbIdTurno.getText();
+
+            int p = JOptionPane.showConfirmDialog(null, "¿Seguro que quiere borrar este Turno?", "Elija una de las opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE); //devuelve un valor entero si=0, no=1, calcel=2
+
+            if (p == 0) {
+
+                turno.setId(Integer.parseInt(id));
+
+                if (crud_turno.eliminar(turno)) {
+
+                    System.out.println("Se elimino con exito el Turno.");
+                    refrescarTablaTurno();
+                    limpiarCamposTexto();
+
+
+                } else {
+
+                    System.out.println("No se pudo eliminar el Turno.");
+                    refrescarTablaTurno();
+                    limpiarCamposTexto();
+ 
+
+                }
+
+            }
+
+        }
+
+        if (e.getSource() == frm_Pantalla_Principal.lbRefrescarTablaTurno) {
+
+            refrescarTablaTurno();
+
+        }
 
         if (e.getSource() == frm_Pantalla_Principal.lbGuardarTurno) {
 
@@ -224,12 +272,13 @@ public class Crl_turno implements MouseListener, ItemListener, KeyListener {
         frm_Pantalla_Principal.txtSexoTurno.setText(null);
         frm_Pantalla_Principal.txtEdadTurno.setText(null);
         frm_Pantalla_Principal.txtMotivoTurno.setText(null);
+        frm_Pantalla_Principal.lbIdTurno.setText(null);
 
     }
 
     public void FiltrarDatosDni(String valor) {
 
-        String[] titulos = {"Id","Nombre", "Dni"};
+        String[] titulos = {"Id", "Nombre", "Dni"};
         String[] registros = new String[3];
 
         PreparedStatement ps = null;
@@ -281,4 +330,84 @@ public class Crl_turno implements MouseListener, ItemListener, KeyListener {
         FiltrarDatosDni(frm_Pantalla_Principal.txtBuscarClienteDniParaTurno.getText());
 
     }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
+        if (evt.getSource() == frm_Pantalla_Principal.jdcFechaBuscar) {
+
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(frm_Pantalla_Principal.jdcFechaBuscar.getDate());
+
+            System.out.println(formato.format(calendar.getTime()));
+
+            try {
+
+                DefaultTableModel modelo = new DefaultTableModel();
+
+                frm_Pantalla_Principal.tlbTurnos.setModel(modelo);
+
+                PreparedStatement ps = null;
+
+                ResultSet rs = null;
+
+                Conexion conn = new Conexion();
+
+                Connection con = conn.getConexion();
+
+                String sql = "SELECT Id,Nombre,Dni,Telefono,Direccion,Sexo,Edad,Motivo,Fecha,Hora FROM turno WHERE Fecha ='" + formato.format(calendar.getTime()) + "'";
+
+                ps = con.prepareStatement(sql);
+
+                rs = ps.executeQuery();
+
+                ResultSetMetaData rsMd = rs.getMetaData(); //le damos los datos de la consulta a la tabla.
+
+                int cantidadColumnas = rsMd.getColumnCount(); // nos dira la cantidad de columnas.
+
+                modelo.addColumn("ID"); //cada vuelta que reinicie la tabla perdera los nombres de las columnas
+                modelo.addColumn("Nombre");//por eso los tenemos que reasignar.
+                modelo.addColumn("Dni");
+                modelo.addColumn("Telefono");
+                modelo.addColumn("Direccion");
+                modelo.addColumn("Sexo");
+                modelo.addColumn("Edad");
+                modelo.addColumn("Motivo");
+                modelo.addColumn("Fecha");
+                modelo.addColumn("Hora");
+
+                while (rs.next()) { //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                    Object[] filas = new Object[cantidadColumnas];
+
+                    for (int i = 0; i < cantidadColumnas; i++) {
+
+                        filas[i] = rs.getObject(i + 1); //trae fila por fila
+
+                    }
+
+                    modelo.addRow(filas); //guarda en la tabla el vector que guardo todos los datos de la base de datos
+
+                }
+
+                System.out.println("resultado: " + frm_Pantalla_Principal.tlbTurnos.getRowCount());
+
+                if (frm_Pantalla_Principal.tlbTurnos.getRowCount() == 0) {
+
+                    JOptionPane.showMessageDialog(null, "NO TIENES NINGUNA FECHA DISPONIBLE ESTE DIA");
+                    refrescarTablaTurno();
+
+                }
+
+            } catch (SQLException e) {
+
+                System.out.println(e);
+
+            }
+
+        }
+
+    }
+
 }

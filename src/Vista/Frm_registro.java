@@ -81,6 +81,11 @@ public class Frm_registro extends javax.swing.JFrame {
 
         btnCargarImagenUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnCargarImagenUsuario.setLabel("Cargar Imagen");
+        btnCargarImagenUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarImagenUsuarioActionPerformed(evt);
+            }
+        });
 
         btnAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnAtras.setLabel("Atras");
@@ -220,6 +225,10 @@ public class Frm_registro extends javax.swing.JFrame {
     private void lbMinimizarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMinimizarRegistroMouseClicked
        this.setState(ICONIFIED);
     }//GEN-LAST:event_lbMinimizarRegistroMouseClicked
+
+    private void btnCargarImagenUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarImagenUsuarioActionPerformed
+  
+    }//GEN-LAST:event_btnCargarImagenUsuarioActionPerformed
 
     public static void main(String args[]) {
 

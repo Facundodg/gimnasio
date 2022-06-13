@@ -12,6 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,6 +44,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         Date fechaActual = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String fechaAc = sdf.format(fechaActual);
+        
+        jdcFechaBuscar.setDate(fechaActual);
+        
         txtFecha.setText(fechaAc);
         setIconImage(new ImageIcon(getClass().getResource("../img/icono_gym.png")).getImage());
 
@@ -215,7 +219,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         jPanel10 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tlbUsuario = new javax.swing.JTable();
-        lbGuardarProducto2 = new javax.swing.JLabel();
+        lbGuardarUsuario = new javax.swing.JLabel();
         lbModificarProducto2 = new javax.swing.JLabel();
         lbModificarProducto4 = new javax.swing.JLabel();
         lbEliminarrProducto4 = new javax.swing.JLabel();
@@ -230,6 +234,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         jLabel46 = new javax.swing.JLabel();
         lbUsuarioImagen = new javax.swing.JLabel();
         btnCargarImagenUsuario = new java.awt.Button();
+        lbIdUsuarioUsuario = new javax.swing.JLabel();
+        lbIdUsuarioRuta = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jlDiscord = new javax.swing.JLabel();
@@ -278,15 +284,17 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         jScrollPane6 = new javax.swing.JScrollPane();
         tlbClientesTurno = new javax.swing.JTable();
         lbIrCalculadora = new javax.swing.JLabel();
-        lbEliminarrProducto6 = new javax.swing.JLabel();
+        lbEliminarTurno = new javax.swing.JLabel();
         lbLimpiarTurno = new javax.swing.JLabel();
         lbModificarProducto7 = new javax.swing.JLabel();
         txtTelefonoTurno = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel72 = new javax.swing.JLabel();
         txtDniTurno7 = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
+        lbIdTurno = new javax.swing.JLabel();
+        jdcFechaBuscar = new com.toedter.calendar.JDateChooser();
+        lbRefrescarTablaTurno = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
@@ -1015,12 +1023,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         });
         jScrollPane4.setViewportView(tlbUsuario);
 
-        lbGuardarProducto2.setForeground(new java.awt.Color(0, 0, 0));
-        lbGuardarProducto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbGuardarProducto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
-        lbGuardarProducto2.setText("GUARDAR");
-        lbGuardarProducto2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbGuardarProducto2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbGuardarUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        lbGuardarUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbGuardarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
+        lbGuardarUsuario.setText("GUARDAR");
+        lbGuardarUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbGuardarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         lbModificarProducto2.setForeground(new java.awt.Color(0, 0, 0));
         lbModificarProducto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1085,6 +1093,12 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         btnCargarImagenUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnCargarImagenUsuario.setLabel("Cargar Imagen");
 
+        lbIdUsuarioUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        lbIdUsuarioUsuario.setText("id usuario");
+
+        lbIdUsuarioRuta.setForeground(new java.awt.Color(0, 0, 0));
+        lbIdUsuarioRuta.setText("ruta");
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -1099,25 +1113,23 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
                             .addComponent(jLabel27)
                             .addComponent(jLabel25))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtNombreUsuario)
-                            .addComponent(jcbPuestosUsuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtContraseñaUsuario)
-                            .addComponent(txtContraseñaConfirmarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(btnCargarImagenUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                                .addGap(122, 122, 122))
+                            .addComponent(txtContraseñaConfirmarUsuario)
+                            .addComponent(txtContraseñaUsuario)
+                            .addComponent(jcbPuestosUsuario, 0, 173, Short.MAX_VALUE)
+                            .addComponent(txtNombreUsuario))
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCargarImagenUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
-                                .addComponent(lbUsuarioImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(lbUsuarioImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(39, 39, 39)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lbModificarProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbGuardarProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbGuardarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbEliminarrProducto5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1125,15 +1137,24 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGap(134, 134, 134)
                                 .addComponent(lbEliminarrProducto4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addComponent(lbIdUsuarioRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbIdUsuarioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                .addGap(53, 53, 53)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbIdUsuarioUsuario)
+                    .addComponent(lbIdUsuarioRuta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel10Layout.createSequentialGroup()
@@ -1161,7 +1182,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbModificarProducto4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbGuardarProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbGuardarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbModificarProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1480,7 +1501,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         lbGuardarTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fecha.png"))); // NOI18N
         lbGuardarTurno.setText("GUARDAR");
         lbGuardarTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel16.add(lbGuardarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 550, 110, 40));
+        jPanel16.add(lbGuardarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, 110, 40));
 
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("DNI");
@@ -1529,6 +1550,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
                 "ID", "Nombre", "Dni", "Telefono", "Direccion", "Sexo", "Edad", "Motivo", "Fecha", "Hora"
             }
         ));
+        tlbTurnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tlbTurnosMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(tlbTurnos);
 
         jPanel16.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 254, 810, 290));
@@ -1562,13 +1588,13 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         lbIrCalculadora.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel16.add(lbIrCalculadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 170, 40));
 
-        lbEliminarrProducto6.setForeground(new java.awt.Color(0, 0, 0));
-        lbEliminarrProducto6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbEliminarrProducto6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarProducto.png"))); // NOI18N
-        lbEliminarrProducto6.setText("ELIMINAR");
-        lbEliminarrProducto6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbEliminarrProducto6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel16.add(lbEliminarrProducto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 100, 40));
+        lbEliminarTurno.setForeground(new java.awt.Color(0, 0, 0));
+        lbEliminarTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEliminarTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminarProducto.png"))); // NOI18N
+        lbEliminarTurno.setText("ELIMINAR");
+        lbEliminarTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbEliminarTurno.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel16.add(lbEliminarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 100, 40));
 
         lbLimpiarTurno.setForeground(new java.awt.Color(0, 0, 0));
         lbLimpiarTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1591,11 +1617,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         jLabel71.setText("TELEFONO");
         jPanel16.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 255));
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha (Acendente)", "Fecha (Decendente)", "Hoy", "Mañana", "Ayer" }));
-        jPanel16.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
-
         jLabel72.setForeground(new java.awt.Color(0, 0, 0));
         jLabel72.setText("BUSCAR TURNO");
         jPanel16.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, 20));
@@ -1604,6 +1625,19 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         jLabel73.setForeground(new java.awt.Color(0, 0, 0));
         jLabel73.setText("BUSCAR CLIENTE");
         jPanel16.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, -1, 40));
+
+        lbIdTurno.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel16.add(lbIdTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 580, 20, 20));
+
+        jdcFechaBuscar.setDateFormatString("yyyy/MM/dd");
+        jPanel16.add(jdcFechaBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 219, 140, 30));
+
+        lbRefrescarTablaTurno.setForeground(new java.awt.Color(0, 0, 0));
+        lbRefrescarTablaTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbRefrescarTablaTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/refrescar.png"))); // NOI18N
+        lbRefrescarTablaTurno.setText("REFRESCAR");
+        lbRefrescarTablaTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel16.add(lbRefrescarTablaTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 550, 140, 40));
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -2500,6 +2534,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
             while (rs.next()) {
 
                 txtNombreUsuario.setText(rs.getString("Usuario"));
+                lbIdUsuarioUsuario.setText(rs.getString("Usuario"));
 
                 if (rs.getString("Puesto").toString().equals("Usuario")) {
 
@@ -2512,31 +2547,30 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
                 }
 
                 ArrayList Imagen = ImagenPerfil(rs.getString("Usuario"));
+                byte[] imagen = null;
                 //byte[] imagen = new byte[Imagen.size()];
 
                 if (Imagen != null) {
-                    
+
                     Usuario usu = new Usuario();
 
                     for (int i = 0; i < Imagen.size(); i++) {
-                        
+
                         System.out.println(Imagen.get(i));
-                        
+
                         //Modusuario = (Usuario) Imagen.get(i);
-                        
                         usu.setImagen((byte[]) Imagen.get(i));
 
                         try {
 
-                            byte[] imagen = usu.getImagen();
+                            imagen = usu.getImagen();
                             BufferedImage bufferedImage = null;
                             InputStream inputStram = new ByteArrayInputStream(imagen);
                             bufferedImage = ImageIO.read(inputStram);
-                            ImageIcon imagenIcon = new ImageIcon(bufferedImage.getScaledInstance(lbUsuarioImagen.getWidth(), lbUsuarioImagen.getHeight(), 0));
+                            ImageIcon imagenIcon = new ImageIcon(bufferedImage.getScaledInstance(100, 100, 0));
                             lbUsuarioImagen.setIcon(imagenIcon);
 
-                            //lbUsuarioImagen.getWidth(), lbUsuarioImagen.getHeight()
-                            
+                            //TENES QUE GUARDARLO EN UNA CARPETA
                         } catch (IOException ex) {
 
                             System.out.println("No se pudo imprimir ql");
@@ -2544,6 +2578,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
                         }
 
                     }
+
+                    String str = new String(imagen, StandardCharsets.UTF_8);
+                    //System.out.println(str);
+                    //lbIdUsuarioRuta.setText(str);
 
                 }
 
@@ -2637,6 +2675,61 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraseñaUsuarioActionPerformed
 
+    private void tlbTurnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbTurnosMouseClicked
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        Conexion conn = new Conexion();
+
+        Connection con = conn.getConexion();
+
+        int Fila = tlbTurnos.getSelectedRow();
+
+        String id = tlbTurnos.getValueAt(Fila, 0).toString();
+
+        String sql = "SELECT Id,Nombre,Dni,Telefono,Direccion,Sexo,Edad,Motivo,Fecha,Hora FROM turno WHERE Id=?";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, id);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                try {
+                    //va a ir recorriendo los datos y los ira trayendo fila por fila el ciclo while.
+
+                    java.util.Date fechaParseada = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(rs.getString("Fecha") + " " + rs.getString("Hora"));
+
+                    lbIdTurno.setText(rs.getString("Id"));
+                    jdcFecha.setDate(fechaParseada);
+                    System.out.println(rs.getString("Fecha") + " " + rs.getString("Hora"));
+
+                    txtNombreTurno.setText(rs.getString("Nombre"));
+                    txtDniTurno.setText(rs.getString("Dni"));
+                    txtTelefonoTurno.setText(rs.getString("Telefono"));
+                    txtDireccionTurno.setText(rs.getString("Direccion"));
+                    txtSexoTurno.setText(rs.getString("Sexo"));
+                    txtEdadTurno.setText(rs.getString("Edad"));
+                    txtMotivoTurno.setText(rs.getString("Motivo"));
+
+                } catch (ParseException ex) {
+                    Logger.getLogger(Frm_Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Crl_producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_tlbTurnosMouseClicked
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2663,7 +2756,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.ButtonGroup buttonGroup_Genero;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2788,10 +2880,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JComboBox<String> jcbFiltrar1;
     public javax.swing.JComboBox<String> jcbIntencidadEntrenamiento;
     public javax.swing.JComboBox<String> jcbObjetivo;
-    private javax.swing.JComboBox<String> jcbPuestosUsuario;
+    public javax.swing.JComboBox<String> jcbPuestosUsuario;
     public com.toedter.calendar.JDateChooser jdFechaFinMes;
     public com.toedter.calendar.JDateChooser jdFechaNacimiento;
     public com.toedter.calendar.JDateChooser jdcFecha;
+    public com.toedter.calendar.JDateChooser jdcFechaBuscar;
     private javax.swing.JLabel jlDiscord;
     private javax.swing.JLabel jlFacebook;
     public com.bolivia.label.CLabel jlNombrePhoto;
@@ -2811,11 +2904,11 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JLabel lbCerrarSesion;
     public javax.swing.JLabel lbEliminarCliente;
     public javax.swing.JLabel lbEliminarRutina;
+    public javax.swing.JLabel lbEliminarTurno;
     public javax.swing.JLabel lbEliminarrProducto;
     public javax.swing.JLabel lbEliminarrProducto3;
     public javax.swing.JLabel lbEliminarrProducto4;
     public javax.swing.JLabel lbEliminarrProducto5;
-    public javax.swing.JLabel lbEliminarrProducto6;
     public javax.swing.JLabel lbFechaPrueba;
     public javax.swing.JLabel lbFemeninoColor;
     public javax.swing.JLabel lbGenerarPDFProducto;
@@ -2824,11 +2917,14 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JLabel lbGramosProteina;
     public javax.swing.JLabel lbGuardarCliente;
     public javax.swing.JLabel lbGuardarProducto;
-    public javax.swing.JLabel lbGuardarProducto2;
     public javax.swing.JLabel lbGuardarTurno;
+    public javax.swing.JLabel lbGuardarUsuario;
     public javax.swing.JLabel lbHistorial2;
     public javax.swing.JLabel lbIdRutina;
     public javax.swing.JLabel lbIdRutina1;
+    public javax.swing.JLabel lbIdTurno;
+    public javax.swing.JLabel lbIdUsuarioRuta;
+    public javax.swing.JLabel lbIdUsuarioUsuario;
     public javax.swing.JLabel lbIrCalculadora;
     public javax.swing.JLabel lbLimpiarCamposCalculadora;
     public javax.swing.JLabel lbLimpiarCliente;
@@ -2844,6 +2940,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JLabel lbModificarProducto7;
     public javax.swing.JLabel lbModificarRutina;
     public javax.swing.JLabel lbNombreUsuario;
+    public javax.swing.JLabel lbRefrescarTablaTurno;
     public javax.swing.JLabel lbResultadoGC;
     public javax.swing.JLabel lbResultadoIMC;
     public javax.swing.JLabel lbResultadoTMB;
@@ -2904,7 +3001,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JTextField txtMotivoTurno;
     public javax.swing.JTextField txtNombreProducto;
     public javax.swing.JTextField txtNombreTurno;
-    private javax.swing.JTextField txtNombreUsuario;
+    public javax.swing.JTextField txtNombreUsuario;
     public javax.swing.JTextField txtNumTelefono;
     public javax.swing.JTextField txtPago;
     public javax.swing.JTextField txtPeso;

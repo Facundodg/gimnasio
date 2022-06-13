@@ -76,6 +76,8 @@ public class Crl_cliente implements ActionListener, KeyListener, MouseListener {
         refrescarTablaClienteTurno();
         traerFechaHoyAyer();
         refrescarTabla();
+        
+        frm_pantalla_principal.txtIdCliente.setVisible(false);
 
     }
 
