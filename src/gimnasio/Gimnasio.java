@@ -1,5 +1,6 @@
 package gimnasio;
 
+import Controlador.Crl_alquiler;
 import Controlador.Crl_carrito;
 import Controlador.Crl_cliente;
 import Controlador.Crl_configuraciones;
@@ -8,6 +9,7 @@ import Controlador.Crl_producto;
 import Controlador.Crl_rutina;
 import Controlador.Crl_turno;
 import Controlador.Crl_usuario;
+import Modelo.Alarma;
 import Modelo.Carrito;
 import Modelo.Cliente;
 import Modelo.Configuraciones;
@@ -65,9 +67,11 @@ public class Gimnasio {
         Carrito carrito = new Carrito();
         Crud_carrito crud_carrito= new Crud_carrito();
         impresion imp = new impresion();
+        Alarma ala = new Alarma();
         
         //Frm_Pantalla_Principal frm_Pantalla_Principal, Crud_turno crud_turno, Turno turno)
 
+        Crl_alquiler crl_alquiler = new Crl_alquiler(frm_pantalla_principal,ala);
         Crl_carrito crl_carrito = new Crl_carrito(frm_pantalla_principal,frm_factura,imp,frm_venta,producto,mod_producto,crud_carrito,carrito);
         Crl_turno crl_turno = new  Crl_turno(frm_pantalla_principal,crud_turno,turno);
         Crl_rutina crl_rutina = new Crl_rutina(frm_pantalla_principal, crudPdf, modelo_pdf, tabla_pdf);

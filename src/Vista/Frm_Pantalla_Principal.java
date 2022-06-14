@@ -56,6 +56,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
 
         buttonGroup1.add(jrbhombreIMC);
         buttonGroup1.add(jrbmujerIMC);
+        
+        buttonGroup2.add(jcbAlarma1);
+        buttonGroup2.add(jcbAlarma2);
+        buttonGroup2.add(jcbAlarma3);
 
         ImageIcon imagen1 = new ImageIcon(getClass().getResource("/img/btn-man.png")); //pones la ruta de la imagen
         Icon fondo1 = new ImageIcon(imagen1.getImage().getScaledInstance(jrbhombreIMC.getWidth(), jrbhombreIMC.getHeight(), Image.SCALE_DEFAULT));
@@ -112,6 +116,8 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         popuItemPdfCliente = new javax.swing.JMenuItem();
         popuItemLimpiarCliente = new javax.swing.JMenuItem();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         TBTienda = new javax.swing.JToggleButton();
@@ -351,12 +357,28 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         btnModoNocturno = new java.awt.Button();
         jPanel17 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
-        jPanel27 = new javax.swing.JPanel();
+        pnlAlarma1 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
+        lbReloj1 = new javax.swing.JLabel();
+        jcbAlarma1 = new javax.swing.JCheckBox();
+        jLabel75 = new javax.swing.JLabel();
+        lbIniciarAlquiler = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
+        txtHoraAlquiler = new javax.swing.JTextField();
+        txtMinutosAlquiler = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        txtSegundosAlquiler = new javax.swing.JTextField();
+        jLabel80 = new javax.swing.JLabel();
+        pnlAlarma2 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        lbReloj2 = new javax.swing.JLabel();
+        jcbAlarma2 = new javax.swing.JCheckBox();
+        jLabel82 = new javax.swing.JLabel();
+        pnlAlarma3 = new javax.swing.JPanel();
         jLabel59 = new javax.swing.JLabel();
+        lbReloj3 = new javax.swing.JLabel();
+        jcbAlarma3 = new javax.swing.JCheckBox();
+        jLabel83 = new javax.swing.JLabel();
         panel_salir_sistema = new javax.swing.JPanel();
         lbSalirSistema = new javax.swing.JLabel();
         lbMinimizarVentana = new javax.swing.JLabel();
@@ -2026,73 +2048,231 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
 
         jPanel28.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel27.setBackground(new java.awt.Color(204, 204, 255));
+        pnlAlarma1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("1");
 
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("00:00:00");
+        lbReloj1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbReloj1.setForeground(new java.awt.Color(0, 0, 0));
+        lbReloj1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbReloj1.setText("00:00:00");
 
-        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
-        jPanel27.setLayout(jPanel27Layout);
-        jPanel27Layout.setHorizontalGroup(
-            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel27Layout.createSequentialGroup()
+        jcbAlarma1.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel75.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel75.setText("####$");
+
+        javax.swing.GroupLayout pnlAlarma1Layout = new javax.swing.GroupLayout(pnlAlarma1);
+        pnlAlarma1.setLayout(pnlAlarma1Layout);
+        pnlAlarma1Layout.setHorizontalGroup(
+            pnlAlarma1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAlarma1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
-                    .addGroup(jPanel27Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCheckBox1))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(pnlAlarma1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAlarma1Layout.createSequentialGroup()
+                        .addComponent(jLabel75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jcbAlarma1))
+                    .addGroup(pnlAlarma1Layout.createSequentialGroup()
+                        .addGroup(pnlAlarma1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addGroup(pnlAlarma1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lbReloj1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel27Layout.setVerticalGroup(
-            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel27Layout.createSequentialGroup()
+        pnlAlarma1Layout.setVerticalGroup(
+            pnlAlarma1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAlarma1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addComponent(jCheckBox1)
+                .addComponent(lbReloj1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlAlarma1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbAlarma1))
                 .addContainerGap())
         );
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Media Hora", "Hora", "Hora y media", "Dos Horas", "Dos Horas y media", "Tres Horas", " " }));
+        lbIniciarAlquiler.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbIniciarAlquiler.setForeground(new java.awt.Color(0, 0, 0));
+        lbIniciarAlquiler.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbIniciarAlquiler.setText("ALQUILAR");
+        lbIniciarAlquiler.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel59.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel78.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel78.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel78.setText("HORAS");
+
+        txtHoraAlquiler.setBackground(new java.awt.Color(255, 255, 255));
+        txtHoraAlquiler.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtMinutosAlquiler.setBackground(new java.awt.Color(255, 255, 255));
+        txtMinutosAlquiler.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel79.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel79.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel79.setText("MINUTOS");
+
+        txtSegundosAlquiler.setBackground(new java.awt.Color(255, 255, 255));
+        txtSegundosAlquiler.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel80.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel80.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel80.setText("SEGUNDOS");
+
+        pnlAlarma2.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("2");
+
+        lbReloj2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbReloj2.setForeground(new java.awt.Color(0, 0, 0));
+        lbReloj2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbReloj2.setText("00:00:00");
+
+        jcbAlarma2.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel82.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel82.setText("####$");
+
+        javax.swing.GroupLayout pnlAlarma2Layout = new javax.swing.GroupLayout(pnlAlarma2);
+        pnlAlarma2.setLayout(pnlAlarma2Layout);
+        pnlAlarma2Layout.setHorizontalGroup(
+            pnlAlarma2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAlarma2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAlarma2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAlarma2Layout.createSequentialGroup()
+                        .addComponent(jLabel82, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jcbAlarma2))
+                    .addGroup(pnlAlarma2Layout.createSequentialGroup()
+                        .addGroup(pnlAlarma2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addGroup(pnlAlarma2Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lbReloj2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnlAlarma2Layout.setVerticalGroup(
+            pnlAlarma2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAlarma2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbReloj2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(pnlAlarma2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcbAlarma2)
+                    .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        pnlAlarma3.setBackground(new java.awt.Color(204, 204, 255));
+
         jLabel59.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel59.setText("ALQUILAR");
-        jLabel59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel59.setText("3");
+
+        lbReloj3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbReloj3.setForeground(new java.awt.Color(0, 0, 0));
+        lbReloj3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbReloj3.setText("00:00:00");
+
+        jcbAlarma3.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel83.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel83.setText("####$");
+
+        javax.swing.GroupLayout pnlAlarma3Layout = new javax.swing.GroupLayout(pnlAlarma3);
+        pnlAlarma3.setLayout(pnlAlarma3Layout);
+        pnlAlarma3Layout.setHorizontalGroup(
+            pnlAlarma3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAlarma3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAlarma3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAlarma3Layout.createSequentialGroup()
+                        .addComponent(jLabel83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jcbAlarma3))
+                    .addGroup(pnlAlarma3Layout.createSequentialGroup()
+                        .addComponent(jLabel59)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAlarma3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbReloj3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        pnlAlarma3Layout.setVerticalGroup(
+            pnlAlarma3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAlarma3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbReloj3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlAlarma3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcbAlarma3)
+                    .addComponent(jLabel83, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel28Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel28Layout.createSequentialGroup()
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel78)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(456, Short.MAX_VALUE))
+                        .addComponent(txtHoraAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel79)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMinutosAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel80)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSegundosAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbIniciarAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel28Layout.createSequentialGroup()
+                        .addComponent(pnlAlarma1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(pnlAlarma2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(pnlAlarma3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel28Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlAlarma2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlAlarma1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlAlarma3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(443, 443, 443)
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel79, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtHoraAlquiler)
+                    .addComponent(jLabel78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSegundosAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbIniciarAlquiler))
+                        .addComponent(txtMinutosAlquiler, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
@@ -2103,7 +2283,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 604, Short.MAX_VALUE)
         );
 
         jTabbedPaneMain.addTab("ALQUILER", jPanel17);
@@ -2754,9 +2934,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public java.awt.Button btnModoNocturno;
     public javax.swing.JButton btnseleccionar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     public javax.swing.ButtonGroup buttonGroup_Genero;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2828,7 +3008,13 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPGraficaPastel;
     public javax.swing.JPanel jPanel1;
@@ -2849,7 +3035,6 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2875,6 +3060,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JTabbedPane jTabbedPaneMain;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
+    public javax.swing.JCheckBox jcbAlarma1;
+    public javax.swing.JCheckBox jcbAlarma2;
+    public javax.swing.JCheckBox jcbAlarma3;
     public javax.swing.JComboBox<String> jcbBusquedas;
     public javax.swing.JComboBox<String> jcbFiltrar;
     public javax.swing.JComboBox<String> jcbFiltrar1;
@@ -2925,6 +3113,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JLabel lbIdTurno;
     public javax.swing.JLabel lbIdUsuarioRuta;
     public javax.swing.JLabel lbIdUsuarioUsuario;
+    public javax.swing.JLabel lbIniciarAlquiler;
     public javax.swing.JLabel lbIrCalculadora;
     public javax.swing.JLabel lbLimpiarCamposCalculadora;
     public javax.swing.JLabel lbLimpiarCliente;
@@ -2941,6 +3130,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JLabel lbModificarRutina;
     public javax.swing.JLabel lbNombreUsuario;
     public javax.swing.JLabel lbRefrescarTablaTurno;
+    public javax.swing.JLabel lbReloj1;
+    public javax.swing.JLabel lbReloj2;
+    public javax.swing.JLabel lbReloj3;
     public javax.swing.JLabel lbResultadoGC;
     public javax.swing.JLabel lbResultadoIMC;
     public javax.swing.JLabel lbResultadoTMB;
@@ -2952,6 +3144,9 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JLabel lbguardarRutina;
     private javax.swing.JLabel lblogo;
     public javax.swing.JPanel panel_salir_sistema;
+    public javax.swing.JPanel pnlAlarma1;
+    public javax.swing.JPanel pnlAlarma2;
+    public javax.swing.JPanel pnlAlarma3;
     public javax.swing.JLabel pnlCalcularIMC;
     public javax.swing.JMenuItem popuItemEliminarCliente;
     public javax.swing.JMenuItem popuItemEliminarProducto;
@@ -2996,8 +3191,10 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JTextField txtEnfermedad;
     public javax.swing.JLabel txtFecha;
     public javax.swing.JLabel txtHora;
+    public javax.swing.JTextField txtHoraAlquiler;
     public javax.swing.JTextField txtIdCliente;
     public javax.swing.JTextField txtIdProducto;
+    public javax.swing.JTextField txtMinutosAlquiler;
     public javax.swing.JTextField txtMotivoTurno;
     public javax.swing.JTextField txtNombreProducto;
     public javax.swing.JTextField txtNombreTurno;
@@ -3005,6 +3202,7 @@ public class Frm_Pantalla_Principal extends javax.swing.JFrame implements Runnab
     public javax.swing.JTextField txtNumTelefono;
     public javax.swing.JTextField txtPago;
     public javax.swing.JTextField txtPeso;
+    public javax.swing.JTextField txtSegundosAlquiler;
     public javax.swing.JTextField txtSexoTurno;
     public javax.swing.JTextField txtTelefonoTurno;
     public javax.swing.JTextField txtVentaProducto;
